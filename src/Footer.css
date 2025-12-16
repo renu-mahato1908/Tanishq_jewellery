@@ -1,0 +1,36 @@
+.footer{
+  padding: 20px 0;
+  background: #300708;
+}
+
+.footer h5{
+  color: white;
+  font-family: sans-serif;
+}
+
+.link{
+  padding-top: 80px;
+}
+
+.link ul{
+  color: white;
+  text-align: left;
+  text-decoration: none;
+}
+
+.link ul li{
+  text-decoration: none;
+  list-style: none;
+}
+
+.link h4{
+  font-family: cursive;
+}
+
+.link ul li:hover{
+  text-decoration:underline ;
+}
+.social_media li {
+  float: left;
+  padding: 0 10px;
+}

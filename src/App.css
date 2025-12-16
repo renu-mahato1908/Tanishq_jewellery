@@ -1,0 +1,341 @@
+.h2 {
+  color: aqua;
+}
+
+.search {
+  padding: 50px 0;
+}
+
+.icon {
+  padding: 50px 0;
+
+}
+
+.icon i{
+  text-align: center;
+  color: #300708;
+  font-size: 32px;
+}
+
+
+
+.navbar .navbar-nav{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar img{
+  
+  width: 60px;
+  height: 30px;
+}
+
+.bg-body-tertiary .navbar{
+  color: antiquewhite;
+  background: blue;
+}
+.slidearea {
+  padding: 10px;
+  text-align: center;
+
+
+}
+
+.slidearea img {
+  width: 100%;
+  text-align: center;
+}
+
+.collection {
+  padding: 10px 0;
+}
+
+.collection h3 {
+  text-align: center;
+  font-family: Times New Roman;
+  font-size: 50px;
+}
+
+.collection h4 {
+  text-align: center;
+  font-family: Times New Roman ;
+  color: gray;
+  font-size: 30px;
+}
+
+.img1 img {
+  padding: 20px 0;
+  border-radius: 10px;
+
+
+
+
+}
+
+.img2 img {
+  padding: 20px 0;
+  width: 650px;
+  height: 375px;
+
+  border-radius: 10px;
+
+
+
+}
+
+.categories h3 {
+  text-align: center;
+  font-family: cursive;
+}
+
+.categories h4 {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: gray;
+}
+
+.category1 img {
+  height: 325px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.category1 h4 {
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.category2 {
+  padding: 10px 0;
+}
+
+.category2 img {
+  height: 325px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.category2 h4 {
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.category2 h3 {
+  padding-top: 40%;
+
+  text-align: center;
+  color: #852D2D;
+}
+
+.category2 p {
+  text-align: center;
+}
+
+.view_all {
+  border: 5px solid beige;
+  height: 325px;
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.tending {
+  padding: 20px 0;
+}
+
+.tending h2 {
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.tending h3 {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: gray;
+}
+
+.tending img {
+  height: 325px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.tending h4 {
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.tworld {
+  padding: 20px 0;
+}
+
+.tworld h2 {
+  text-align: center;
+  font-family: cursive;
+}
+
+.tworld h3 {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: grey;
+}
+
+.tworld img {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  height: 400px;
+  width: 600px;
+}
+
+.tworld img :hover {
+  transform: scaleX(-1);
+}
+
+.tworld h4 {
+  text-align: center;
+  font-family: cursive;
+}
+
+.videoarea {
+  padding: 20px 0;
+}
+
+.videoarea h2 {
+  text-align: center;
+  font-family: cursive;
+}
+
+.videoarea h3 {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: gray;
+}
+
+.video1 p {
+  text-align: center;
+  color: gray;
+  font-family: sans-serif;
+}
+.collection2{
+  margin-bottom: 5px;
+}
+@media screen and (max-width:1000px) {
+  
+.collection2{
+  margin: 5px 0;
+}
+}
+.img4 {
+  padding: 20px 0;
+
+}
+
+.img4 img {
+  width: 200px;
+  height: 200px;
+  margin: 0 60px;
+
+}
+
+.img4 p {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.shop_by_gender {
+  padding: 20px 0;
+}
+
+.shop_by_gender h3 {
+  text-align: center;
+  font-family: cursive;
+}
+
+.shop_by_gender h5 {
+  text-align: center;
+  font-family: cursive;
+  color: grey;
+  font-weight: bold;
+}
+
+.shop_by_gender img {
+  height: 400px;
+  width: 400px;
+}
+
+.experience {
+  padding: 30px 0;
+  /* border: 1px solid beige; */
+}
+
+.experience h3 {
+  text-align: center;
+  font-family: cursive;
+  font-weight: 800;
+}
+
+.experience h4 {
+  text-align: center;
+  font-family: sans-serif;
+  color: gray;
+}
+
+.experience h6 {
+  font-weight: 500;
+  text-align: center;
+}
+
+.experience img {
+  width: 375px;
+  height: 400px;
+
+}
+
+.navbar img {
+  width: 30px;
+}
+
+
+/* Gold */
+
+.img h5 {
+  text-align: center;
+  font-family: cursive;
+}
+
+.img h4 {
+  text-align: center;
+  font-family: cursive;
+}
+
+.img p {
+  color: #C99F97;
+}
+
+/* Diamond */
+
+.diamond_img {
+  padding: 20px 0;
+  padding-bottom: 10px;
+}
+
+
+
+.diamond_img h4 {
+  text-align: center;
+  font-family: cursive;
+
+}
+
+.diamond_img h5 {
+  text-align: center;
+  font-family: cursive;
+}

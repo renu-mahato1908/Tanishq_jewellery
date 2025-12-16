@@ -1,0 +1,29 @@
+
+
+
+
+
+
+.abc{
+    width: 30%;
+    margin: 10% auto;
+    background: #ccc ;
+    border: solid 1px black;
+    padding: 20px;
+
+}
+
+
+
+
+
+.abc p{
+    
+    
+    text-align: center;
+}
+
+.abc h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+}

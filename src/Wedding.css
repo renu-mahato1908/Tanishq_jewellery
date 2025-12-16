@@ -1,0 +1,69 @@
+.area1 {
+    padding: 0;
+}
+
+.area1 img{
+    width: 100%;
+}
+
+.responsive img{
+    width: 400px;
+    margin: 10px;
+}
+
+.bngoli_bride h2{
+    font-family: cursive;
+    text-decoration: underline;
+
+}
+.txt {
+    position: absolute;
+    bottom: 6%;
+    left: 50%;
+    overflow-y: visible;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    background: palevioletred;
+    /* background-image: linear-gradient(to right, red, yellow,); */
+}
+
+.bride {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+}
+
+
+
+div.detail {
+    text-align: center;
+    padding: 10px 20px;
+} 
+
+.bride button {
+    text-align: center;
+    width: 175px;
+    height: 50px;
+    color: black;
+    font-weight: 800;
+    /* background: gray;  */
+    margin-bottom: 20px;
+    
+}
+
+.bride button:hover {
+    color: aliceblue;
+    background: black;
+}   
+
+.detail h4{
+    text-align: center;
+}
+
+.detail h5{
+    text-align: center;
+}
