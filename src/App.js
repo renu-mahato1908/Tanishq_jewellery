@@ -32,6 +32,7 @@ import Address from './Address';
 import XYZ from './XYZ';
 import Add_products from './Add_products';
 import Add_to_category from './Add_to_category';
+import Address1 from './Address1';
 
 function App() {
   return (
@@ -121,6 +122,9 @@ function App() {
 
          {/* Add to category */}
          <Route path='/Add_to_category ' element={<Add_to_category/>}></Route>
+
+         {/* address1 */}
+         <Route path='/Address1' element={<Address1/>}></Route>
 
        
 

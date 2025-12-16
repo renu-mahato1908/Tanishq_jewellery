@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Container, Row, Col } from 'react-bootstrap';
-import './Login.css';
+
 
 
 const SignupSchema = Yup.object().shape({
