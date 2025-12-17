@@ -66,10 +66,10 @@ const Header = () => {
                     <Nav className="me-auto">
                       <img src="https://cdn-icons-png.flaticon.com/128/15398/15398668.png" alt=''></img>
                       <Nav.Link as={Link} to={''}>Home</Nav.Link>
-                      <img src='https://cdn-icons-png.flaticon.com/128/9856/9856365.png' alt=''></img>
+                      {/* <img src='https://cdn-icons-png.flaticon.com/128/9856/9856365.png' alt=''></img>
                       <Nav.Link as={Link} to={'/About'}>About</Nav.Link>
                       <img src='https://cdn-icons-png.flaticon.com/128/17720/17720258.png' alt=''></img>
-                      <Nav.Link as={Link} to={'/Contact'}>Contact</Nav.Link>
+                      <Nav.Link as={Link} to={'/Contact'}>Contact</Nav.Link> */}
                       <img src='https://cdn-icons-png.flaticon.com/128/16109/16109031.png' alt=''></img>
                       <Nav.Link as={Link} to={'/Gold'}>Gold</Nav.Link>
                       <img src='https://cdn-icons-png.flaticon.com/128/3137/3137712.png' alt=''></img>

@@ -1,13 +1,12 @@
 import React from 'react'
-
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import * as formik from 'formik';
 import * as yup from 'yup';
-
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
+import './Address.css';
 const Address1 = () => {
     const { Formik } = formik;
 
@@ -15,174 +14,239 @@ const Address1 = () => {
         firstName: yup.string().required(),
         lastName: yup.string().required(),
         username: yup.string().required(),
-        city: yup.string().required(),
-        state: yup.string().required(),
-        zip: yup.string().required(),
-        file: yup.mixed().required(),
-        terms: yup.bool().required().oneOf([true], 'terms must be accepted'),
-    });
+        addressLine1: yup.string().required(),
+        addressLine2: yup.string().required(),
 
+        city: yup.string().required(),
+        district: yup.string().required(),
+        state: yup.string().required(),
+        pin: yup.number().required(),
+        mobileno: yup.number().required(),
+        terms: yup.bool().required().oneOf([true], 'Terms must be accepted'),
+    });
     return (
-        <div>
+        <div className='text-center'>
+            <h3>Address</h3>
 
             <Formik
                 validationSchema={schema}
                 onSubmit={console.log}
                 initialValues={{
-                    firstName: 'Mark',
-                    lastName: 'Otto',
+                    firstName: '',
+                    lastName: '',
                     username: '',
+                    addressLine1: '',
+                    addressLine2: '',
                     city: '',
+                    district: '',
                     state: '',
-                    zip: '',
-                    file: null,
+                    pin: '',
+                    mobileno:'',
+
                     terms: false,
                 }}
             >
                 {({ handleSubmit, handleChange, values, touched, errors }) => (
-                    <Form noValidate onSubmit={handleSubmit}>
-                        <Row className="mb-3">
-                            <Form.Group
-                                as={Col}
-                                md="4"
-                                controlId="validationFormik101"
-                                className="position-relative"
-                            >
-                                <Form.Label>First name</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="firstName"
-                                    value={values.firstName}
-                                    onChange={handleChange}
-                                    isValid={touched.firstName && !errors.firstName}
-                                />
-                                <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
-                            </Form.Group>
-                            <Form.Group
-                                as={Col}
-                                md="4"
-                                controlId="validationFormik102"
-                                className="position-relative"
-                            >
-                                <Form.Label>Last name</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="lastName"
-                                    value={values.lastName}
-                                    onChange={handleChange}
-                                    isValid={touched.lastName && !errors.lastName}
-                                />
-
-                                <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
-                            </Form.Group>
-                            <Form.Group as={Col} md="4" controlId="validationFormikUsername2">
-                                <Form.Label>Username</Form.Label>
-                                <InputGroup hasValidation>
-                                    <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                    <div className='address'>
+                        <Form noValidate onSubmit={handleSubmit}>
+                            <Row className="mb-3">
+                                <Form.Group as={Col} md="12" controlId="validationFormik01">
+                                    <Form.Label>First name</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        placeholder="Username"
-                                        aria-describedby="inputGroupPrepend"
-                                        name="username"
-                                        value={values.username}
+                                        name="firstName"
+                                        placeholder='first name'
+                                        value={values.firstName}
                                         onChange={handleChange}
-                                        isInvalid={!!errors.username}
+                                        isValid={!!errors.firstName}
                                     />
-                                    <Form.Control.Feedback type="invalid" tooltip>
-                                        {errors.username}
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.firstName}
                                     </Form.Control.Feedback>
-                                </InputGroup>
-                            </Form.Group>
-                        </Row>
-                        <Row className="mb-3">
-                            <Form.Group
-                                as={Col}
-                                md="6"
-                                controlId="validationFormik103"
-                                className="position-relative"
-                            >
-                                <Form.Label>City</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="City"
-                                    name="city"
-                                    value={values.city}
-                                    onChange={handleChange}
-                                    isInvalid={!!errors.city}
-                                />
+                                </Form.Group>
+                            </Row>
+                            <Row>
+                                <Form.Group as={Col} md="12" controlId="validationFormik02">
+                                    <Form.Label>Last name</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        name="lastName"
+                                        placeholder='last name'
+                                        value={values.lastName}
+                                        onChange={handleChange}
+                                        isValid={!!errors.lastName}
+                                    />
 
-                                <Form.Control.Feedback type="invalid" tooltip>
-                                    {errors.city}
-                                </Form.Control.Feedback>
-                            </Form.Group>
-                            <Form.Group
-                                as={Col}
-                                md="3"
-                                controlId="validationFormik104"
-                                className="position-relative"
-                            >
-                                <Form.Label>State</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="State"
-                                    name="state"
-                                    value={values.state}
-                                    onChange={handleChange}
-                                    isInvalid={!!errors.state}
-                                />
-                                <Form.Control.Feedback type="invalid" tooltip>
-                                    {errors.state}
-                                </Form.Control.Feedback>
-                            </Form.Group>
-                            <Form.Group
-                                as={Col}
-                                md="3"
-                                controlId="validationFormik105"
-                                className="position-relative"
-                            >
-                                <Form.Label>Zip</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Zip"
-                                    name="zip"
-                                    value={values.zip}
-                                    onChange={handleChange}
-                                    isInvalid={!!errors.zip}
-                                />
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.lastName}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+                            <Row>
+                                <Form.Group as={Col} md="12" controlId="validationFormikUsername">
+                                    <Form.Label>Username</Form.Label>
+                                    <InputGroup hasValidation>
+                                        <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Username"
+                                            aria-describedby="inputGroupPrepend"
+                                            name="username"
+                                            value={values.username}
+                                            onChange={handleChange}
+                                            isInvalid={!!errors.username}
+                                        />
+                                        <Form.Control.Feedback type="invalid">
+                                            {errors.username}
+                                        </Form.Control.Feedback>
+                                    </InputGroup>
+                                </Form.Group>
+                            </Row>
 
-                                <Form.Control.Feedback type="invalid" tooltip>
-                                    {errors.zip}
-                                </Form.Control.Feedback>
-                            </Form.Group>
-                        </Row>
-                        <Form.Group className="position-relative mb-3">
-                            <Form.Label>File</Form.Label>
-                            <Form.Control
-                                type="file"
-                                required
-                                name="file"
-                                onChange={handleChange}
-                                isInvalid={!!errors.file}
-                            />
-                            <Form.Control.Feedback type="invalid" tooltip>
-                                {errors.file}
-                            </Form.Control.Feedback>
-                        </Form.Group>
-                        <Form.Group className="position-relative mb-3">
-                            <Form.Check
-                                required
-                                name="terms"
-                                label="Agree to terms and conditions"
-                                onChange={handleChange}
-                                isInvalid={!!errors.terms}
-                                feedback={errors.terms}
-                                feedbackType="invalid"
-                                id="validationFormik106"
-                                feedbackTooltip
-                            />
-                        </Form.Group>
-                        <Button type="submit">Submit form</Button>
-                    </Form>
+                            <Row className="mb-3">
+                                <Form.Group as={Col} md="12" controlId="validationFormik03">
+                                    <Form.Label>AddressLine 1</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="AddressLine1"
+                                        name="addressLine1"
+                                        value={values.addressLine1}
+                                        onChange={handleChange}
+                                        isInvalid={!!errors.addressLine1}
+                                    />
+
+                                    <Form.Control.Feedback type="invalid">
+                                        {!!errors.addressLine1}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+
+                            <Row className="mb-3">
+                                <Form.Group as={Col} md="12" controlId="validationFormik03">
+                                    <Form.Label>AddressLine 2</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="AddressLine2"
+                                        name="addressLine2"
+                                        value={values.addressLine2}
+                                        onChange={handleChange}
+                                        isInvalid={!!errors.addressLine2}
+                                    />
+
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.addressLine2}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+
+                            <Row className="mb-3">
+                                <Form.Group as={Col} md="12" controlId="validationFormik03">
+                                    <Form.Label>City</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="City"
+                                        name="city"
+                                        value={values.city}
+                                        onChange={handleChange}
+                                        isInvalid={!!errors.city}
+                                    />
+
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.city}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+
+                            <Row className="mb-3">
+                                <Form.Group as={Col} md="12" controlId="validationFormik03">
+                                    <Form.Label>District</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="District"
+                                        name="district"
+                                        value={values.district}
+                                        onChange={handleChange}
+                                        isInvalid={!!errors.district}
+                                    />
+
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.district}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+                            <Row>
+                                <Form.Group as={Col} md="12" controlId="validationFormik04">
+                                    <Form.Label>State</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="State"
+                                        name="state"
+                                        value={values.state}
+                                        onChange={handleChange}
+                                        isInvalid={!!errors.state}
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.state}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+
+                            <Row>
+                                <Form.Group as={Col} md="12" controlId="validationFormik04">
+                                    <Form.Label>Pin</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="pin"
+                                        name="pin"
+                                        value={values.pin}
+                                        onChange={handleChange}
+                                        isInvalid={!!errors.pin}
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.pin}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+
+                             <Row>
+                                <Form.Group as={Col} md="12" controlId="validationFormik04">
+                                    <Form.Label>Mobile no</Form.Label>
+                                    <Form.Control
+                                        type="mobileno"
+                                        placeholder="Mobile no"
+                                        name="pin"
+                                        value={values.mobileno}
+                                        onChange={handleChange}
+                                        isInvalid={!!errors.mobileno}
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.mobileno}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+
+                            <Row>
+                                <Form.Group className="mb-4">
+                                    <Form.Check
+                                        required
+                                        name="terms"
+                                        label="Agree to terms and conditions"
+                                        onChange={handleChange}
+                                        isInvalid={!!errors.terms}
+                                        feedback={errors.terms}
+                                        feedbackType="invalid"
+                                        id="validationFormik0"
+                                    />
+                                </Form.Group>
+                            </Row>
+                            <Row>
+                                <Col md={10}>
+                                    <Button type="submit">Submit form</Button>
+
+                                </Col>
+                            </Row>
+                        </Form>
+                    </div>
                 )}
             </Formik>
         </div>

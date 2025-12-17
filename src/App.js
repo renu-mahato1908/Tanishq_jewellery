@@ -31,8 +31,9 @@ import Add_to_cart from './Add_to_cart';
 import Address from './Address';
 import XYZ from './XYZ';
 import Add_products from './Add_products';
-import Add_to_category from './Add_to_category';
+import Addtocategory from './Addtocategory';
 import Address1 from './Address1';
+import PunjabiBrideJewellery from './PunjabiBrideJewellery';
 
 function App() {
   return (
@@ -121,11 +122,13 @@ function App() {
          <Route path='/Add_products' element={<Add_products/>}></Route>
 
          {/* Add to category */}
-         <Route path='/Add_to_category ' element={<Add_to_category/>}></Route>
+         <Route path='/Addtocategory' element={<Addtocategory/>}></Route>
 
          {/* address1 */}
          <Route path='/Address1' element={<Address1/>}></Route>
 
+         {/* Punjabi bride jwellery */}
+        <Route path='/PunjabiBrideJewellery' element={PunjabiBrideJewellery}></Route>
        
 
 

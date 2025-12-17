@@ -1,16 +1,7 @@
-
-.address{
-    width: 600px;
+.cart{
+    width: 40%;
     margin: 10% auto;
      background: hwb(207 73% 23%) ; 
     border: solid 1px black;
-    padding: 20px 50px;
-    
-
+    padding: 20px;
 }
-
-
-
-
-
-

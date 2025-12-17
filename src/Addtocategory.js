@@ -2,6 +2,8 @@ import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Container, Row, Col } from 'react-bootstrap';
+import'./Addtocategory.css'
+;
 
 
 
@@ -12,11 +14,11 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
   productPrice: Yup.string()
     .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
+    .max(100, 'Too Long!')
     .required('Required'),
 });
 
-const Add_to_category = () => {
+const Addtocategory = () => {
 
 
 
@@ -27,6 +29,7 @@ const Add_to_category = () => {
         initialValues={{
           productName: '',
           productPrice: '',
+          
 
         }}
         validationSchema={SignupSchema}
@@ -37,7 +40,7 @@ const Add_to_category = () => {
       >
         {({ errors, touched }) => (
           <Form>
-            <div>
+            <div className='cart'>
               <Row>
                 <Col>
                   <label>Product Name:</label>
@@ -62,14 +65,20 @@ const Add_to_category = () => {
                   ) : null}
 
                 </Col>
-                <button type="submit">Submit</button>
+
 
               </Row>
 
-
-
-
+              <Row>
+                <Col>
+                  <button type="submit">Submit</button>
+                </Col>
+              </Row>
             </div>
+
+
+
+
           </Form>
         )}
       </Formik>
@@ -78,4 +87,4 @@ const Add_to_category = () => {
   )
 }
 
-export default Add_to_category
+export default Addtocategory

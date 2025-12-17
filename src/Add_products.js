@@ -5,28 +5,30 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './add_product.css';
 
 const SignupSchema = Yup.object().shape({
-  Product_name: Yup.string()
+  productName: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
-  Product_price: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-
-  Product_category: Yup.string()
+  productPrice: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
 
-  Gender: Yup.number()
+  productCategory: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
 
-  Product_desc: Yup.string()
-    .min(40, 'Too Short!')
+
+
+  productDesc: Yup.string()
+    .min(10, 'Too Short!')
     .max(80, 'Too Long!')
+    .required('Required'),
+
+  gender: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
     .required('Required'),
 
 
@@ -39,11 +41,11 @@ const Add_products = () => {
       <h3>Add product</h3>
       <Formik
         initialValues={{
-          Product_name: '',
-          Product_price: '',
-          Product_category: '',
-          Product_desc: '',
-          Gender: '',
+          productName: '',
+          productPrice: '',
+          productCategory: '',
+          productDesc: '',
+          gender: '',
 
         }}
         validationSchema={SignupSchema}
@@ -55,7 +57,7 @@ const Add_products = () => {
         {({ errors, touched }) => (
           <Form>
             <div className=' addproduct'>
-              <h1>Add Product</h1>
+              
 
               <Row>
                 <Col>
@@ -63,10 +65,10 @@ const Add_products = () => {
 
                 </Col>
                 <Col>
-                  <Field name="Product_name" />
+                  <Field name="productName" />
 
-                  {errors.Product_name && touched.Product_name ? (
-                    <div>{errors.Product_name}</div>
+                  {errors.productName && touched.productName ? (
+                    <div>{errors.productName}</div>
                   ) : null}
                 </Col>
 
@@ -78,9 +80,9 @@ const Add_products = () => {
 
                 </Col>
                 <Col>
-                  <Field name="Product_price" />
-                  {errors.Product_price && touched.Product_price ? (
-                    <div>{errors.Product_price}</div>
+                  <Field name="productPrice" />
+                  {errors.productPrice && touched.productPrice ? (
+                    <div>{errors.productPrice}</div>
                   ) : null}
                 </Col>
 
@@ -93,8 +95,8 @@ const Add_products = () => {
 
                 </Col>
                 <Col>
-                  
-                  <Field as="select" name="city">
+
+                  <Field as="select" name="productCategory">
                     <option value=""> ----Select category----- </option>
                     <option value="Gold">Gold</option>
                     <option value="Diamond">Diamond</option>
@@ -111,9 +113,9 @@ const Add_products = () => {
 
                 </Col>
                 <Col>
-                  <Field name="Product_desc" />
-                  {errors.Product_desc && touched.Product_desc ? (
-                    <div>{errors.Product_desc}</div>
+                  <Field name="productDesc" />
+                  {errors.productDesc && touched.productDesc ? (
+                    <div>{errors.productDesc}</div>
                   ) : null}
                 </Col>
 
@@ -126,11 +128,11 @@ const Add_products = () => {
 
                 <Col>
                   <label>
-                    <Field type="radio" name="picked" value="Male" />
+                    <Field type="radio" name="gender" value="Male" />
                     Male
                   </label>
                   <label>
-                    <Field type="radio" name="picked" value="Female" />
+                    <Field type="radio" name="gender" value="Female" />
                     Female
                   </label>
                 </Col>

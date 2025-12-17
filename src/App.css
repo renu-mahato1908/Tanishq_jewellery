@@ -24,7 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 28px;
+  padding: 0 10px;
 }
 
 .navbar img{
