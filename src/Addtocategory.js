@@ -1,87 +1,120 @@
-import React from 'react'
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import { Container, Row, Col } from 'react-bootstrap';
-import'./Addtocategory.css'
-;
+import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+
+import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
+import './Addtocategory.css';
+import { data } from 'react-router';
+import Table from 'react-bootstrap/Table';
+import * as formik from 'formik';
+import * as yup from 'yup';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 
 
-const SignupSchema = Yup.object().shape({
-  productName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  productPrice: Yup.string()
-    .min(2, 'Too Short!')
-    .max(100, 'Too Long!')
-    .required('Required'),
-});
+
+
+
 
 const Addtocategory = () => {
+
+  const { Formik } = formik;
+
+  const schema = yup.object().shape({
+    addCategory: yup.string().required(),
+
+  });
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/cats").then((response) => {
+      console.log(response.data);
+      setCategories(response.data);
+    });
+
+  }, []);
 
 
 
   return (
-    <div className='text-center'>
-      <h2>Add to cart</h2>
-      <Formik
-        initialValues={{
-          productName: '',
-          productPrice: '',
-          
+    <div>
 
-        }}
-        validationSchema={SignupSchema}
-        onSubmit={values => {
-          // same shape as initial values
-          console.log(values);
-        }}
-      >
-        {({ errors, touched }) => (
-          <Form>
-            <div className='cart'>
-              <Row>
-                <Col>
-                  <label>Product Name:</label>
-                </Col>
-                <Col>
-                  <Field name="productName" />
-                  {errors.productName && touched.productName ? (
-                    <div>{errors.productName}</div>
-                  ) : null}
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <label>Product price:</label>
-                </Col>
-
-                <Col>
-                  <Field name="productPrice" />
-                  {errors.productPrice && touched.productPrice ? (
-                    <div>{errors.productPrice}</div>
-                  ) : null}
-
-                </Col>
+      <Container>
+        <Row className='cat'>
+          <Col>
+            <h2>Category</h2>
+            <Breadcrumb>
+              <Breadcrumb.Item href="#">Dashboard</Breadcrumb.Item>
+              <Breadcrumb.Item active>Category</Breadcrumb.Item>
+            </Breadcrumb>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6} className='icon' >
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Sl</th>
+                  <th> Name</th>
+                  <th><img src='https://cdn-icons-png.flaticon.com/128/1159/1159633.png' alt=''></img></th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  categories.map((category, index) => {
+                    return (
+                      // <p>{category.name}</p>
 
 
-              </Row>
+                      <tr>
+                        <td>#</td>
+                        <td>{category.name}</td>
+                      </tr>
+                    )
+                  })
 
-              <Row>
-                <Col>
-                  <button type="submit">Submit</button>
-                </Col>
-              </Row>
+
+                }
+              </tbody>
+            </Table>
+          </Col>
+          <Col md={6}>
+            
+            <div className='text-center'>
+              <Formik
+                validationSchema={schema}
+                onSubmit={console.log}
+                initialValues={{
+                  addCategory: '',
+                  
+                }}
+              >
+                {({ handleSubmit, handleChange, values, touched, errors }) => (
+                 <div className='abc'>
+                   <Form noValidate onSubmit={handleSubmit}>
+                    <Row className="mb-3">
+                      <Form.Group as={Col} md="12" controlId="validationFormik01">
+                        <Form.Label>Add category</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="addCategory"
+                          value={values.addCategory}
+                          onChange={handleChange}
+                          isValid={touched.addCategory && !errors.addCategory}
+                        />
+                      </Form.Group>
+                      </Row>
+                    <Button type="submit">Add</Button>
+                  </Form>
+                 </div>
+                )}
+              </Formik>
             </div>
 
-
-
-
-          </Form>
-        )}
-      </Formik>
+          </Col>
+        </Row>
+      </Container>
     </div>
 
   )

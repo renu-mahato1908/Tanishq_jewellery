@@ -5,3 +5,11 @@
     border: solid 1px black;
     padding: 20px;
 }
+
+.icon img{
+    width: 20px;
+}
+
+.cat h2{
+    text-align: left;
+}

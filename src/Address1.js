@@ -13,7 +13,6 @@ const Address1 = () => {
     const schema = yup.object().shape({
         firstName: yup.string().required(),
         lastName: yup.string().required(),
-        username: yup.string().required(),
         addressLine1: yup.string().required(),
         addressLine2: yup.string().required(),
 
@@ -34,14 +33,14 @@ const Address1 = () => {
                 initialValues={{
                     firstName: '',
                     lastName: '',
-                    username: '',
+
                     addressLine1: '',
                     addressLine2: '',
                     city: '',
                     district: '',
                     state: '',
                     pin: '',
-                    mobileno:'',
+                    mobileno: '',
 
                     terms: false,
                 }}
@@ -51,15 +50,20 @@ const Address1 = () => {
                         <Form noValidate onSubmit={handleSubmit}>
                             <Row className="mb-3">
                                 <Form.Group as={Col} md="12" controlId="validationFormik01">
-                                    <Form.Label>First name</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="firstName"
-                                        placeholder='first name'
-                                        value={values.firstName}
-                                        onChange={handleChange}
-                                        isValid={!!errors.firstName}
-                                    />
+                                    <Col>
+                                        <Form.Label>First name</Form.Label>
+
+                                    </Col>
+                                    <Col>
+                                        <Form.Control
+                                            type="text"
+                                            name="firstName"
+                                            placeholder='first name'
+                                            value={values.firstName}
+                                            onChange={handleChange}
+                                            isValid={!!errors.firstName}
+                                        />
+                                    </Col>
                                     <Form.Control.Feedback type="invalid">
                                         {errors.firstName}
                                     </Form.Control.Feedback>
@@ -82,26 +86,7 @@ const Address1 = () => {
                                     </Form.Control.Feedback>
                                 </Form.Group>
                             </Row>
-                            <Row>
-                                <Form.Group as={Col} md="12" controlId="validationFormikUsername">
-                                    <Form.Label>Username</Form.Label>
-                                    <InputGroup hasValidation>
-                                        <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="Username"
-                                            aria-describedby="inputGroupPrepend"
-                                            name="username"
-                                            value={values.username}
-                                            onChange={handleChange}
-                                            isInvalid={!!errors.username}
-                                        />
-                                        <Form.Control.Feedback type="invalid">
-                                            {errors.username}
-                                        </Form.Control.Feedback>
-                                    </InputGroup>
-                                </Form.Group>
-                            </Row>
+
 
                             <Row className="mb-3">
                                 <Form.Group as={Col} md="12" controlId="validationFormik03">
@@ -208,13 +193,13 @@ const Address1 = () => {
                                 </Form.Group>
                             </Row>
 
-                             <Row>
+                            <Row>
                                 <Form.Group as={Col} md="12" controlId="validationFormik04">
                                     <Form.Label>Mobile no</Form.Label>
                                     <Form.Control
                                         type="mobileno"
                                         placeholder="Mobile no"
-                                        name="pin"
+                                        name="mobileno"
                                         value={values.mobileno}
                                         onChange={handleChange}
                                         isInvalid={!!errors.mobileno}

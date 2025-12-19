@@ -6,7 +6,7 @@ const Add_to_cart = () => {
     <div>
     
 
-      </div>
+    </div>
     
 
     

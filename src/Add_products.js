@@ -1,10 +1,15 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Container, Row, Col } from 'react-bootstrap';
 import './add_product.css';
+import ListGroup from 'react-bootstrap/ListGroup';
+import { data } from 'react-router';
 
 const SignupSchema = Yup.object().shape({
+
+
   productName: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
@@ -36,6 +41,38 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Add_products = () => {
+
+  const [categories, setCategories] = useState();
+
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/cats").then((response) => {
+      console.log(response.data);
+      setCategories(response.data);
+    });
+
+  }, []);
+
+  // const categories = [
+  //   {
+  //     'id': 1,
+  //     'category': 'gold',
+
+  //   },
+  //   {
+  //     'id': 2,
+  //     'category': 'diamond',
+
+  //   },
+  //   {
+  //     'id': 3,
+  //     'category': 'wedding'
+  //   },
+  //   {
+  //     'id': 4,
+  //     'category': 'rings'
+
+  //   }
+  // ]
   return (
     <div className='text-center'>
       <h3>Add product</h3>
@@ -57,7 +94,7 @@ const Add_products = () => {
         {({ errors, touched }) => (
           <Form>
             <div className=' addproduct'>
-              
+
 
               <Row>
                 <Col>
@@ -89,6 +126,7 @@ const Add_products = () => {
               </Row>
 
 
+
               <Row>
                 <Col>
                   <label>Product category:</label>
@@ -98,9 +136,23 @@ const Add_products = () => {
 
                   <Field as="select" name="productCategory">
                     <option value=""> ----Select category----- </option>
-                    <option value="Gold">Gold</option>
-                    <option value="Diamond">Diamond</option>
-                    <option value="Wedding">Wedding</option>
+                    {
+                      categories ?
+                        categories.map((category, index) => {
+                        return (
+                          <option value={category.name}>{category.name}</option>
+
+
+
+
+                        )
+                      })
+                      :
+
+                      "Loading ..."
+                    }
+
+
                   </Field>
                 </Col>
 
@@ -152,6 +204,16 @@ const Add_products = () => {
           </Form>
         )}
       </Formik>
+
+      <Container>
+        <Row>
+          <Col>
+            
+
+
+          </Col>
+        </Row>
+      </Container>
     </div>
   )
 }

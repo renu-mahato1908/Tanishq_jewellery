@@ -54,12 +54,12 @@ const Register = () => {
                         <div className='abc'>
                             <h2>Register</h2>
                             <Row>
-                                <Col >
+                                <Col>
                                     <label>firstName</label>
                                 </Col>
 
 
-                                <Col>
+                                <Col >
                                     <Field name="firstName" />
                                     {errors.firstName && touched.firstName ? (
                                         <div>{errors.firstName}</div>
@@ -71,7 +71,7 @@ const Register = () => {
                             </Row>
 
                             <Row>
-                                <Col >
+                                <Col  >
                                     <label>lastName</label>
                                 </Col>
 
