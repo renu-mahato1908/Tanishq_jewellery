@@ -21,7 +21,7 @@ const Addtocategory = () => {
   const { Formik } = formik;
 
   const schema = yup.object().shape({
-    addCategory: yup.string().required(),
+    name: yup.string().required(),
 
   });
 
@@ -35,7 +35,13 @@ const Addtocategory = () => {
 
   }, []);
 
-
+  const handleSubmit=(formData)=>{
+    // console.log("Testing");
+    console.log(formData);
+    axios.post("http://localhost:8090/api/cats",formData)
+    console.log("successfully category added");
+    window.location.reload();
+  }
 
   return (
     <div>
@@ -84,9 +90,9 @@ const Addtocategory = () => {
             <div className='text-center'>
               <Formik
                 validationSchema={schema}
-                onSubmit={console.log}
+                onSubmit={handleSubmit}
                 initialValues={{
-                  addCategory: '',
+                  name: '',
                   
                 }}
               >
@@ -98,10 +104,10 @@ const Addtocategory = () => {
                         <Form.Label>Add category</Form.Label>
                         <Form.Control
                           type="text"
-                          name="addCategory"
-                          value={values.addCategory}
+                          name="name"
+                          value={values.name}
                           onChange={handleChange}
-                          isValid={touched.addCategory && !errors.addCategory}
+                          isValid={touched.name && !errors.name}
                         />
                       </Form.Group>
                       </Row>

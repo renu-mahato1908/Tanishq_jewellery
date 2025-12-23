@@ -27,13 +27,13 @@ import Example from './Example';
 import Order from './Order';
 import Register from './Register';
 import Addcategory from './Addcategory';
-import Add_to_cart from './Add_to_cart';
 import Address from './Address';
 import XYZ from './XYZ';
 import Add_products from './Add_products';
 import Addtocategory from './Addtocategory';
 import Address1 from './Address1';
 import PunjabiBrideJewellery from './PunjabiBrideJewellery';
+import Addtocart from './Addtocart';
 
 function App() {
   return (
@@ -109,7 +109,7 @@ function App() {
          <Route path='/Addcategory' element={<Addcategory/>}></Route>
 
          {/* Add to cart */}
-         <Route path='/Add_to_cart' element={<Add_to_cart/>}></Route>
+         <Route path='/Addtocart' element={<Addtocart/>}></Route>
 
          {/* Address */}
 
