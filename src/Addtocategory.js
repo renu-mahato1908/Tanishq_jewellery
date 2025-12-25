@@ -60,12 +60,17 @@ const Addtocategory = () => {
     window.location.reload();
   }
 
-  const handleDelete=(id)=>{
-    console.log( id);
-     axios.delete("http://localhost:8090/api/cats/${id}").then((response) => {
+  const handleDelete = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:8090/api/cats/${id}`).then((response) => {
       console.log(response.data);
-      setCategories(response.data);
+      console.log("successfully category delete");
+      window.location.reload();
+
+
+
     });
+
   }
 
   return (
@@ -99,12 +104,13 @@ const Addtocategory = () => {
 
 
                       <tr>
-                        <td>{index+1}</td>
+                        <td>{index + 1}</td>
                         <td>{category.name}</td>
-                        <td><button onClick={()=>handleDelete(category.id)}> 
-                      
-                         
-                         </button></td>
+                        <td><button onClick={() => handleDelete(category.id)}>
+                        {<RiDeleteBinLine />
+}
+
+                        </button></td>
                       </tr>
                     )
                   })

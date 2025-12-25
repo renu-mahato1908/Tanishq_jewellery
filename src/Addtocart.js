@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { Container, Col, Row, Button } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
+import { Container, Col, Row, Button, Table } from 'react-bootstrap';
 
 const Addtocart = () => {
   const [categories, setCategories] = useState([]);
@@ -13,23 +12,64 @@ const Addtocart = () => {
       })
   }, []);
 
+  const [count, setCount] = useState(0);
+  console.log(count);
+
+  const increase = () => {
+    setCount(count + 1);
+  }
+
+
+  const decrease = () => {
+    setCount(count - 1);
+  }
+
   return (
     <section>
       <Container>
         <h2>Add to Cart</h2>
         <Row>
-          {categories.map((category, index) => (
-            <Col md={4}>
-              <Card>
-                <Card.Img variant="top" src={category.image} />
-                <Card.Body>
-                  <Card.Title>{category.name}</Card.Title>
-                  <Card.Text>{category.description}</Card.Text>
-                  <Button variant="primary">Add to Cart</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+          <Col md={6}  >
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Sl</th>
+                  <th>  Product Name</th>
+                  <th>Product image</th>
+                  <th>Product price</th>
+                  <th>Quantity</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  categories.map((category, index) => {
+                    return (
+                      // <p>{category.name}</p>
+
+
+                      <tr>
+                        <td>{index + 1}</td>
+                        <td>{category.name}</td>
+                        <td>{category.image}</td>
+                        <td>{category.price}</td>
+                        <td>
+                          <p>{count}</p>
+                          <button onClick={increase}>+</button>
+                          <button onClick={decrease}>-</button>
+                        </td>
+
+
+
+                      </tr>
+                    )
+                  })
+
+
+                }
+              </tbody>
+            </Table>
+          </Col>
         </Row>
       </Container>
     </section>

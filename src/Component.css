@@ -2,6 +2,8 @@
 
 .polaroid {
     width: 100%;
+    
+    
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 25px;
@@ -9,27 +11,24 @@
 
 
 
-div.xyz {
-    text-align: center;
-    padding: 10px 20px;
-} 
+
 
 .polaroid button {
     text-align: center;
     width: 175px;
     height: 50px;
-    color: white;
-    background: blanchedalmond;
+    color: black;
+    background:burlywood;
     margin-bottom: 20px;
     
 }
 
 .polaroid button:hover {
-    color: aliceblue;
-    background: burlywood;
+    color: yellow;
+    background: #ccc;
 }   
 
-.xyz h4{
+/* .xyz h4{
     text-align: center;
 }
 
@@ -39,4 +38,27 @@ div.xyz {
 
 .polaroid1 Image{
     height: 200px;
+} */
+
+.polaroid {
+  position: relative;
+}
+
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #300708;
+  font-size: 26px;
+  cursor: pointer;
+  background: white;
+  
+}
+
+.details h4{
+    font-family: cursive;
+}
+
+.details h5{
+    font-family: cursive;
 }

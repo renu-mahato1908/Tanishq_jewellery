@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import './Earrings.css';
+import './Component.css';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { FiHeart } from "react-icons/fi";
 
@@ -19,12 +19,12 @@ const Earrings = () => {
                 <Container>
                     <Row>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw215576f3/images/hi-res/51F1D1SERAGACZ_2.jpg?sw=480&sh=480' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
 
                                     <h5>Girlish Star Shaped Gold Stud Earrings</h5>
@@ -35,12 +35,12 @@ const Earrings = () => {
                         </Col>
 
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwa25216a5/images/hi-res/50F1D1SIGAGA32_2.jpg?sw=480&sh=480' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Breathtaking Onyx Stone Diamond Stud Earrings for Kids</h5>
                                     <h4>₹47456</h4>
@@ -51,12 +51,12 @@ const Earrings = () => {
                         </Col>
 
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw59dfaef7/images/hi-res/50F1D1SGDAGA02_2.jpg?sw=480&sh=480' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Swirl Pattern Diamond Stud Earrings for Kids</h5>
                                     <h4>₹41601</h4>
@@ -68,11 +68,11 @@ const Earrings = () => {
 
                     <Row>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwceb6a671/images/hi-res/51D5B2DAJABA00_2.jpg?sw=480&sh=480' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Golden Petal Gold Drop Earrings</h5>
                                     <h4>₹77144</h4>
@@ -93,7 +93,7 @@ const Earrings = () => {
 
                     <Row>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
 
@@ -107,11 +107,11 @@ const Earrings = () => {
                             </div>
                         </Col>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd738918f/images/hi-res/51D5P1DNGABA00_2.jpg?sw=480&sh=480' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Floral Swing Gold Drop Earrings</h5>
                                     <h4>₹88015</h4>
@@ -120,11 +120,11 @@ const Earrings = () => {
                             </div>
                         </Col>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw85d3074b/images/hi-res/50D4B3SMRAGA02_2.jpg?sw=480&sh=480' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Whimsical Cluster Diamond Stud Earrings</h5>
                                     <h4>₹71226</h4>
@@ -137,11 +137,11 @@ const Earrings = () => {
 
                     <Row>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwb971485e/images/hi-res/51D5B1DVTABA00_1.jpg?sw=640&sh=640' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Sunset Squares Gold Drop Earrings</h5>
                                     <h4>₹91025</h4>
@@ -150,11 +150,11 @@ const Earrings = () => {
                             </div>
                         </Col>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwcb32c8d4/images/hi-res/51D5B2SCOABA00_1.jpg?sw=640&sh=640' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Radiant Rhombus Gold Stud Earrings</h5>
                                     <h4>₹102050</h4>
@@ -163,11 +163,11 @@ const Earrings = () => {
                             </div>
                         </Col>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd8d0b69f/images/hi-res/504025HMQAAA00.jpg?sw=640&sh=640' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Concentric Beads Drop Earrings</h5>
                                     <h4>₹70374</h4>
@@ -180,11 +180,11 @@ const Earrings = () => {
 
                     <Row>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwce99648b/images/hi-res/50D5FFDAAABA32_2.jpg?sw=480&sh=480' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Pink Paradise Diamond Drop Earrings</h5>
                                     <h4>₹105845</h4>
@@ -193,11 +193,11 @@ const Earrings = () => {
                             </div>
                         </Col>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe353af63/images/hi-res/50D5L1HEIABA29_1.jpg?sw=640&sh=640' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Blush Bloom Diamond Hoop Earrings</h5>
                                     <h4>₹57329</h4>
@@ -206,12 +206,12 @@ const Earrings = () => {
                             </div>
                         </Col>
                         <Col md={4}>
-                            <div className="product">
+                            <div className="polaroid">
                                 <FiHeart className="wishlist-icon" />
 
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwa6e97c0d/images/hi-res/50D5L1DEKABA29_2.jpg?sw=480&sh=480' thumbnail></Image>
-                                <div className="detail">
+                                <div className="details">
 
                                     <h5>Dewlight Floral Diamond Drop Earrings
                                     </h5>

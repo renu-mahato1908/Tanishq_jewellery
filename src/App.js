@@ -29,11 +29,12 @@ import Register from './Register';
 import Addcategory from './Addcategory';
 import Address from './Address';
 import XYZ from './XYZ';
-import Add_products from './Add_products';
+import Addproduct from './Addproduct';
 import Addtocategory from './Addtocategory';
 import Address1 from './Address1';
 import PunjabiBrideJewellery from './PunjabiBrideJewellery';
 import Addtocart from './Addtocart';
+
 
 function App() {
   return (
@@ -119,7 +120,7 @@ function App() {
          <Route path='/XYZ' element={<XYZ/>}></Route>
 
          {/* Add products */}
-         <Route path='/Add_products' element={<Add_products/>}></Route>
+         <Route path='/Addproduct' element={<Addproduct/>}></Route>
 
          {/* Add to category */}
          <Route path='/Addtocategory' element={<Addtocategory/>}></Route>
@@ -129,6 +130,7 @@ function App() {
 
          {/* Punjabi bride jwellery */}
         <Route path='/PunjabiBrideJewellery' element={PunjabiBrideJewellery}></Route>
+
        
 
 

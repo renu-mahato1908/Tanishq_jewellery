@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import './Login.css';
+import './Register.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
 
@@ -34,7 +34,7 @@ const Login = () => {
             >
                 {({ errors, touched }) => (
                     <Form>
-                        <div className='login'>
+                        <div className='abc'>
                                         <h1>Login</h1>
 
                             <Row>

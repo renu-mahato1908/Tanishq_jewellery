@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Container, Row, Col } from 'react-bootstrap';
-import './add_product.css';
+import './Addproduct.css';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { data } from 'react-router';
 
@@ -35,12 +35,20 @@ const SignupSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
+  file: Yup.mixed().required(),
+
 
 
 
 });
 
-const Add_products = () => {
+const handleChange=()=>{
+  
+}
+
+const Addproduct = () => {
+
+  
 
   const [categories, setCategories] = useState();
 
@@ -83,6 +91,8 @@ const Add_products = () => {
           productCategory: '',
           productDesc: '',
           gender: '',
+          file: null,
+
 
         }}
         validationSchema={SignupSchema}
@@ -139,17 +149,17 @@ const Add_products = () => {
                     {
                       categories ?
                         categories.map((category, index) => {
-                        return (
-                          <option value={category.name}>{category.name}</option>
+                          return (
+                            <option value={category.name}>{category.name}</option>
 
 
 
 
-                        )
-                      })
-                      :
+                          )
+                        })
+                        :
 
-                      "Loading ..."
+                        "Loading ..."
                     }
 
 
@@ -189,6 +199,27 @@ const Add_products = () => {
                   </label>
                 </Col>
               </Row>
+{/* 
+              <Row>
+                <Form.Group className="position-relative mb-3">
+                  <Col>
+
+                    <Form.Label>File</Form.Label>
+                  </Col>
+                  <Col>
+                    <Form.Control
+                      type="file"
+                      required
+                      name="file"
+                      onChange={handleChange}
+                      isInvalid={!!errors.file}
+                    />
+                  </Col>
+                  <Form.Control.Feedback type="invalid" tooltip>
+                    {errors.file}
+                  </Form.Control.Feedback>
+                </Form.Group>
+              </Row> */}
 
 
 
@@ -208,7 +239,7 @@ const Add_products = () => {
       <Container>
         <Row>
           <Col>
-            
+
 
 
           </Col>
@@ -218,4 +249,4 @@ const Add_products = () => {
   )
 }
 
-export default Add_products
+export default Addproduct

@@ -1,7 +1,12 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import './register.css';
+import './Register.css';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
+import * as yup from 'yup';
+
+
 import { Container, Row, Col } from 'react-bootstrap';
 
 const SignupSchema = Yup.object().shape({
@@ -29,9 +34,16 @@ const SignupSchema = Yup.object().shape({
 
 });
 
+
+
+
+
 const Register = () => {
     return (
+
+
         <div className='text-center'>
+
 
             <Formik
                 initialValues={{
@@ -49,10 +61,13 @@ const Register = () => {
             >
                 {({ errors, touched }) => (
 
+
                     <Form>
+
 
                         <div className='abc'>
                             <h2>Register</h2>
+
                             <Row>
                                 <Col>
                                     <label>firstName</label>
@@ -147,10 +162,14 @@ const Register = () => {
 
 
                     </Form>
+
                 )}
             </Formik>
 
+
+
         </div>
+
     )
 }
 
