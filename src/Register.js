@@ -1,96 +1,108 @@
-import React from 'react'
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import './Register.css';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Button from 'react-bootstrap/Button';
-import * as yup from 'yup';
+import React, { useState, useEffect } from "react";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
+import { Col, Row, Button } from "react-bootstrap";
+import './Register.css'
 
-
-import { Container, Row, Col } from 'react-bootstrap';
+import { register } from "./slices/auth";
+import { clearMessage } from "./slices/message";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignupSchema = Yup.object().shape({
     firstName: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
+        .min(2, "Too Short!")
+        .max(50, "Too Long!")
+        .required("Required"),
     lastName: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
-
-    mobile_no: Yup.number()
-
-        .min(10, 'Minimum value is 1')
-
-        .required('Number is required'),
-
-    Password: Yup.string()
-        .min(2, 'Too Short!')
-        .max(30, 'Too Long!')
-        .required('Required'),
-
-
+        .min(2, "Too Short!")
+        .max(50, "Too Long!")
+        .required("Required"),
+    email: Yup.string().email("Invalid email").required("Required"),
+    password: Yup.string()
+        .min(8, "Too Short!")
+        .max(50, "Too Long!")
+        .required("Required"),
+    username: Yup.string()
+        .matches(/^[6-9]\d{9}$/, "Enter a valid 10 Digit Mobile No. ")
+        .required("Mobile No. is Mandetory!"),
 });
 
-
-
-
-
 const Register = () => {
+    const [successful, setSuccessful] = useState(false);
+
+    const { message } = useSelector((state) => state.message);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (message) {
+            const timer = setTimeout(() => {
+                dispatch(clearMessage());
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [message, dispatch]);
+    useEffect(() => {
+        dispatch(clearMessage());
+    }, [dispatch]);
+    const handleRegister = (formValue) => {
+        console.log(formValue);
+        const { firstName, lastName, username, email, password } = formValue;
+        setSuccessful(false);
+        dispatch(register({ firstName, lastName, username, email, password }))
+            .unwrap()
+            .then(() => {
+                setSuccessful(true);
+            })
+            .catch(() => {
+                setSuccessful(false);
+            });
+    };
     return (
-
-
-        <div className='text-center'>
-
-
+        <div className="text-center">
+            <h3>___Register___</h3>
+            {message && (
+                <div
+                    className={`alert ${successful ? "alert-success" : "alert-danger"}`}
+                    role="alert"
+                >
+                    {message}
+                </div>
+            )}
             <Formik
                 initialValues={{
-                    firstName: '',
-                    lastName: '',
-                    email: '',
-                    mobile_no: '',
-                    Password: '',
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    password: "",
+                    username: "",
                 }}
                 validationSchema={SignupSchema}
-                onSubmit={values => {
-                    // same shape as initial values
-                    console.log(values);
-                }}
+                // onSubmit={values => {
+                // same shape as initial values
+                // console.log(values);
+                // }}
+                onSubmit={handleRegister}
             >
                 {({ errors, touched }) => (
-
-
                     <Form>
-
-
-                        <div className='abc'>
-                            <h2>Register</h2>
-
+                        <div className="registerform">
                             <Row>
-                                <Col>
-                                    <label>firstName</label>
+                                <Col md={4}>
+                                    <label>First Name : </label>
                                 </Col>
-
-
-                                <Col >
+                                <Col md={8}>
                                     <Field name="firstName" />
                                     {errors.firstName && touched.firstName ? (
                                         <div>{errors.firstName}</div>
                                     ) : null}
-
-
-
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col  >
-                                    <label>lastName</label>
+                                <Col md={4}>
+                                    <label>Last Name : </label>
                                 </Col>
-
-                                <Col>
+                                <Col md={8}>
                                     <Field name="lastName" />
                                     {errors.lastName && touched.lastName ? (
                                         <div>{errors.lastName}</div>
@@ -99,78 +111,56 @@ const Register = () => {
                             </Row>
 
                             <Row>
-                                <Col >
-                                    <label>Email</label>
+                                <Col md={4}>
+                                    <label>Email : </label>
                                 </Col>
-
-                                <Col>
+                                <Col md={8}>
                                     <Field name="email" type="email" />
-                                    {errors.email && touched.email ?
-                                        <div>{errors.email}</div> : null}
-
-
-                                </Col>
-
-                            </Row>
-
-
-                            <Row>
-                                <Col >
-                                    <label>Mobile no</label>
-                                </Col>
-
-                                <Col>
-                                    <Field name="mobile_no" type="mobile_no" />
-                                    {errors.mobile_no && touched.mobile_no ?
-                                        <div>{errors.mobile_no}</div> : null}
-
-
-                                </Col>
-
-                            </Row>
-
-                            <Row>
-                                <Col>
-                                    <label>Password:</label>
-                                </Col>
-
-                                <Col>
-                                    <Field name="Password" />
-                                    {errors.Password && touched.Password ? (
-                                        <div>{errors.Password}</div>
+                                    {errors.email && touched.email ? (
+                                        <div>{errors.email}</div>
                                     ) : null}
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col>
-                                    <button type="submit">Submit</button>
-
+                                <Col md={4}>
+                                    <label>Password</label>
+                                </Col>
+                                <Col md={8}>
+                                    <Field name="password" type="password" />
+                                    {errors.password && touched.password ? (
+                                        <div>{errors.password}</div>
+                                    ) : null}
                                 </Col>
                             </Row>
 
                             <Row>
+                                <Col md={4}>
+                                    <label>Mobile : </label>
+                                </Col>
+                                <Col md={8}>
+                                    <Field name="username" type="number" />
+                                    {errors.username && touched.username ? (
+                                        <div>{errors.username}</div>
+                                    ) : null}
+                                </Col>
+                            </Row>
+                            <Row>
                                 <Col>
-                                    <p>if already registered? </p>
-                                    <h6><a href='./Login'>login here</a></h6>
-
-
+                                    <Button className="button" type="submit" align-items center>
+                                        Sign up
+                                    </Button>
+                                    <p>
+                                        if already register <a href="Login">login</a>
+                                    </p>
                                 </Col>
                             </Row>
                         </div>
-
-
-
                     </Form>
-
                 )}
             </Formik>
-
-
-
         </div>
+    );
+};
 
-    )
-}
-
-export default Register
+export default Register;

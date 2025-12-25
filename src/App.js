@@ -44,9 +44,11 @@ function App() {
       <Routes>
 
         {/* localhost:3000 */}
-        <Route path='' element={<Home/>} />
+        <Route path='/Home' element={<Home/>} />
         {/* localhost:3000/About */}
         <Route path='/About' element={<About />} />
+
+        
 
         {/* localhost:3000/Contact */}
         <Route path='/Contact' element={<Contact />} />
