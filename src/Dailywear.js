@@ -2,7 +2,7 @@ import React from 'react'
 import './Component.css';
 import { Container, Row, Col, Image } from 'react-bootstrap'
 
-const Daily_wear = () => {
+const Dailywear = () => {
     return (
         <div>
             <section>
@@ -152,4 +152,4 @@ const Daily_wear = () => {
     )
 }
 
-export default Daily_wear
+export default Dailywear

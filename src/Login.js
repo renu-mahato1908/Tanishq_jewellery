@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
+import"./login.css";
 
 import { login } from "./slices/auth";
 import { clearMessage } from "./slices/message";
@@ -83,16 +84,18 @@ const Login = () => {
                                 {({ errors, touched }) => (
                                     <Form>
                                         <div className='loginform'>
-                                            <Row>
-                                                <Col>
-                                                    <label>Mobile :- </label>
-                                                </Col>
-                                                <Col>
-                                                    <Field name="username" type="text" />
-                                                    {errors.username && touched.username ? <div>{errors.username}</div> : null}
+                                           
+                                                    <Row>
+                                                        <Col>
+                                                            <label>Mobile :- </label>
+                                                        </Col>
+                                                        <Col>
+                                                            <Field name="username" type="text" />
+                                                            {errors.username && touched.username ? <div>{errors.username}</div> : null}
 
-                                                </Col>
-                                            </Row>
+                                                        </Col>
+                                                        </Row>
+                                           
 
                                             <Row>
                                                 <Col>
@@ -109,7 +112,7 @@ const Login = () => {
                                                 <Col>
                                                     <p>if not logged in then <a href='Register'>Register</a></p>
 
-                                                    <button class="btn btn-shine">Login</button>
+                                                    <button className="login-btn">Login</button>
 
 
                                                 </Col>

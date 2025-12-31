@@ -1,4 +1,8 @@
 import React from 'react'
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { FaSearch } from "react-icons/fa";
 
 import {
     Chart as ChartJS,
@@ -10,7 +14,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { Container, Row, Col,Breadcrumb } from 'react-bootstrap';
+import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
 
 
 ChartJS.register(
@@ -49,13 +53,46 @@ const data = {
 };
 
 const Dashboard = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         <div>
+            <section className='canvas'>
+                <Container>
+                    <Row>
+                        <Col>
+                            <>
+                                  <img src="/menu.png"   alt='' onClick={handleShow}>
+
+                                  
+
+                                    </img>
+
+                                <Offcanvas show={show} onHide={handleClose}>
+                                    <Offcanvas.Header closeButton>
+                                        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                                    </Offcanvas.Header>
+                                    <Offcanvas.Body>
+                                        <ul>
+                                            <li>Profile</li>
+                                            <li>Login</li>
+                                            <li>logout</li>
+                                        </ul>
+                                    </Offcanvas.Body>
+                                </Offcanvas>
+                            </>
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
             <section>
                 <Container>
 
 
-                     <Row>
+                    <Row>
                         <Col>
 
                             <Breadcrumb>
@@ -72,7 +109,7 @@ const Dashboard = () => {
                         </Col>
                     </Row>
 
-                   
+
                 </Container>
             </section>
         </div>

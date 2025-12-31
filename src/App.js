@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
-import All_jewellery from './All_jewellery';
+import Alljewellery from './Alljewellery';
 
 import Footer from './Footer';
 import About from './About';
@@ -17,7 +17,7 @@ import Rings from './Rings';
 import Trial from './Trial';
 import AdminOrder from './AdminOrder';
 import Earrings from './Earrings';
-import Daily_wear from './Daily_wear';
+import Dailywear from './Dailywear';
 import Login from './Login';
 import Gifting from './Gifting';
 import Myproducts from'./Myproducts';
@@ -34,6 +34,7 @@ import Addtocategory from './Addtocategory';
 import Address1 from './Address1';
 import PunjabiBrideJewellery from './PunjabiBrideJewellery';
 import Addtocart from './Addtocart';
+import Account from './Account';
 
 
 function App() {
@@ -72,10 +73,11 @@ function App() {
          <Route path='/Earrings' element={<Earrings/>}></Route>
 
          {/* Dailywear */}
-         <Route path='/Daily_wear' element={<Daily_wear/>}></Route>
+         <Route path='/Dailywear' element={<Dailywear/>}></Route>
 
          {/* login */}
          <Route path='/Login' element={<Login/>}></Route>
+         
 
          {/* Trial */}
 
@@ -133,6 +135,8 @@ function App() {
          {/* Punjabi bride jwellery */}
         <Route path='/PunjabiBrideJewellery' element={PunjabiBrideJewellery}></Route>
 
+
+      <Route path='/Account' element={<Account/>}/>
        
 
 

@@ -1,6 +1,10 @@
-import React from 'react'
-import { Col, Row, Container, Navbar, Nav } from 'react-bootstrap'
+import React, { useEffect } from "react";
+
+import { Col, Row, Container, Navbar, Nav, Button } from 'react-bootstrap'
 import logo from './logo.png';
+import { IoIosLogOut } from "react-icons/io";
+import { MdOutlineAccountBox } from "react-icons/md";
+
 
 // import earing from './earing.png'
 // import finger_ring from './finger_ring.png'
@@ -11,9 +15,31 @@ import logo from './logo.png';
 // import chain from './chain.png'
 // import Footer from './Footer';
 import { Link } from 'react-router';
+import { logout } from './slices/auth';
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
 
 const Header = () => {
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user: currentUser } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (currentUser) {
+      console.log(currentUser);
+    }
+    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+      console.log(currentUser.roles[0]);
+
+      navigate("/Dashboard");
+    }
+  }, []);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    // navigate('/login'); // Redirect to login page
+    window.location.reload();
+  };
   return (
     <div >
 
@@ -27,7 +53,7 @@ const Header = () => {
 
             </Col>
 
-            <Col md={6}>
+            <Col md={4}>
               <div className='search'>
                 <form>
                   <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -35,12 +61,30 @@ const Header = () => {
                 </form>
               </div>
             </Col>
-            <Col md={3} >
+            <Col md={5} >
               <div className='icon'>
-
                 <i className='fa-solid fa-heart'></i>
+
+
                 <i className="fa-solid fa-cart-arrow-down"></i>
+
+                <i className="MdOutlineAccountBox ">
+                </i>
+                <Link to={'/Account'}>Account</Link>
+
+
+
                 <a href='./Register'><i className=' fa-solid fa-user'></i></a>
+
+
+                {
+                  currentUser ? <Button onClick={handleLogout}>
+                    <IoIosLogOut />
+                    Log out
+                  </Button> : ""
+                }
+
+
 
 
               </div>
@@ -65,7 +109,7 @@ const Header = () => {
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                       <img src="https://cdn-icons-png.flaticon.com/128/15398/15398668.png" alt=''></img>
-                      <Nav.Link as={Link} to={''}>Home</Nav.Link>
+                      <Nav.Link as={Link} to={'/Home'}>Home</Nav.Link>
                       {/* <img src='https://cdn-icons-png.flaticon.com/128/9856/9856365.png' alt=''></img>
                       <Nav.Link as={Link} to={'/About'}>About</Nav.Link>
                       <img src='https://cdn-icons-png.flaticon.com/128/17720/17720258.png' alt=''></img>
@@ -85,9 +129,9 @@ const Header = () => {
 
                       <img src='https://cdn-icons-png.flaticon.com/128/548/548427.png' alt=''></img>
                       <Nav.Link as={Link} to={'/Gifting'}>Gifting</Nav.Link>
-                     
-                        
-                       
+
+
+
                     </Nav>
                   </Navbar.Collapse>
                 </Container>

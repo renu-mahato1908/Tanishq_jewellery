@@ -48,7 +48,7 @@ const Footer = () => {
 
               <ul className='social_media'>
                 <li>
-                  <a href='https://www.whatsapp.com/'>  <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwd94cc295/images/footer/footer-whatsapp.svg'></img>
+                  <a href='https://www.whatsapp.com/'> <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwd94cc295/images/footer/footer-whatsapp.svg'></img>
                   </a>
                 </li>
                 <li>

@@ -147,7 +147,7 @@ const Register = () => {
                             </Row>
                             <Row>
                                 <Col>
-                                    <Button className="button" type="submit" align-items center>
+                                    <Button className="register-btn" type="submit" align-items center>
                                         Sign up
                                     </Button>
                                     <p>

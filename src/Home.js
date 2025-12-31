@@ -17,33 +17,28 @@ const Home = () => {
     {
       id: "1",
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwb84a9317/homepage/HeroBanner/mriganka-wo-desktop.jpg",
-      label: "xyz",
-      description: "pqrnm"
+     
     },
     {
       id: 2,
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwa85a00d2/homepage/HeroBanner/festive-edit-desktop.jpg",
-      label: "oiub",
-      description: "mnop"
+     
     },
     {
       id: 3,
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw32e1f8d0/homepage/HeroBanner/floral-bloom-desktop.jpg",
-      label: "wxyz",
-      description: "uvwx"
+      
     }
     ,
     {
       id: 4,
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwd8ef7708/homepage/HeroBanner/mriganka-wo-desktop-new.jpg",
-      label: "rstuv",
-      description: "oiuytg"
+     
     },
     {
       id: 5,
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwb3ca7843/homepage/HeroBanner/dailywear-desktop1.jpg",
-      label: "fergvb",
-      description: "mnbvhgxd"
+      
     }
 
   ]

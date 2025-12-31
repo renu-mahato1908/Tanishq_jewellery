@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const All_jewellery = () => {
+const Alljewellery = () => {
   return (
     <div>
       <h4>xyz</h4>
@@ -9,4 +9,4 @@ const All_jewellery = () => {
   )
 }
 
-export default All_jewellery
+export default Alljewellery

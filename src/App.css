@@ -7,16 +7,20 @@
 }
 
 .icon {
-  padding: 50px 0;
+  padding: 55px 0;
 
 }
 
 .icon i{
+  width: 75px;
   text-align: center;
   color: #300708;
   font-size: 32px;
 }
 
+.icon button{
+  background: #300708;
+}
 
 
 .navbar .navbar-nav{
@@ -274,7 +278,7 @@
 
 .experience {
   padding: 30px 0;
-  border: 1px solid beige; 
+  
 }
 
 .experience h3 {
@@ -340,3 +344,8 @@
   text-align: center;
   font-family: cursive;
 } 
+
+.canvas img{
+  width: 60px;
+  float: left;
+}

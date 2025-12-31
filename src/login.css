@@ -1,49 +1,15 @@
-
-
-
-
-/* 
-/* 
-.abc{
-   
-    width: 40%;
-    margin: 10% auto;
-    background: #ccc ;
-    border: solid 1px black;
-    padding: 20px;
-    /* background-image: url("https://i.pinimg.com/736x/91/f3/2c/91f32c742f6fd14284feff7673df96b5.jpg"); 
-
-} 
-
-
-
-
-/* 
-.abc p{
-    
-    
-    text-align: center;
-}
-
-.abc h2{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 600;
-}
-
-.registerform{
-     width: 60%;
-    margin: 10% auto;
-    background: #ccc ;
-    border: solid 1px black;
-    padding: 20px;
-} */ 
-
+/* .body{
+       margin: auto;
+       background: pink;
+       background: url("login\ bg\ image.jpg");
+       
+} */
 .text-center {
        margin: auto;
        background: white;
 }
 
-.registerform {
+.loginform {
        margin: 10px auto;
        width: 45%;
        height: 360px;
@@ -58,7 +24,7 @@
 
 }
 
-.register-btn {
+.login-btn {
        background: #2E0708;
        color: white;
        position: relative;
@@ -68,7 +34,7 @@
 
 }
 
-.register-btn::before {
+.login-btn::before {
        content: '';
        position: absolute;
        top: 0;
@@ -79,6 +45,6 @@
        transition: left 0.7s ease;
 }
 
-.register-btn:hover::before {
+.login-btn:hover::before {
        left: 100%;
 }
