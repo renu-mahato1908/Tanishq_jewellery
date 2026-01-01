@@ -60,10 +60,10 @@ const Dashboard = () => {
     const handleShow = () => setShow(true);
     return (
         <div>
-            <section className='canvas'>
+            <section >
                 <Container>
-                    <Row>
-                        <Col>
+                    <Row className='canvas'>
+                        <Col md={8}>
                             <>
                                   <img src="/menu.png"   alt='' onClick={handleShow}>
 
@@ -85,6 +85,32 @@ const Dashboard = () => {
                                 </Offcanvas>
                             </>
                         </Col>
+                        <Col md={4} className='info'>
+                      
+                        <img src='search.jpeg' alt=''></img>
+                        <img src='user.jpeg' alt=''></img>
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
+
+            <section>
+                <Container>
+                    <Row >
+                        <Col md={3} className='box'>
+                        <h4>Total sales</h4>
+                        </Col>
+
+                         <Col md={3} className='box'>
+                        <h4>Monthly sales</h4>
+                        </Col>
+                         <Col md={3} className='box'>
+                        <h4>Weekly sales</h4>
+                        </Col>
+                         <Col md={3} className='box'>
+                                               <h4>Yearly sales</h4>
+
+                        </Col>
                     </Row>
                 </Container>
             </section>
@@ -95,17 +121,11 @@ const Dashboard = () => {
                     <Row>
                         <Col>
 
-                            <Breadcrumb>
-                                <Breadcrumb.Item href="#">Dashboard</Breadcrumb.Item>
-                                <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-                                    Library
-                                </Breadcrumb.Item>
-                                <Breadcrumb.Item active>Data</Breadcrumb.Item>
-                            </Breadcrumb></Col>
+                           </Col>
                     </Row>
                     <Row>
                         <Col>
-                            return <Bar options={options} data={data} />;
+                            <Bar options={options} data={data} />;
                         </Col>
                     </Row>
 

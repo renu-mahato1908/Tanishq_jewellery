@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 
 import { Col, Row, Container, Navbar, Nav, Button } from 'react-bootstrap'
 import logo from './logo.png';
-import { IoIosLogOut } from "react-icons/io";
-import { MdOutlineAccountBox } from "react-icons/md";
+import { IoIosLogIn, IoIosLogOut } from "react-icons/io";
 
 
 // import earing from './earing.png'
@@ -53,7 +52,7 @@ const Header = () => {
 
             </Col>
 
-            <Col md={4}>
+            <Col md={3}>
               <div className='search'>
                 <form>
                   <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -61,20 +60,22 @@ const Header = () => {
                 </form>
               </div>
             </Col>
-            <Col md={5} >
+            <Col md={6} >
               <div className='icon'>
-                <i className='fa-solid fa-heart'></i>
+                <Link to={'/Register'}><i className='fa-solid  fa-users'></i></Link>
+
+                
+             
 
 
                 <i className="fa-solid fa-cart-arrow-down"></i>
 
-                <i className="MdOutlineAccountBox ">
-                </i>
-                <Link to={'/Account'}>Account</Link>
+                
+                <Link to={'/Account'}><i className=' fa-solid fa-address-card '></i></Link>
 
 
 
-                <a href='./Register'><i className=' fa-solid fa-user'></i></a>
+                {/* <a href='./Register'><i className=' fa-solid fa-user'></i></a> */}
 
 
                 {

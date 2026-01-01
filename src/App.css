@@ -16,10 +16,13 @@
   text-align: center;
   color: #300708;
   font-size: 32px;
+ 
 }
 
 .icon button{
   background: #300708;
+   color: white;
+   
 }
 
 
@@ -345,7 +348,37 @@
   font-family: cursive;
 } 
 
+.canvas{
+     margin: 10px auto;
+       /* width: 45%;
+       height: 360px;
+       padding: 40px 30px; */
+       border-radius: 20px;
+       box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
+       position: relative;
+       text-align: center;
+       border: 5px solid rgb(244, 242, 242);
+       
+}
+
 .canvas img{
-  width: 60px;
+  width: 50px;
   float: left;
+}
+
+.info img{
+  width: 50px;
+  
+  float:right;
+}
+
+.box{
+  
+   border-radius: 20px;
+       box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
+      color: #300708;
+       text-align: center;
+       border: 5px solid rgb(244, 242, 242);
+      
+       
 }
