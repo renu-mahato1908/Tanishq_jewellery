@@ -1,4 +1,6 @@
-import React from 'react'
+
+import React, { useState, useEffect } from "react";
+
 
 import { Container, Row, Col } from 'react-bootstrap'
 import earing from './earing.png'
@@ -9,14 +11,29 @@ import bangles from './bangles.png'
 import bracelets from './bracelets.png'
 import chain from './chain.png'
 import Carousel from 'react-bootstrap/Carousel';
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, Navigate } from "react-router-dom";
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 
 const Home = () => {
+   let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user: currentUser } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (currentUser) {
+      console.log(currentUser);
+    }
+    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+      console.log(currentUser.roles[0]);
+
+      navigate("/Dashboard");
+    }
+  }, []);
 
   const slides = [
     {
       id: "1",
-      image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwb84a9317/homepage/HeroBanner/mriganka-wo-desktop.jpg",
+      image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwb84a9317/homepage/HeroBanner/mriganka-wo-desktop.jpg ",
      
     },
     {

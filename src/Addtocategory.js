@@ -79,7 +79,7 @@ const Addtocategory = () => {
       <Container>
         <Row className='cat'>
           <Col>
-            <h2>Category</h2>
+            
             <Breadcrumb>
               <Breadcrumb.Item href="#">Dashboard</Breadcrumb.Item>
               <Breadcrumb.Item active>Category</Breadcrumb.Item>
@@ -123,6 +123,7 @@ const Addtocategory = () => {
           <Col md={6}>
 
             <div className='text-center'>
+              <h2>Category</h2>
               <Formik
                 validationSchema={schema}
                 onSubmit={handleSubmit}
@@ -133,7 +134,7 @@ const Addtocategory = () => {
                 }}
               >
                 {({ handleSubmit, handleChange, values, touched, errors }) => (
-                  <div className='abc'>
+                  <div className='category'>
                     {/* <Form noValidate onSubmit={handleSubmit}>
                       <Row className="mb-3">
                         <Form.Group as={Col} md="12" controlId="validationFormik01">
@@ -169,7 +170,7 @@ const Addtocategory = () => {
 
 
 
-                      <button type="submit">Submit</button>
+                      <button type="submit" className=' cate-btn'>Submit</button>
                     </Form>
                   </div>
                 )}

@@ -1,8 +1,12 @@
-import React from 'react'
+
+import { useState, useEffect } from 'react';
+
 import { Container, Row, Col } from 'react-bootstrap';
 import './Address.css';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, Navigate } from "react-router-dom";
 
 
 
@@ -43,14 +47,29 @@ const SignupSchema = Yup.object().shape({
         .required('Required'),
 });
 const Address = () => {
+    let navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { user: currentUser } = useSelector((state) => state.auth);
+    useEffect(() => {
+        if (currentUser) {
+            console.log(currentUser);
+        }
+        if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+            console.log(currentUser.roles[0]);
+
+            navigate("/Home");
+        }
+    }, []);
     return (
         <div className='text-center'>
+            <h2>Address</h2>
+
             <Formik
                 initialValues={{
                     name: '',
                     addressLine1: '',
                     addressLine2: '',
-                    post:'',
+                    post: '',
                     state: '',
                     city: '',
                     pin: ''
@@ -63,8 +82,7 @@ const Address = () => {
             >
                 {({ errors, touched }) => (
                     <Form>
-                        <div className='address'>
-                            <h2>Address</h2>
+                        <div className='addressform'>
 
                             <Row>
                                 <Col>
@@ -105,7 +123,7 @@ const Address = () => {
                                 </Col>
                             </Row>
 
-                                    <Row>
+                            <Row>
                                 <Col>
                                     <label>Post:</label>
                                 </Col>
@@ -159,9 +177,9 @@ const Address = () => {
                                 </Col>
                             </Row>
 
-                            <Row>
+                            <Row >
                                 <Col>
-                                    <button type="submit">Submit</button>
+                                    <button type="submit" className='address-btn'>Submit</button>
                                 </Col>
                             </Row>
                         </div>

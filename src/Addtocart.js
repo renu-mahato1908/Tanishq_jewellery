@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Container, Col, Row, Button, Table } from 'react-bootstrap';
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const Addtocart = () => {
   const [categories, setCategories] = useState([]);
@@ -24,6 +25,14 @@ const Addtocart = () => {
     setCount(count - 1);
   }
 
+   const handleDelete = (id) => {
+        console.log(id)
+       
+       
+        ;
+    
+      }
+
   return (
     <section>
       <Container>
@@ -38,6 +47,8 @@ const Addtocart = () => {
                   <th>Product image</th>
                   <th>Product price</th>
                   <th>Quantity</th>
+                  <th>Delete</th>
+
 
                 </tr>
               </thead>
@@ -58,7 +69,11 @@ const Addtocart = () => {
                           <button onClick={increase}>+</button>
                           <button onClick={decrease}>-</button>
                         </td>
+                        <td><button onClick={() => handleDelete(category.id)}>
+                          {<RiDeleteBinLine />
+                          }
 
+                        </button></td>
 
 
                       </tr>

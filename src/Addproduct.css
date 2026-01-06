@@ -1,9 +1,37 @@
- .addproduct{
-    width: 50%;
-    text-align: center;
-    margin: 10% auto;
-    background: #65A8FF;
-    border: solid 1px black;
-    padding: 30px ;
 
-} 
+.text-center {
+       margin: auto;
+       background: white;
+}
+
+.text-center h2{
+    font-family: cursive;
+    text-decoration: underline;
+}
+
+.addproduct {
+       margin: 10px auto;
+       width: 45%;
+       height: 360px;
+       padding: 40px 30px;
+       border-radius: 20px;
+       box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
+       position: relative;
+       text-align: center;
+       border: 5px solid rgb(244, 242, 242);
+       background: #D9B08A;
+       
+     
+
+}
+
+.addbtn {
+       background: #2E0708;
+       color: white;
+       position: relative;
+       overflow: hidden;
+       margin-top: 45px;
+       padding: 10px 20px;
+
+}
+

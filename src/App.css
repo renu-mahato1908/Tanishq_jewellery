@@ -382,3 +382,29 @@
       
        
 }
+
+.graph{
+  /* width: 700px; */
+   border-radius: 20px;
+       box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
+      color: #300708;
+       text-align: center;
+       border: 5px solid rgb(244, 242, 242);
+      
+}
+
+.canvas2{
+  margin: 10px;
+}
+
+.canvas2 img{
+  width: 40px;
+  margin: 10px;
+}
+
+.canvas2 h3{
+  margin: 20px;
+}
+.canvas2 i{
+  width: 50px;
+}

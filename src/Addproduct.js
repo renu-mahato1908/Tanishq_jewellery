@@ -85,7 +85,7 @@ const Addproduct = () => {
   // ]
   return (
     <div className='text-center'>
-      <h3>Add product</h3>
+      <h2>Add product</h2>
       <Formik
         initialValues={{
           productName: '',
@@ -105,7 +105,7 @@ const Addproduct = () => {
       >
         {({ errors, touched }) => (
           <Form>
-            <div className=' addproduct'>
+            <div className='addproduct'>
 
 
               <Row>
@@ -227,7 +227,7 @@ const Addproduct = () => {
 
               <Row>
                 <Col>
-                  <button type="submit">Addproducts</button>
+                  <button type="submit" className='addbtn'>Addproducts</button>
 
                 </Col>
               </Row>

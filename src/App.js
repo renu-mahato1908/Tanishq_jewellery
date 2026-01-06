@@ -15,7 +15,7 @@ import Dashboard from './Dashboard';
 // import Test from './Test';
 import Rings from './Rings';
 import Trial from './Trial';
-import AdminOrder from './AdminOrder';
+
 import Earrings from './Earrings';
 import Dailywear from './Dailywear';
 import Login from './Login';
@@ -35,6 +35,8 @@ import Address1 from './Address1';
 import PunjabiBrideJewellery from './PunjabiBrideJewellery';
 import Addtocart from './Addtocart';
 import Account from './Account';
+import AdminOrders from './AdminOrders';
+import AllProducts from './AllProducts';
 
 
 function App() {
@@ -83,8 +85,7 @@ function App() {
 
          <Route path='/Trial' element={<Trial/>}></Route>
 
-         {/* Admin order */}
-         <Route path='/AdminOrder' element={<AdminOrder/>}></Route>
+       
 
          {/* Gifting */}
          <Route path='/Gifting' element={<Gifting/>}></Route>
@@ -137,6 +138,10 @@ function App() {
 
 
       <Route path='/Account' element={<Account/>}/>
+
+      <Route path='/AdminOrders' element={<AdminOrders/>}></Route>
+
+      <Route path='/Allproducts' element={<AllProducts/>}></Route>
        
 
 

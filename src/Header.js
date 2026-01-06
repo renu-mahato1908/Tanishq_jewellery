@@ -5,14 +5,7 @@ import logo from './logo.png';
 import { IoIosLogIn, IoIosLogOut } from "react-icons/io";
 
 
-// import earing from './earing.png'
-// import finger_ring from './finger_ring.png'
-// import pendants from './pendants.png'
-// import mangalsutra from './mangalsutra.png'
-// import bangles from './bangles.png'
-// import bracelets from './bracelets.png'
-// import chain from './chain.png'
-// import Footer from './Footer';
+
 import { Link } from 'react-router';
 import { logout } from './slices/auth';
 import { useSelector, useDispatch } from "react-redux";
@@ -27,17 +20,17 @@ const Header = () => {
     if (currentUser) {
       console.log(currentUser);
     }
-    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
-      console.log(currentUser.roles[0]);
+    // if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+    //   console.log(currentUser.roles[0]);
 
-      navigate("/Dashboard");
-    }
+    //   navigate("/Dashboard");
+    // }
   }, []);
 
   const handleLogout = () => {
     dispatch(logout());
-    // navigate('/login'); // Redirect to login page
-    window.location.reload();
+    navigate('/login'); // Redirect to login page
+    // window.location.reload();
   };
   return (
     <div >
@@ -63,15 +56,19 @@ const Header = () => {
             <Col md={6} >
               <div className='icon'>
                 <Link to={'/Register'}><i className='fa-solid  fa-users'></i></Link>
+                {/* <p>user</p> */}
+                
 
                 
              
 
 
                 <i className="fa-solid fa-cart-arrow-down"></i>
+                {/* <p>Wishlist</p> */}
 
                 
                 <Link to={'/Account'}><i className=' fa-solid fa-address-card '></i></Link>
+                {/* <p>Account</p> */}
 
 
 
@@ -79,7 +76,7 @@ const Header = () => {
 
 
                 {
-                  currentUser ? <Button onClick={handleLogout}>
+                  currentUser ? <Button onClick={handleLogout} type="submit">
                     <IoIosLogOut />
                     Log out
                   </Button> : ""
