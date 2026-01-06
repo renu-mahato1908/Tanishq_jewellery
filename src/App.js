@@ -37,6 +37,7 @@ import Addtocart from './Addtocart';
 import Account from './Account';
 import AdminOrders from './AdminOrders';
 import AllProducts from './AllProducts';
+import Addnewaddress from './Addnewaddress';
 
 
 function App() {
@@ -142,6 +143,8 @@ function App() {
       <Route path='/AdminOrders' element={<AdminOrders/>}></Route>
 
       <Route path='/Allproducts' element={<AllProducts/>}></Route>
+
+      <Route path='/Addnewaddress' element={<Addnewaddress/>}></Route>
        
 
 

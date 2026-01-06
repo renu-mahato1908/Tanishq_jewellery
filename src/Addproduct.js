@@ -3,10 +3,11 @@ import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 import './Addproduct.css';
 
-import ListGroup from 'react-bootstrap/ListGroup';
-import { data } from 'react-router';
+
 
 
 const SignupSchema = Yup.object().shape({
@@ -44,13 +45,13 @@ const SignupSchema = Yup.object().shape({
 
 });
 
-const handleChange=()=>{
-  
+const handleChange = () => {
+
 }
 
 const Addproduct = () => {
 
-  
+
 
   const [categories, setCategories] = useState();
 
@@ -109,6 +110,7 @@ const Addproduct = () => {
 
 
               <Row>
+
                 <Col>
                   <label>Product Name:</label>
 
@@ -201,7 +203,7 @@ const Addproduct = () => {
                   </label>
                 </Col>
               </Row>
-{/* 
+              {/* 
               <Row>
                 <Form.Group className="position-relative mb-3">
                   <Col>
@@ -227,9 +229,23 @@ const Addproduct = () => {
 
               <Row>
                 <Col>
-                  <button type="submit" className='addbtn'>Addproducts</button>
+                  <button type="submit" className='addbtn'>Add products</button>
+                 
+                 <Link to={'/Addnewaddress'}> <button type="button" className='newbtn'>
+                    
+                    Add new address
+
+                    <img src='https://icons.veryicon.com/png/o/miscellaneous/o2o-middle-school-project/plus-104.png'></img>
+                  </button></Link>
+
+
+
 
                 </Col>
+                {/* <h4>Add new Address</h4> */}
+                {/* <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4d3tRjWStr7nI-0IV-0QHVhf0tZxrICif8g&s'></img> */}
+
+
               </Row>
             </div>
 

@@ -12,17 +12,20 @@ const Account = () => {
               if (currentUser) {
                      console.log(currentUser);
               }
-              else{
+              else {
                      navigate("/Login");
               }
-              
+
        }, []);
        return (
               <div className='text-center'>
                      <h3>Account</h3>
                      {
-                            currentUser ? <div><p>Mobile : {currentUser.username }</p>
-                     <p>Email : {currentUser.email }</p></div>:""
+                            currentUser ? 
+                            <div className="account">
+                                   <p>Mobile : {currentUser.username}</p>
+                                   <p>Email : {currentUser.email}</p>
+                            </div> : ""
                      }
               </div>
        )

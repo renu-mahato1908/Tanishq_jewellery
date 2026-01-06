@@ -25,6 +25,8 @@
 
 }
 
+
+
 .addbtn {
        background: #2E0708;
        color: white;
@@ -33,5 +35,21 @@
        margin-top: 45px;
        padding: 10px 20px;
 
+}
+
+.newbtn {
+       background: #ccc;
+       color: black;
+       /* position: relative;
+       overflow: hidden; */
+       margin-top: 45px;
+       padding: 10px 20px;
+       margin-left: 20px;
+
+}
+
+.newbtn img{
+       width: 30px;
+       text-align: center;
 }
 
