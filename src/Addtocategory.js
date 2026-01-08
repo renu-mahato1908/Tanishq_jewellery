@@ -135,22 +135,7 @@ const Addtocategory = () => {
               >
                 {({ handleSubmit, handleChange, values, touched, errors }) => (
                   <div className='category'>
-                    {/* <Form noValidate onSubmit={handleSubmit}>
-                      <Row className="mb-3">
-                        <Form.Group as={Col} md="12" controlId="validationFormik01">
-                          <Form.Label>Add category</Form.Label>
-                          
-                          <Form.Control
-                            type="text"
-                            name="name"
-                            value={values.name}
-                            onChange={handleChange}
-                            isValid={touched.name && !errors.name}
-                          />
-                        </Form.Group>
-                      </Row>
-                      <Button type="submit">Add</Button>
-                    </Form> */}
+                    
 
                     <Form>
                       <Row>
