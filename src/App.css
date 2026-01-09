@@ -31,7 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   padding: 0 10px;
 }
 
@@ -428,7 +428,7 @@
 }
 
 .mapingimage img{
-  width: 200px;
+  width: 100px;
 }
 
 .mapingimage td{

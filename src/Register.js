@@ -87,10 +87,10 @@ const Register = () => {
                     <Form>
                         <div className="registerform">
                             <Row>
-                                <Col md={4}>
+                                <Col >
                                     <label>First Name : </label>
                                 </Col>
-                                <Col md={8}>
+                                <Col>
                                     <Field name="firstName" />
                                     {errors.firstName && touched.firstName ? (
                                         <div>{errors.firstName}</div>
@@ -99,10 +99,10 @@ const Register = () => {
                             </Row>
 
                             <Row>
-                                <Col md={4}>
+                                <Col>
                                     <label>Last Name : </label>
                                 </Col>
-                                <Col md={8}>
+                                <Col>
                                     <Field name="lastName" />
                                     {errors.lastName && touched.lastName ? (
                                         <div>{errors.lastName}</div>
@@ -111,10 +111,10 @@ const Register = () => {
                             </Row>
 
                             <Row>
-                                <Col md={4}>
+                                <Col >
                                     <label>Email : </label>
                                 </Col>
-                                <Col md={8}>
+                                <Col >
                                     <Field name="email" type="email" />
                                     {errors.email && touched.email ? (
                                         <div>{errors.email}</div>
@@ -123,10 +123,10 @@ const Register = () => {
                             </Row>
 
                             <Row>
-                                <Col md={4}>
+                                <Col>
                                     <label>Password</label>
                                 </Col>
-                                <Col md={8}>
+                                <Col>
                                     <Field name="password" type="password" />
                                     {errors.password && touched.password ? (
                                         <div>{errors.password}</div>
@@ -135,10 +135,10 @@ const Register = () => {
                             </Row>
 
                             <Row>
-                                <Col md={4}>
+                                <Col >
                                     <label>Mobile : </label>
                                 </Col>
-                                <Col md={8}>
+                                <Col >
                                     <Field name="username" type="number" />
                                     {errors.username && touched.username ? (
                                         <div>{errors.username}</div>

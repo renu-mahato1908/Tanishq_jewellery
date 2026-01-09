@@ -12,7 +12,7 @@
 .loginform {
        margin: 10px auto;
        width: 45%;
-       height: 360px;
+       /* height: 360px; */
        padding: 40px 30px;
        border-radius: 20px;
        box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
@@ -29,7 +29,7 @@
        color: white;
        position: relative;
        overflow: hidden;
-       margin-top: 75px;
+       margin-top: 25px;
        padding: 10px 20px;
 
 }
@@ -45,6 +45,21 @@
        transition: left 0.7s ease;
 }
 
-.login-btn:hover::before {
-       left: 100%;
+@media (max-width: 768px) {
+  .loginform {
+    width: 95%;
+  }
+
+  .loginform label {
+    text-align: left;
+    display: block;
+  }
+
+  .loginform .col-md-4,
+  .loginform .col-md-8,
+  .loginform .col-xs-8 {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
 }

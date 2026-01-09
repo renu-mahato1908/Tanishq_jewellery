@@ -10,6 +10,9 @@ import { Link } from 'react-router';
 import { logout } from './slices/auth';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import Dropdown from 'react-bootstrap/Dropdown';
+import NavItem from 'react-bootstrap/NavItem';
+import NavLink from 'react-bootstrap/NavLink';
 
 
 const Header = () => {
@@ -57,16 +60,10 @@ const Header = () => {
               <div className='icon'>
                 <Link to={'/Register'}><i className='fa-solid  fa-users'></i></Link>
                 {/* <p>user</p> */}
-                
-
-                
-             
+                <Link to={'/Cart'}><i className="fa-solid fa-cart-arrow-down"></i></Link>
 
 
-                <i className="fa-solid fa-cart-arrow-down"></i>
-                {/* <p>Wishlist</p> */}
 
-                
                 <Link to={'/Account'}><i className=' fa-solid fa-address-card '></i></Link>
                 {/* <p>Account</p> */}
 
@@ -127,6 +124,18 @@ const Header = () => {
 
                       <img src='https://cdn-icons-png.flaticon.com/128/548/548427.png' alt=''></img>
                       <Nav.Link as={Link} to={'/Gifting'}>Gifting</Nav.Link>
+
+                      <Dropdown as={NavItem}>
+                        <Dropdown.Toggle as={NavLink}>Login…</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item><Link to={'/Register'}>Register</Link></Dropdown.Item>
+                          <Dropdown.Item><Link to={'/Account'}>Account</Link></Dropdown.Item>
+                          <Dropdown.Item><Link to={'/products'}>All products</Link></Dropdown.Item>
+
+
+
+                        </Dropdown.Menu>
+                      </Dropdown>
 
 
 

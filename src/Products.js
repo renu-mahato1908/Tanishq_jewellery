@@ -1,6 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Table } from 'react-bootstrap';
+import { RiDeleteBinLine } from "react-icons/ri";
+import { FiEdit } from "react-icons/fi";
+
+
 
 
 const Products = () => {
@@ -16,9 +20,22 @@ const Products = () => {
 
     }, []);
 
-  
+    const handleDelete = (id) => {
+        console.log(id);
+        axios.delete(`http://localhost:8090/api/ssproducts/${id}`).then((response) => {
+            console.log(response.data);
+            console.log("successfully category delete");
+            window.location.reload();
 
-   
+
+
+        });
+
+    }
+
+
+
+
 
     return (
         <div>
@@ -38,6 +55,8 @@ const Products = () => {
                                         <th>Price</th>
                                         <th>Description</th>
                                         <th>Gender</th>
+                                        <th>Delete</th>
+                                        <th>Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,8 +77,12 @@ const Products = () => {
                                                     <td>{product.productPrice}</td>
                                                     <td>{product.productDescription}</td>
                                                     <td>{product.productGender}</td>
+                                                    <td><button onClick={() => handleDelete(product.id)}>
+                                                        {<RiDeleteBinLine />}</button></td>
 
-                                                    
+                                                    <td>{<FiEdit />}</td>
+
+
 
 
                                                 </tr>

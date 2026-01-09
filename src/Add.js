@@ -37,9 +37,9 @@ const Add = () => {
       .required("Required"),
   });
   const [categories, setCategories] = useState();
-const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImages, setSelectedImages] = useState([]);
 
-let navigate = useNavigate();
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
   useEffect(() => {
@@ -146,12 +146,12 @@ let navigate = useNavigate();
                     <option value="">--- Select a Category ---</option>
                     {categories
                       ? categories.map((category, index) => {
-                          return (
-                            <option value={category.name} key={index}>
-                              {category.name}
-                            </option>
-                          );
-                        })
+                        return (
+                          <option value={category.name} key={index}>
+                            {category.name}
+                          </option>
+                        );
+                      })
                       : "No Category Found"}
                   </Field>
                   <option></option>

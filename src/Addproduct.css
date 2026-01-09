@@ -66,12 +66,12 @@
        /* background: url("C:\Users\INTEL\Desktop\login bg image.jpg"); */
 }
 
-.add-btn {
-       background: linear-gradient(135deg, #d16c24, #ff6b6b);
-       color: white;
+.addbtn {
+       background:gray ;
+       color: black;
        position: relative;
        overflow: hidden;
-       margin-top:25px;
+       margin-top:45px;
        padding: 10px 20px;
 
 }
@@ -89,4 +89,23 @@
 
 .add-btn:hover::before {
        left: 100%;
+}
+
+@media (max-width: 768px) {
+       .addproduct {
+              width: 65%;
+       }
+
+       .addproduct label {
+              text-align: left;
+              display: block;
+       }
+
+       .addproduct .col-md-4,
+       .addproduct .col-md-8,
+       .addproduct .col-xs-8 {
+              padding-left: 0;
+              padding-right: 0;
+              width: 100%;
+       }
 }
