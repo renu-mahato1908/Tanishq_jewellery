@@ -137,7 +137,7 @@ let navigate = useNavigate();
                                                 <h3>Dashboard</h3>
                                                 <Link to={"/Account"}><h3>Account</h3></Link>
                                                 <Link to={"/AdminOrders"}><h3>Admin orders</h3></Link>
-                                                <Link to={"/AllProducts"}><h3>All products</h3></Link>
+                                                <Link to={"/Products"}><h3> Products</h3></Link>
                                                
 
                                             </Col>

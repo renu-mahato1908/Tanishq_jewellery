@@ -42,6 +42,8 @@ import Add from './Add';
 import Products from './Products';
 import Cart from './Cart';
 import Cart2 from './Cart2';
+import Userproduct from './Userproduct';
+import Wishlist from './Wishlist';
 
 
 
@@ -146,7 +148,7 @@ function App() {
 
         <Route path='/AdminOrders' element={<AdminOrders />}></Route>
 
-        <Route path='/Allproducts' element={<AllProducts />}></Route>
+        <Route path='/AllProducts' element={<AllProducts/>}></Route>
 
         <Route path='/Addnewaddress' element={<Addnewaddress />}></Route>
 
@@ -158,7 +160,9 @@ function App() {
 
         <Route path='/Cart2' element={<Cart2 />}></Route>
 
+        <Route path='/Userproduct' element={<Userproduct/>}></Route>
 
+        <Route path='/Wishlist' element={<Wishlist></Wishlist>}></Route>
 
       </Routes>
 

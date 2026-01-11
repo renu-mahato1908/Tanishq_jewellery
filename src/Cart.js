@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState, useEffect, use } from 'react';
 import { Container, Col, Row, Button, Table } from 'react-bootstrap';
 
-import Card from 'react-bootstrap/Card';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 
@@ -29,12 +28,12 @@ const Cart = () => {
     if (currentUser.id) {
       console.log(currentUser);
     }
-    // if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
-    //   console.log(currentUser.roles[0]);
+    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+      console.log(currentUser.roles[0]);
 
-    //   navigate("/Dashboard");
-    // }
-  }, []);
+      navigate("/Dashboard");
+    }
+  }, [currentUser]);
 
   return (
 
@@ -43,68 +42,54 @@ const Cart = () => {
         <Row>
           <Col>
             <h1>No of Items : {nocartItems}</h1>
-            {
-              cartItems ?
-
-
-                cartItems.map((cartItem, index) => {
-                  return (
-
-                    // <p key={index}>{cartItem.productId}</p>,
-                    // <p key={index}>{cartItem.quantity}</p>,
-                    // <p key={index}>{cartItem.price}</p>
-
-
-                    // <div key={index}>
-                    //   <p>{cartItem.productId}</p>
-                    //   <p>{cartItem.quantity}</p>
-                    //   <p>{cartItem.price}</p>
-                    // </div>
-
-                    <Table striped bordered hover>
-                      <thead>
-                        <tr>
-                          <th>Sl</th>
-                          <th> Product  Id</th>
-                          <th>Quantity</th>
-                          
-                          <th>Price</th>
-                          
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {
-                          cartItems.map((cartItem, index) => {
-                            return (
-
-
-
-                              <tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{cartItem.productId}</td>
-                                
-
-
-                                <td>{cartItem.quantity}</td>
-                                <td>{cartItem.price}</td>
-                            
-                               
 
 
 
 
-                              </tr>
-                            )
-                          })
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Sl</th>
+                  <th> Product  Id</th>
+                  <th>Quantity</th>
+
+                  <th>Price</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  cartItems.map((cartItem, index) => {
+                    return (
 
 
-                        }
-                      </tbody>
-                    </Table>
-                  )
-                })
-                : " no item available"
-            }
+
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{cartItem.productId}</td>
+
+
+
+                        <td>{cartItem.quantity}</td>
+                        <td>{cartItem.price}</td>
+
+
+
+
+
+
+                      </tr>
+                    )
+                  })
+
+
+                }
+              </tbody>
+            </Table>
+
+            <p>Total Amount</p>
+            <button>Next</button>
+
 
           </Col>
         </Row>
