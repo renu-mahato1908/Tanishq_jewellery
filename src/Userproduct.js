@@ -70,6 +70,28 @@ const Userproduct = () => {
 
     }
 
+     const handleWishlist = (product) => {
+        console.log(product);
+
+        const data = {
+            userId: currentUser.id,
+            items: [{
+                productId: product.id,
+                quantity: 1,
+                price: product.productPrice
+            }]
+        }
+
+        axios.post(`http://localhost:8090/api/carts`, data).then((response) => {
+            console.log(response.data);
+
+            window.location.reload();
+            console.log("Upload success:", response.data);
+            alert("Product added to wishlist!");
+        });
+
+
+    }
 
      
 
