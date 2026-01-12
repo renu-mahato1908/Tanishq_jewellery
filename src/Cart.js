@@ -34,7 +34,7 @@ const Cart = () => {
     if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
       console.log(currentUser.roles[0]);
 
-      navigate("/Dashboard");
+      navigate("/Cart");
     }
   }, [currentUser]);
 

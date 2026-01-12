@@ -61,7 +61,24 @@
        left: 100%;
 }
 
+@media (max-width: 768px) {
+       .addressform {
+              width: 95%;
+       }
 
+       .addressform label {
+              text-align: left;
+              display: block;
+       }
+
+       .registerform .col-md-4,
+       .registerform .col-md-8,
+       .registerform .col-xs-8 {
+              padding-left: 0;
+              padding-right: 0;
+              width: 100%;
+       }
+}
 
 
 
