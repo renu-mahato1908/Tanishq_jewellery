@@ -4,6 +4,9 @@ import { Container, Col, Row, Button, Table } from 'react-bootstrap';
 
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { Link } from 'react-router';
+
 
 const Cart = () => {
 
@@ -35,6 +38,11 @@ const Cart = () => {
     }
   }, [currentUser]);
 
+  const handleDelete=()=>{
+    console.log("delete button clicked")
+    alert("delete button clicked");
+  }
+
   return (
 
     <section>
@@ -54,6 +62,7 @@ const Cart = () => {
                   <th>Quantity</th>
 
                   <th>Price</th>
+                  <th>Delete</th>
 
                 </tr>
               </thead>
@@ -72,6 +81,8 @@ const Cart = () => {
 
                         <td>{cartItem.quantity}</td>
                         <td>{cartItem.price}</td>
+                        <td><button onClick={() => handleDelete()}>
+                          {<RiDeleteBinLine />}</button></td>
 
 
 
@@ -88,7 +99,7 @@ const Cart = () => {
             </Table>
 
             <p>Total Amount</p>
-            <button>Next</button>
+           <Link to={'/Address'}> <button>Next</button></Link>
 
 
           </Col>
