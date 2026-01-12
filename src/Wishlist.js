@@ -59,13 +59,39 @@ const Wishlist = () => {
             }]
         }
 
-        axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
+    //    try{
+         axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
             console.log(response.data);
 
             window.location.reload();
             console.log("Upload success:", response.data);
             alert("Product added to wishlist!");
-        });
+        })
+        .catch((error)=>{
+            console.log(error.response)
+            if(error.response?.status===409){
+                alert("product already in wishlist")
+            }
+            else{
+                alert("something wrong")
+            }
+
+        })
+        ;
+       
+
+
+    //    }
+    //    catch(error)
+    //    {
+    //     console.log(error.response)
+    //     if(error.response?.status===409){
+    //         alert("product already in wishlist")
+    //     }
+    //     else{
+    //         alert("something wrong")
+    //     }
+    //    }
 
 
     }

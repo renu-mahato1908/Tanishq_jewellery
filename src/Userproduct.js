@@ -75,18 +75,14 @@ const Userproduct = () => {
 
         const data = {
             userId: currentUser.id,
-            items: [{
-                productId: product.id,
-                quantity: 1,
-                price: product.productPrice
-            }]
+           productId:product.id
         }
 
-        axios.post(`http://localhost:8090/api/carts`, data).then((response) => {
+        axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
             console.log(response.data);
 
             window.location.reload();
-            console.log("Upload success:", response.data);
+            console.log("Add to wishlist:", response.data);
             alert("Product added to wishlist!");
         });
 
@@ -117,7 +113,7 @@ const Userproduct = () => {
                                                     <p>{product.productName}</p>
                                                     <p>{product.productId}</p>
                                                     <p> {product.productPrice}</p>
-                                                    <button className='card-wishlist-btn'><FiHeart className="wishlist-icon" /></button>
+                                                    <button className='card-wishlist-btn' onClick={() => handleWishlist(product)}><FiHeart className="wishlist-icon" /></button>
 
                                                 </Card.Text>
                                                 {/* <Button variant="primary" onClick={() => handleCart(product)}>Add to cart</Button> */}
