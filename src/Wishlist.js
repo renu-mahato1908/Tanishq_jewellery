@@ -22,24 +22,16 @@ const Wishlist = () => {
             if (currentUser) {
               console.log(currentUser);
             }
-            if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
-              console.log(currentUser.roles[0]);
-        
-              navigate("/Wishlist");
-            }
+           
           }, []);
         
-          const handleLogout = () => {
-            dispatch(logout());
-            navigate('/login'); // Redirect to login page
-            window.location.reload();
-          };
+          
     
     
     
     
         useEffect(() => {
-            axios.get("http://localhost:8090/api/wishlist").then((response) => {
+            axios.get(`http://localhost:8090/api/wishlist/user/${currentUser.id}`).then((response) => {
                 console.log(response.data);
                 setProducts(response.data);
                 console.log(products);
@@ -47,54 +39,7 @@ const Wishlist = () => {
     
         }, []);
 
-    const handleWishlist = (product) => {
-        console.log(product);
-
-        const data = {
-            user: currentUser.id,
-            items: [{
-                productId: product.id,
-                quantity: 1,
-                price: product.productPrice
-            }]
-        }
-
-    //    try{
-         axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
-            console.log(response.data);
-
-            window.location.reload();
-            console.log("Upload success:", response.data);
-            alert("Product added to wishlist!");
-        })
-        .catch((error)=>{
-            console.log(error.response)
-            if(error.response?.status===409){
-                alert("product already in wishlist")
-            }
-            else{
-                alert("something wrong")
-            }
-
-        })
-        ;
-       
-
-
-    //    }
-    //    catch(error)
-    //    {
-    //     console.log(error.response)
-    //     if(error.response?.status===409){
-    //         alert("product already in wishlist")
-    //     }
-    //     else{
-    //         alert("something wrong")
-    //     }
-    //    }
-
-
-    }
+   
     return (
         <div>
             <section>

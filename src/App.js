@@ -44,6 +44,7 @@ import Cart from './Cart';
 import Cart2 from './Cart2';
 import Userproduct from './Userproduct';
 import Wishlist from './Wishlist';
+import Category from './Category';
 
 
 
@@ -152,9 +153,9 @@ function App() {
 
         <Route path='/Addnewaddress' element={<Addnewaddress />}></Route>
 
-        <Route path='/Add' element={<Add />}></Route>
+        <Route path='/Add' element={<Add/>}></Route>
 
-        <Route path='/Products' element={<Products />}></Route>
+        <Route path='/Products' element={<Products/>}></Route>
 
         <Route path='/Cart' element={<Cart />}></Route>
 
@@ -163,6 +164,8 @@ function App() {
         <Route path='/Userproduct' element={<Userproduct/>}></Route>
 
         <Route path='/Wishlist' element={<Wishlist></Wishlist>}></Route>
+
+        <Route path='/Category/:categoryName' element={<Category></Category>}></Route>
 
       </Routes>
 

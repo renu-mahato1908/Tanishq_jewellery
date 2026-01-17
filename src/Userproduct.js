@@ -70,25 +70,40 @@ const Userproduct = () => {
 
     }
 
-     const handleWishlist = (product) => {
+    
+
+    const handleWishlist = (product) => {
         console.log(product);
 
         const data = {
-            userId: currentUser.id,
-           productId:product.id
+            user: currentUser.id,
+            items: [{
+                productId: product.id,
+                quantity: 1,
+                price: product.productPrice
+            }]
         }
 
-        axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
+    //    try{
+         axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
             console.log(response.data);
 
             window.location.reload();
-            console.log("Add to wishlist:", response.data);
+            console.log("Upload success:", response.data);
             alert("Product added to wishlist!");
-        });
+        })
+        .catch((error)=>{
+            console.log(error.response)
+            if(error.response?.status===409){
+                alert("product already in wishlist")
+            }
+            else{
+                alert("something wrong")
+            }
 
-
+        })
+        ;
     }
-
      
 
     return (

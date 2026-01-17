@@ -1,9 +1,13 @@
-import React from 'react'
-import { useState ,useEffect} from 'react';
+
+import { useState, useEffect } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+
 
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Navigate, Link } from "react-router-dom";
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+
 
 
 import {
@@ -20,7 +24,7 @@ import {
 
 } from 'chart.js';
 import { Bar, Pie, PolarArea, Scatter } from 'react-chartjs-2';
-import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
+// import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
 
 
 ChartJS.register(
@@ -88,19 +92,19 @@ const data1 = {
 
 const Dashboard = () => {
 
-let navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { user: currentUser } = useSelector((state) => state.auth);
-  useEffect(() => {
-    if (currentUser) {
-      console.log(currentUser);
-    }
-    if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
-      console.log(currentUser.roles[0]);
+    let navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { user: currentUser } = useSelector((state) => state.auth);
+    useEffect(() => {
+        if (currentUser) {
+            console.log(currentUser);
+        }
+        if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
+            console.log(currentUser.roles[0]);
 
-      navigate("/Home");
-    }
-  }, []);
+            navigate("/Home");
+        }
+    }, []);
 
     const [show, setShow] = useState(false);
 
@@ -108,6 +112,23 @@ let navigate = useNavigate();
     const handleShow = () => setShow(true);
     return (
         <div>
+
+            <section>
+                <Container>
+                    <Row>
+                        <Col>
+
+                            <Breadcrumb>
+                                <Breadcrumb.Item href="Dashboard">Dashboard</Breadcrumb.Item>
+                                <Breadcrumb.Item href="Products">
+                                   Products
+                                </Breadcrumb.Item>
+                                
+                            </Breadcrumb>
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
             <section >
                 <Container>
                     <Row className='canvas'>
@@ -127,10 +148,10 @@ let navigate = useNavigate();
                                         <Row className='canvas2'>
                                             <Col md={2}>
                                                 <img src='https://cdn-icons-png.flaticon.com/512/1946/1946488.png' alt=''></img>
-                                                <img src='https://icon-library.com/images/account-icon-png/account-icon-png-10.jpg' alt=''></img>    
-                                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Tr9fKwJjakFaxvBR7WFtttuKJq4lXwfnpA&s' alt=''></img>   
-                                                <img src='https://cdn-icons-png.flaticon.com/512/1311/1311095.png' alt=''></img>                                       
-                                               
+                                                <img src='https://icon-library.com/images/account-icon-png/account-icon-png-10.jpg' alt=''></img>
+                                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Tr9fKwJjakFaxvBR7WFtttuKJq4lXwfnpA&s' alt=''></img>
+                                                <img src='https://cdn-icons-png.flaticon.com/512/1311/1311095.png' alt=''></img>
+
 
                                             </Col>
                                             <Col>
@@ -138,7 +159,7 @@ let navigate = useNavigate();
                                                 <Link to={"/Account"}><h3>Account</h3></Link>
                                                 <Link to={"/AdminOrders"}><h3>Admin orders</h3></Link>
                                                 <Link to={"/Products"}><h3> Products</h3></Link>
-                                               
+
 
                                             </Col>
                                         </Row>

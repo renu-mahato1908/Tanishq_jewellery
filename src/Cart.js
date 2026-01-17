@@ -31,17 +31,26 @@ const Cart = () => {
     if (currentUser.id) {
       console.log(currentUser);
     }
-    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
-      console.log(currentUser.roles[0]);
 
-      navigate("/Cart");
-    }
   }, [currentUser]);
 
-  const handleDelete=()=>{
+  const handleDelete = () => {
     console.log("delete button clicked")
     alert("delete button clicked");
   }
+
+   const [products, setProducts] = useState({});
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:8090/api/ssproducts")
+  //     .then((res) => {
+  //       const productMap = {};
+  //       res.data.forEach(products => {
+  //         productMap[products.id] = products;
+  //       });
+  //       setProducts(productMap);
+  //     });
+  // }, []);
 
   return (
 
@@ -51,13 +60,11 @@ const Cart = () => {
           <Col>
             <h1>No of Items : {nocartItems}</h1>
 
-
-
-
             <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>Sl</th>
+                  {/* <th>Image</th> */}
                   <th> Product  Id</th>
                   <th>Quantity</th>
 
@@ -75,10 +82,19 @@ const Cart = () => {
 
                       <tr key={index}>
                         <td>{index + 1}</td>
+                        <td>
+                          {products[cartItem.productId] && (
+                            <img
+                              src={`http://localhost:8090/upload/${products[cartItem.productId].images[0]}`}
+                              alt="product"
+                              width="60"
+                              height="60"
+                            />
+                          )}
+                        </td>
+
+
                         <td>{cartItem.productId}</td>
-
-
-
                         <td>{cartItem.quantity}</td>
                         <td>{cartItem.price}</td>
                         <td><button onClick={() => handleDelete()}>
@@ -99,7 +115,7 @@ const Cart = () => {
             </Table>
 
             <p>Total Amount</p>
-           <Link to={'/Address'}> <button>Next</button></Link>
+            <Link to={'/Address'}> <button>Next</button></Link>
 
 
           </Col>

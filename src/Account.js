@@ -18,16 +18,38 @@ const Account = () => {
 
        }, []);
        return (
+
+
+
+
               <div className='text-center'>
                      <h3>Account</h3>
                      {
-                            currentUser ? 
-                            <div className="account">
-                                   <p>Mobile : {currentUser.username}</p>
-                                   <p>Email : {currentUser.email}</p>
-                            </div> : ""
+                            currentUser ?
+                                   <div className="account">
+                                          <p>Mobile : {currentUser.username}</p>
+                                          <p>Email : {currentUser.email}</p>
+                                   </div> : ""
                      }
+
+                     {/* <section>
+                            <Container>
+                                   <Row>
+                                          <Col>
+
+                                                 <Breadcrumb>
+                                                        <Breadcrumb.Item href="Dashboard">Dashboard</Breadcrumb.Item>
+                                                        <Breadcrumb.Item href="Products">
+                                                               Products
+                                                        </Breadcrumb.Item>
+
+                                                 </Breadcrumb>
+                                          </Col>
+                                   </Row>
+                            </Container>
+                     </section> */}
               </div>
+
        )
 }
 
