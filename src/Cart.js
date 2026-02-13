@@ -64,7 +64,7 @@ const Cart = () => {
               <thead>
                 <tr>
                   <th>Sl</th>
-                  {/* <th>Image</th> */}
+                  <th>Image</th>
                   <th> Product  Id</th>
                   <th>Quantity</th>
 

@@ -56,11 +56,11 @@ const Wishlist = () => {
 
                                                 <Card.Text>
 
-                                                    {/* <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
+                                                    <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
                                                     <p>{product.productName}</p>
                                                     <p>{product.productId}</p>
-                                                    <p> {product.productPrice}</p> */}
-                                                    {/* <button className='card-wishlist-btn'><FiHeart className="wishlist-icon" /></button> */}
+                                                    <p> {product.productPrice}</p> 
+                                                     {/* <button className='card-wishlist-btn'><FiHeart className="wishlist-icon" /></button> */}
 
                                                 </Card.Text>
                                                 {/* <Button variant="primary" onClick={() => handleCart(product)}>Add to cart</Button> */}
