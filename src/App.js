@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
-import Alljewellery from './Alljewellery';
 
 import Footer from './Footer';
 import About from './About';
@@ -31,7 +29,6 @@ import Address from './Address';
 import XYZ from './XYZ';
 import Addproduct from './Addproduct';
 import Addtocategory from './Addtocategory';
-import Address1 from './Address1';
 import PunjabiBrideJewellery from './PunjabiBrideJewellery';
 
 import Account from './Account';
@@ -138,8 +135,7 @@ function App() {
         {/* Add to category */}
         <Route path='/Addtocategory' element={<Addtocategory />}></Route>
 
-        {/* address1 */}
-        <Route path='/Address1' element={<Address1 />}></Route>
+       
 
         {/* Punjabi bride jwellery */}
         <Route path='/PunjabiBrideJewellery' element={PunjabiBrideJewellery}></Route>

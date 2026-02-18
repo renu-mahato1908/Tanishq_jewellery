@@ -33,7 +33,9 @@
     color: yellow;
     background: #ccc;
 }   
-
+.Image{
+     background:gray;
+}
 /* .xyz h4{
     text-align: center;
 }

@@ -74,11 +74,11 @@ const Address = () => {
         if (currentUser) {
             console.log(currentUser);
         }
-        if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
-            console.log(currentUser.roles[0]);
+        // if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+        //     console.log(currentUser.roles[0]);
 
-            navigate("/Home");
-        }
+        //     navigate("/Home");
+        // }
     }, []);
 
     const handleSubmit = () => {
@@ -89,7 +89,7 @@ const Address = () => {
     const handleAddress = () => {
         console.log("Submit button clicked")
         alert("submit button clicked");
-        axios.post("http://localhost:8090/api/addresses").then((response)=>{
+        axios.post("http://localhost:8090/api/addresses").then((response) => {
             console.log(response.data)
         })
     }
@@ -103,17 +103,17 @@ const Address = () => {
 
         });
 
-        
 
-       
+
+
 
     }, []);
 
 
-    
-   
 
-    
+
+
+
     return (
         <div className='text-center'>
             <h2>Address</h2>
@@ -329,25 +329,27 @@ const Address = () => {
                                                                 return (
                                                                     <div>
                                                                         <Row>
-                                                                            <Col className='add_Id' md={12}>
+                                                                            <Col className='add_Id' >
                                                                                 <label>
                                                                                     <Field type="radio" name="addressId" value={address.id} />
-                                                                                   {address.addressLine1},
-                                                                                   {/* {address.addressLine1}, */}
+                                                                                    {address.addressLine1},
+                                                                                    {/* {address.addressLine1}, */}
                                                                                 </label>
 
-                                                                               
+
                                                                             </Col>
 
-                                                                             <Col md={12}>
-                                                                                 <label>
-                                                                                    <Field type="radio" name="addressId" value={address.id} />
-                                                                                   {address.addressLine2},
-                                                                                   
-                                                                                </label>
-                                                                            </Col>
+                                                                            <Row>
+                                                                                <Col >
+                                                                                    <label>
+                                                                                        <Field type="radio" name="addressId" value={address.id} />
+                                                                                        {address.addressLine2},
 
-                                                                            
+                                                                                    </label>
+                                                                                </Col>
+                                                                            </Row>
+
+
                                                                         </Row>
                                                                     </div>
 

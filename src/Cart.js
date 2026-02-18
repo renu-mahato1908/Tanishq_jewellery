@@ -10,7 +10,7 @@ import { Link } from 'react-router';
 
 const Cart = () => {
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems,] = useState([]);
   const [nocartItems, setNoCartItems] = useState(0);
 
   useEffect(() => {
@@ -37,20 +37,55 @@ const Cart = () => {
   const handleDelete = () => {
     console.log("delete button clicked")
     alert("delete button clicked");
+
   }
 
-   const [products, setProducts] = useState({});
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:8090/api/ssproducts")
-  //     .then((res) => {
-  //       const productMap = {};
-  //       res.data.forEach(products => {
-  //         productMap[products.id] = products;
-  //       });
-  //       setProducts(productMap);
-  //     });
-  // }, []);
+
+
+
+
+  const [products, setProducts] = useState({});
+
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/ssproducts")
+      .then((res) => {
+        const productMap = {};
+        res.data.forEach(products => {
+          productMap[products.id] = products;
+        });
+        setProducts(productMap);
+      });
+  }, []);
+
+  const updateQty = (productId, change) => {
+    setCartItems(prev =>
+      prev.map(item =>
+        item.productId === productId
+          ? {
+            ...item,
+            quantity: Math.max(1, item.quantity + change)
+          }
+          : item
+      )
+    );
+  };
+
+
+
+  const [count, setCount] = useState(30);
+  console.log(count);
+
+  const increase = () => {
+    setCount(count + 1);
+  }
+
+  const decrease = () => {
+    setCount(count - 1);
+  }
+
+
+
 
   return (
 
@@ -83,6 +118,7 @@ const Cart = () => {
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td>
+
                           {products[cartItem.productId] && (
                             <img
                               src={`http://localhost:8090/upload/${products[cartItem.productId].images[0]}`}
@@ -94,9 +130,20 @@ const Cart = () => {
                         </td>
 
 
+
                         <td>{cartItem.productId}</td>
-                        <td>{cartItem.quantity}</td>
-                        <td>{cartItem.price}</td>
+                        {/* <td>{cartItem.quantity}</td> */}
+                        <td className="text-center">
+                          <button className="btn btn-sm btn-danger me-2" onClick={() => updateQty(cartItem.productId, -1)}>-</button>
+
+
+                          <span>{cartItem.quantity}</span>
+
+                          <button className="btn btn-sm btn-success ms-2" onClick={() => updateQty(cartItem.productId, 1)}>+</button>
+
+                        </td>
+
+                        <td>₹{cartItem.price}</td>
                         <td><button onClick={() => handleDelete()}>
                           {<RiDeleteBinLine />}</button></td>
 

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Table } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { logout } from './slices/auth';
 
 import { useNavigate } from "react-router";
@@ -16,24 +16,24 @@ const Userproduct = () => {
     const [products, setProducts] = useState([]);
 
     let navigate = useNavigate();
-      const dispatch = useDispatch();
-      const { user: currentUser } = useSelector((state) => state.auth);
-      useEffect(() => {
+    const dispatch = useDispatch();
+    const { user: currentUser } = useSelector((state) => state.auth);
+    useEffect(() => {
         if (currentUser) {
-          console.log(currentUser);
+            console.log(currentUser);
         }
-        if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
-          console.log(currentUser.roles[0]);
-    
-          navigate("/Userproduct");
+        if (currentUser && currentUser.roles[0] == "ROLE_ADMIN") {
+            console.log(currentUser.roles[0]);
+
+            navigate("/Userproduct");
         }
-      }, []);
-    
-      const handleLogout = () => {
+    }, []);
+
+    const handleLogout = () => {
         dispatch(logout());
         navigate('/login'); // Redirect to login page
         window.location.reload();
-      };
+    };
 
 
 
@@ -70,41 +70,69 @@ const Userproduct = () => {
 
     }
 
-    
+
+
+    // const handleWishlist = (product) => {
+    //     console.log(product);
+
+    //     const data = {
+    //         userId: currentUser.id,
+    //         items: [{
+    //             productId: product.id,
+    //             quantity: 1,
+    //             price: product.productPrice
+    //         }]
+    //     }
+
+    // //    try{
+    //      axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
+    //         console.log(response.data);
+
+    //         window.location.reload();
+    //         console.log("Upload success:", response.data);
+    //         alert("Product added to wishlist!");
+    //     })
+    //     .catch((error)=>{
+    //         console.log(error.response)
+    //         if(error.response?.status===409){
+    //             alert("product already in wishlist")
+    //         }
+    //         else{
+    //             alert("something wrong")
+    //         }
+
+    //     })
+    //     ;
+    // }
+
 
     const handleWishlist = (product) => {
         console.log(product);
+        
 
         const data = {
-            user: currentUser.id,
+            userId: currentUser.id,
             items: [{
                 productId: product.id,
                 quantity: 1,
                 price: product.productPrice
             }]
-        }
+        };
 
-    //    try{
-         axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
-            console.log(response.data);
+        axios.post("http://localhost:8090/api/wishlist", data)
+            .then(() => {
+                alert("Product added to wishlist ❤️");
+            })
+            .catch((error) => {
+                if (error.response?.status === 409) {
+                    alert("Product already in wishlist");
+                } else {
+                    alert("Something went wrong");
+                }
+            });
+    };
 
-            window.location.reload();
-            console.log("Upload success:", response.data);
-            alert("Product added to wishlist!");
-        })
-        .catch((error)=>{
-            console.log(error.response)
-            if(error.response?.status===409){
-                alert("product already in wishlist")
-            }
-            else{
-                alert("something wrong")
-            }
 
-        })
-        ;
-    }
-     
 
     return (
         <div>
@@ -127,11 +155,11 @@ const Userproduct = () => {
                                                     <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
                                                     <p>{product.productName}</p>
                                                     <p>{product.productId}</p>
-                                                    <p> {product.productPrice}</p>
-                                                    <button className='card-wishlist-btn' onClick={() => handleWishlist(product)}><FiHeart className="wishlist-icon" /></button>
+                                                    <p> ₹{product.productPrice}</p>
+                                                    <button className='card-wishlist-btn' onClick={() => handleWishlist(product)}>
+                                                    <FiHeart className="wishlist-icon" /></button>
 
                                                 </Card.Text>
-                                                {/* <Button variant="primary" onClick={() => handleCart(product)}>Add to cart</Button> */}
                                                 <Col>
                                                     <Button type='submit' onClick={() => handleCart(product)}>Add to cart</Button>
 
