@@ -13,10 +13,12 @@ import chain from './chain.png'
 import Carousel from 'react-bootstrap/Carousel';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Navigate } from "react-router-dom";
+import { Link } from 'react-router';
+
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 
 const Home = () => {
-   let navigate = useNavigate();
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
   useEffect(() => {
@@ -34,28 +36,28 @@ const Home = () => {
     {
       id: "1",
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwb84a9317/homepage/HeroBanner/mriganka-wo-desktop.jpg ",
-     
+
     },
     {
       id: 2,
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwa85a00d2/homepage/HeroBanner/festive-edit-desktop.jpg",
-     
+
     },
     {
       id: 3,
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw32e1f8d0/homepage/HeroBanner/floral-bloom-desktop.jpg",
-      
+
     }
     ,
     {
       id: 4,
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwd8ef7708/homepage/HeroBanner/mriganka-wo-desktop-new.jpg",
-     
+
     },
     {
       id: 5,
       image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwb3ca7843/homepage/HeroBanner/dailywear-desktop1.jpg",
-      
+
     }
 
   ]
@@ -94,7 +96,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-      <section>
+      {/* <section>
 
         <Container>
           <Row>
@@ -113,14 +115,52 @@ const Home = () => {
 
 
               <Col md={6}>
-                <div className=''>
+                <div className='collection2'>
                   <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwfba22b76/homepage/tanishq-collections/stunning-every-ear.jpg' alt='' className='collection2 img-fluid'/>
                 </div>
-                <div className=''>
+                <div className='collection2'>
                   <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw43869af4/homepage/tanishq-collections/floral-bloom.jpg' alt='' className='img-fluid' />
                 </div>
               </Col>
             </Row>
+          </Row>
+        </Container>
+      </section> */}
+      <section>
+        <Container>
+          <Row>
+            <Col className='collection'>
+              <h3> Tanishq Collection</h3>
+              <h4>Explore our Newly launched collection</h4>
+            </Col>
+          </Row>
+          <Row className="align-items-stretch">
+            <Col md={6}>
+              <div className="collection-box big">
+                <img
+                  src="https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwc5b6b963/homepage/tanishq-collections/festive-edit-desktop.jpg"
+                  alt=""
+                />
+              </div>
+            </Col>
+
+            <Col md={6}>
+              <div className="right-column">
+                <div className="collection-box small">
+                  <img
+                    src="https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwfba22b76/homepage/tanishq-collections/stunning-every-ear.jpg"
+                    alt=""
+                  />
+                </div>
+
+                <div className="collection-box small">
+                  <img
+                    src="https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw43869af4/homepage/tanishq-collections/floral-bloom.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </Col>
           </Row>
         </Container>
       </section>
@@ -138,41 +178,62 @@ const Home = () => {
           <Row className='category1'>
             <Col md={3} >
               <div>
-                <img src={earing} alt='earing' />
-                <h4>EARINGS</h4>
+                <Link to="/Earrings" className="text-decoration-none text-dark">
+                  <img src={earing} alt='earing' />
+                  <h4>EARINGS</h4>
+                </Link>
+
               </div></Col>
             <Col md={3}>
 
               <div>
-                <img src={finger_ring} alt='finger_ring' />
-                <h4>FINGER RINGS</h4>
+                <Link to="/Rings" className="text-decoration-none text-dark">
+                  <img src={finger_ring} alt='finger_ring' />
+                  <h4>FINGER RINGS</h4>
+                </Link>
+
               </div></Col>
             <Col md={3}>
 
               <div>
-                <img src={pendants} alt='pendants' />
-                <h4>PENDANTS</h4>
+                <Link to="/Pendant" className="text-decoration-none text-dark">
+                  <img src={pendants} alt='pendants' />
+                  <h4>PENDANTS</h4>
+                </Link>
               </div></Col>
             <Col md={3}>
               <div>
-                <img src={mangalsutra} alt='mangalsutra'></img>
-                <h4>MANGALSUTRA</h4>
+                <Link to="/Mangalsutra" className="text-decoration-none text-dark">
+                  <img src={mangalsutra} alt='mangalsutra'></img>
+                  <h4>MANGALSUTRA</h4>
+                </Link>
               </div></Col>
           </Row>
 
           <Row className='category2'>
             <Col md={3}>
               <div>
-                <img src={bracelets} alt='bracelets' />
-                <h4>BRACELETS</h4></div></Col>
+                <Link className="text-decoration-none text-dark">
+                  <img src={bracelets} alt='bracelets' />
+                  <h4>BRACELETS</h4>
+                </Link>
+
+              </div></Col>
             <Col md={3}>
               <div>
-                <img src={bangles} alt='bangles' />
-                <h4>BANGLES</h4></div></Col>
+                <Link className="text-decoration-none text-dark">
+                  <img src={bangles} alt='bangles' />
+                  <h4>BANGLES</h4>
+                </Link>
+
+              </div></Col>
             <Col md={3}>
               <div>
-                <img src={chain} alt='chain' />
-                <h4>CHAIN</h4></div></Col>
+                <Link className="text-decoration-none text-dark">
+                  <img src={chain} alt='chain' />
+                  <h4>CHAIN</h4>
+                </Link>
+              </div></Col>
             <Col md={3} className='view_all' >
 
               <h3>10+</h3>
@@ -226,21 +287,40 @@ const Home = () => {
           <Row>
             <Col md={6}>
               <div>
-                <img src='./wedding.png' />
-                <h4>WEDDING</h4>
+                <Link to='/Wedding' className="text-decoration-none text-dark">
+                  <img src='./wedding.png' className="img-fluid" />
+                  <h4>WEDDING</h4>
+
+                </Link>
+
               </div>
-              <div><img src='./gold.png' />
-                <h4>GOLD</h4></div>
+              <div>
+                <Link to="/Gold" className="text-decoration-none text-dark">
+                  <img src='./gold.png' className="img-fluid" />
+                  <h4>GOLD</h4>
+                </Link>
+
+
+              </div>
             </Col>
             <Col md={6}>
 
               <div>
-                <img src='./diamond.png' />
-                <h4>DIAMOND</h4></div>
+                <Link to='/Diamond' className="text-decoration-none text-dark">
+                  <img src='./diamond.png' className="img-fluid" />
+                  <h4>DIAMOND</h4>
+                </Link>
+
+              </div>
 
               <div>
-                <img src='./dailywear.png' />
-                <h4>DAILY WEAR</h4></div></Col>
+                <Link to="/Dailywear" className="text-decoration-none text-dark">
+                  <img src='./dailywear.png' className="img-fluid" />
+                  <h4>DAILY WEAR</h4>
+                </Link>
+
+              </div>
+            </Col>
           </Row>
         </Container>
       </section>

@@ -83,7 +83,7 @@ const Addnewaddress = () => {
             >
                 {({ errors, touched }) => (
                     <Form>
-                        <div className='addressform'>
+                        <div className='newaddressform'>
 
                             <Row>
                                 <Col>
@@ -180,7 +180,7 @@ const Addnewaddress = () => {
 
                             <Row >
                                 <Col>
-                                    <button type="submit" className='address-btn'>Submit</button>
+                                    <button type="submit" className='address-btn'>Add Address</button>
                                 </Col>
                             </Row>
                         </div>

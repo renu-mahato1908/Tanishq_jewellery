@@ -97,20 +97,20 @@ const Wedding = () => {
             </section>
 
 
-             <section>
+            <section>
                 <Container>
                     <Row>
                         <Col>
-                        <video controls width='100%'>
-                            <source src='https://staticimg.tanishq.co.in/microsite/rivaah-brides/bengali-bride/assets/bengali-desktop.mp4'/>
-                            
-                            </video> 
+                            <video controls width='100%'>
+                                <source src='https://staticimg.tanishq.co.in/microsite/rivaah-brides/bengali-bride/assets/bengali-desktop.mp4' />
+
+                            </video>
                         </Col>
                     </Row>
                 </Container>
-            </section> 
+            </section>
 
-            
+
             <section>
                 <Container>
 
@@ -120,51 +120,51 @@ const Wedding = () => {
                             <h2>Bengoli Bride Jwellery</h2>
                         </Col>
                     </Row>
-                  
-
-                        <Row>
 
 
-                            <Col md={4}>
-                                <div className='polaroid'>
-                                                                  <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                    
-                                    <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw98b278d5/images/hi-res/51AG71VAG1AP1_2.jpg?sw=480&sh=480' alt='' thumbnail />
-                                    <div className='detail'>
-                                        <h4>Traditional Gold Pola  for  Bengali Bride</h4>
-                                        <h5>₹40 807</h5>
-                                    </div>
-                                    <button className='buy-btn'>Buy now</button>
+                    <Row>
+
+
+                        <Col md={4}>
+                            <div className='polaroid'>
+                                <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
+
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw98b278d5/images/hi-res/51AG71VAG1AP1_2.jpg?sw=480&sh=480' alt='' thumbnail />
+                                <div className='detail'>
+                                    <p>Traditional Gold Pola  for  Bengali Bride</p>
+                                    <h5>₹40 807</h5>
                                 </div>
-                            </Col>
-                            
-                             <Col md={4}>
-                                <div className='polaroid'>
-                                                                  <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                    
-                                    <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwae2785d8/images/hi-res/511031NMHAA00_2.jpg?sw=480&sh=480' alt='' thumbnail />
-                                    <div className='detail'>
-                                        <h4>Stately Gold Necklace for the Bengali Bride</h4>
-                                        <h5>₹ 749865</h5>
-                                    </div>
-                                    <button className='buy-btn'>Buy now</button>
-                                </div>
-                            </Col>
+                                <button className='buy-btn'>Buy now</button>
+                            </div>
+                        </Col>
 
-                            <Col md={4}>
-                                <div className='polaroid' >
-                                                                  <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                    
-                                    <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw16eefa81/images/hi-res/5114182ERABA00_2.jpg?sw=480&sh=480' alt='' thumbnail />
-                                    <div className='detail' >
-                                        <h4>Sculpted Radiance Gold Necklace Set</h4>
-                                        <h5>₹ 49865</h5>
-                                    </div>
-                                    <button className='buy-btn'>Buy now</button>
+                        <Col md={4}>
+                            <div className='polaroid'>
+                                <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
+
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwae2785d8/images/hi-res/511031NMHAA00_2.jpg?sw=480&sh=480' alt='' thumbnail />
+                                <div className='detail'>
+                                    <p>Stately Gold Necklace for the Bengali Bride</p>
+                                    <h5>₹ 749865</h5>
                                 </div>
-                            </Col>
-                        </Row>
-                    
+                                <button className='buy-btn'>Buy now</button>
+                            </div>
+                        </Col>
+
+                        <Col md={4}>
+                            <div className='polaroid' >
+                                <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
+
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw16eefa81/images/hi-res/5114182ERABA00_2.jpg?sw=480&sh=480' alt='' thumbnail />
+                                <div className='detail' >
+                                    <p>Sculpted Radiance Gold Necklace Set</p>
+                                    <h5>₹ 49865</h5>
+                                </div>
+                                <button className='buy-btn'>Buy now</button>
+                            </div>
+                        </Col>
+                    </Row>
+
 
                 </Container>
             </section>

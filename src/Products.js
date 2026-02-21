@@ -61,7 +61,7 @@ const Products = () => {
                     <Row className='mapingimage'>
                         <Col>
 
-                            <h4>Products</h4>
+                            {/* <h4>Products</h4> */}
                             <Table striped bordered hover>
                                 <thead>
                                     <tr>
@@ -91,7 +91,7 @@ const Products = () => {
 
 
                                                     <td>{product.productCategory}</td>
-                                                    <td>{product.productPrice}</td>
+                                                    <td>₹{product.productPrice}</td>
                                                     <td>{product.productDescription}</td>
                                                     <td>{product.productGender}</td>
                                                     <td><button onClick={() => handleDelete(product.id)}>

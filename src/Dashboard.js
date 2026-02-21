@@ -119,12 +119,23 @@ const Dashboard = () => {
                         <Col>
 
                             <Breadcrumb>
-                                <Breadcrumb.Item href="Dashboard">Dashboard</Breadcrumb.Item>
-                                <Breadcrumb.Item href="Products">
-                                   Products
+                                <Breadcrumb.Item>
+                                    <Link to="/Dashboard">Dashboard</Link>
                                 </Breadcrumb.Item>
-                                
+
+                                <Breadcrumb.Item>
+                                    <Link to="/Products">Products</Link>
+                                </Breadcrumb.Item>
+
+                                <Breadcrumb.Item>
+                                    <Link to="/Addproduct"> Add Products</Link>
+                                </Breadcrumb.Item>
+
+                                <Breadcrumb.Item>
+                                    <Link to="/AddCategory">Add category</Link>
+                                </Breadcrumb.Item>
                             </Breadcrumb>
+
                         </Col>
                     </Row>
                 </Container>
@@ -151,14 +162,16 @@ const Dashboard = () => {
                                                 <img src='https://icon-library.com/images/account-icon-png/account-icon-png-10.jpg' alt=''></img>
                                                 <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Tr9fKwJjakFaxvBR7WFtttuKJq4lXwfnpA&s' alt=''></img>
                                                 <img src='https://cdn-icons-png.flaticon.com/512/1311/1311095.png' alt=''></img>
+                                                <img src='https://static.vecteezy.com/system/resources/thumbnails/029/163/312/small/add-files-glyph-icon-add-folder-symbol-empty-folder-new-directory-for-document-portfolio-storage-online-gallery-flat-logo-pictogram-illustration-design-on-white-background-eps-10-vector.jpg' alt=''></img>
 
 
                                             </Col>
                                             <Col>
                                                 <h3>Dashboard</h3>
                                                 <Link to={"/Account"}><h3>Account</h3></Link>
-                                                <Link to={"/AdminOrders"}><h3>Admin orders</h3></Link>
+                                                <Link to={"/Addproduct"}><h3>Addproduct</h3></Link>
                                                 <Link to={"/Products"}><h3> Products</h3></Link>
+                                                <Link to={"/AddCategory"}> <h3>Add category</h3></Link>
 
 
                                             </Col>

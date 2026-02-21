@@ -73,17 +73,27 @@ const Cart = () => {
 
 
 
-  const [count, setCount] = useState(30);
-  console.log(count);
+  // const [count, setCount] = useState(30);
+  // console.log(count);
 
-  const increase = () => {
-    setCount(count + 1);
-  }
+  // const increase = () => {
+  //   setCount(count + 1);
+  // }
 
-  const decrease = () => {
-    setCount(count - 1);
-  }
+  // const decrease = () => {
+  //   setCount(count - 1);
+  // }
 
+  // const [updateQty, setQty] = useState(30);
+  // console.log(updateQty);
+
+  // const increase = () => {
+  //   setQty(updateQty + 1);
+  // }
+
+  // const decrease = () => {
+  //   setQty(updateQty - 1);
+  // }
 
 
 
@@ -140,10 +150,17 @@ const Cart = () => {
                           <span>{cartItem.quantity}</span>
 
                           <button className="btn btn-sm btn-success ms-2" onClick={() => updateQty(cartItem.productId, 1)}>+</button>
+                          {/* <button className="btn btn-sm btn-danger me-2" onClick={decrease}>-</button>
+
+
+                          <span>{cartItem.quantity}</span>
+
+                          <button className="btn btn-sm btn-success ms-2" onClick={increase}>+</button> */}
 
                         </td>
 
                         <td>₹{cartItem.price}</td>
+
                         <td><button onClick={() => handleDelete()}>
                           {<RiDeleteBinLine />}</button></td>
 

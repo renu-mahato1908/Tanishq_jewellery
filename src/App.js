@@ -24,11 +24,11 @@ import Notice from './Notice';
 import Example from './Example';
 import Order from './Order';
 import Register from './Register';
-import Addcategory from './Addcategory';
+import Addcategorytest from './Addcategorytest';
 import Address from './Address';
 import XYZ from './XYZ';
 import Addproduct from './Addproduct';
-import Addtocategory from './Addtocategory';
+import AddCategory from './AddCategory';
 import PunjabiBrideJewellery from './PunjabiBrideJewellery';
 
 import Account from './Account';
@@ -42,6 +42,8 @@ import Cart2 from './Cart2';
 import Userproduct from './Userproduct';
 import Wishlist from './Wishlist';
 import Category from './Category';
+import Pendant from './Pendant';
+import Mangalsutra from './Mangalsutra';
 
 
 
@@ -115,10 +117,10 @@ function App() {
         <Route path='/Register' element={<Register></Register>}></Route>
 
         {/* Addproducts */}
-        <Route path='/Addproducts' element={<Addcategory />}></Route>
+        <Route path='/Addproduct' element={<Addproduct />}></Route>
 
         {/* Addcategory */}
-        <Route path='/Addcategory' element={<Addcategory />}></Route>
+        <Route path='/Addcategorytest' element={<Addcategorytest />}></Route>
 
 
 
@@ -133,7 +135,7 @@ function App() {
         <Route path='/Addproduct' element={<Addproduct />}></Route>
 
         {/* Add to category */}
-        <Route path='/Addtocategory' element={<Addtocategory />}></Route>
+        <Route path='/AddCategory' element={<AddCategory />}></Route>
 
        
 
@@ -160,6 +162,11 @@ function App() {
         <Route path='/Userproduct' element={<Userproduct/>}></Route>
 
         <Route path='/Wishlist' element={<Wishlist></Wishlist>}></Route>
+
+        {/* PENDANT */}
+        <Route path='/Pendant' element={<Pendant/>}></Route>
+
+        <Route path='/Mangalsutra' element={<Mangalsutra></Mangalsutra>}></Route>
 
         <Route path='/Category/:categoryName' element={<Category></Category>}></Route>
 

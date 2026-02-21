@@ -1,23 +1,11 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from "react-redux";
-
-
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
-import './Component.css';
+import React from 'react'
+import { Container, Row, Col, Image } from 'react-bootstrap';
 import { FiHeart } from "react-icons/fi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import './Component.css';
 
 
-
-const Rings = () => {
-   
-
-      
-
+const Pendant = () => {
     return (
         <div>
             <section>
@@ -31,10 +19,10 @@ const Rings = () => {
 
 
 
-                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwea150ff7/images/hi-res/51K2I2FAPAA00_2.jpg?sw=480&sh=480" thumbnail />
+                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5703e4c2/images/hi-res/50DFB1PAQAAA32_2.jpg?sw=480&sh=480" thumbnail />
                                 <div className="details">
-                                    <p>Delicate Details Gold Finger Ring</p>
-                                    <h5>₹13916</h5>
+                                    <p>Versatile Chic Diamond Pendant</p>
+                                    <h5>₹73325</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -47,10 +35,10 @@ const Rings = () => {
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
                                 <button className='addtocart-btn' ><HiOutlineShoppingCart className='add-icon' /></button>
 
-                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw185b3ee9/images/hi-res/50D4I1FFWAA09_2.jpg?sw=480&sh=480" thumbnail />
+                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwed7e6be7/images/hi-res/512714PRIAAA00_1.jpg?sw=640&sh=640" thumbnail />
                                 <div className="details">
-                                    <p>Sculpted Grace Diamond Finger Ring</p>
-                                    <h5>₹ 38168</h5>
+                                    <p>Surreal Modern Abstract Floral Gold Pendant</p>
+                                    <h5>₹14985 </h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -65,10 +53,11 @@ const Rings = () => {
 
 
 
-                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw0d15c996/images/hi-res/50D4I1FNLAA09_2.jpg?sw=480&sh=480" thumbnail />
+                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw553be4a7/images/hi-res/51D4MGPDHAAA00_1.jpg?sw=640&sh=640" thumbnail />
                                 <div className="details">
-                                    <p>Dazzling Halo Diamond Finger Ring</p>
-                                    <h5>₹50735 </h5>
+                                    <p>Enchanting Leaf Gold Pendant
+                                    </p>
+                                    <h5>₹29178 </h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -86,10 +75,10 @@ const Rings = () => {
 
 
 
-                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw4443a30e/images/hi-res/50D4B3FOUAA09_2.jpg?sw=480&sh=480" thumbnail />
+                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw7bd1fb47/images/hi-res/50K4I1PJMAAA09_1.jpg?sw=640&sh=640" thumbnail />
                                 <div className="details">
-                                    <p>Timeless Blossom Diamond Finger Ring</p>
-                                    <h5>₹30925</h5>
+                                    <p> Flower Diamond Pendant</p>
+                                    <h5>₹17916</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -105,10 +94,11 @@ const Rings = () => {
 
 
 
-                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw5605d11d/images/hi-res/51D4A1FCUAA00_2.jpg?sw=480&sh=480" thumbnail />
+                                <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw32f5d2f1/images/hi-res/50K4I1PJOAAA09_1.jpg?sw=640&sh=640" thumbnail />
                                 <div className="details">
-                                    <p>Intricate Gold Finger Ring</p>
-                                    <h5>₹83220</h5>
+                                    <p>
+                                        Lovely Diamond Pendant for Kids</p>
+                                    <h5>₹17985</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -123,10 +113,11 @@ const Rings = () => {
                                 <button className='addtocart-btn' ><HiOutlineShoppingCart className='add-icon' /></button>
 
 
-                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw3ff0830f/images/hi-res/50D2PTFYXAA09_2.jpg?sw=480&sh=480' thumbnail />
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8cf46ef0/images/hi-res/512714PXBAAA00_2.jpg?sw=480&sh=480' thumbnail />
                                 <div className="details">
-                                    <p>Modish Links Diamond Ring</p>
-                                    <h5>₹43592</h5>
+                                    <p>
+                                        Elegant Gold Leaf Pendant</p>
+                                    <h5>₹15047</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -143,10 +134,10 @@ const Rings = () => {
                                 <button className='addtocart-btn' ><HiOutlineShoppingCart className='add-icon' /></button>
 
 
-                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwe4bf267c/images/hi-res/510122FAAAA00_1.jpg?sw=480&sh=480' thumbnail />
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw07b8265e/images/hi-res/50D5L2PBCAAA09_1.jpg?sw=640&sh=640' thumbnail />
                                 <div className="details">
-                                    <p> Gold Leaf Patterned Finger Ring</p>
-                                    <h5>₹56668</h5>
+                                    <p> Spiral Bloom Diamond Pendant</p>
+                                    <h5>₹22967</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -161,10 +152,10 @@ const Rings = () => {
 
 
 
-                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwfc7fea94/images/hi-res/HLS2A1FCRA951_2.jpg?sw=480&sh=480' thumbnail />
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw8b528970/images/hi-res/50D6VDPAIAAA09_1.jpg?sw=640&sh=640' thumbnail />
                                 <div className="details">
-                                    <p>Stellar Embrace Solitaire Ring</p>
-                                    <h5>₹217316</h5>
+                                    <p>Happy Heart Diamond Pendant</p>
+                                    <h5>₹30581</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -180,10 +171,11 @@ const Rings = () => {
 
 
 
-                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw516b2042/images/hi-res/HL1090FKRAI81_2.jpg?sw=480&sh=480' thumbnail />
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw47addd28/images/hi-res/50D6VDPAHAAA09_2.jpg?sw=640&sh=640' thumbnail />
                                 <div className="details">
-                                    <p>Regal Aura Solitaire Ring for Men</p>
-                                    <h5>₹164943</h5>
+                                    <p>
+                                        Sunny Love Diamond Pendant</p>
+                                    <h5>₹ 35568</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -202,10 +194,11 @@ const Rings = () => {
 
 
 
-                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw4bf1f662/images/hi-res/50D5FLFANAB32_2.jpg?sw=480&sh=480' thumbnail />
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwc214e02d/images/hi-res/50D5WMPAFAAA02_1.jpg?sw=640&sh=640' thumbnail />
                                 <div className="details">
-                                    <p>Spiral Sparkle Diamond Ring</p>
-                                    <h5>₹90080</h5>
+                                    <p>Sculpted Wing Diamond Pendant
+                                    </p>
+                                    <h5>₹53454</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -221,10 +214,10 @@ const Rings = () => {
 
 
 
-                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw938ddbba/images/hi-res/HLS2I2FMFAU83_2.jpg?sw=480&sh=480' thumbnail />
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw17f4dcc7/images/hi-res/50D5WXPAJAAA02_1.jpg?sw=640&sh=640' thumbnail />
                                 <div className="details">
-                                    <p>Forever Arc Solitaire Ring for Men</p>
-                                    <h5>₹119541</h5>
+                                    <p>Aureate Wing Diamond Pendant</p>
+                                    <h5>₹25387</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -239,10 +232,10 @@ const Rings = () => {
 
 
 
-                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw54d265e5/images/hi-res/50D2P2FZJAR29_2.jpg?sw=480&sh=480' thumbnail />
+                                <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw97b7a1c2/images/hi-res/50D5L2PAYAAA09_1.jpg?sw=640&sh=640' thumbnail />
                                 <div className="details">
-                                    <p>Aurora Bloom Diamond Rings</p>
-                                    <h5>₹56870</h5>
+                                    <p>Floating Flora Diamond Pendant</p>
+                                    <h5>₹22685</h5>
                                 </div>
                                 <button className='buy-btn'>
                                     Buy now
@@ -254,9 +247,8 @@ const Rings = () => {
                     </Row>
                 </Container>
             </section >
-
-        </div >
+        </div>
     )
 }
 
-export default Rings
+export default Pendant

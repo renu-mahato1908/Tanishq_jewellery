@@ -310,7 +310,7 @@ const Address = () => {
                                 }}
                             >
                                 {({ handleSubmit, handleChange, values, touched, errors }) => (
-                                    <div className='category'>
+                                    <div className='addressform2'>
 
 
                                         <Form>
@@ -333,7 +333,6 @@ const Address = () => {
                                                                                 <label>
                                                                                     <Field type="radio" name="addressId" value={address.id} />
                                                                                     {address.addressLine1},
-                                                                                    {/* {address.addressLine1}, */}
                                                                                 </label>
 
 

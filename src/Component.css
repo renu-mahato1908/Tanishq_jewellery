@@ -30,8 +30,8 @@
 }
 
 .polaroid button:hover {
-    color: yellow;
-    background: #ccc;
+    color: black;
+    background: #EBCEA3;
 }   
 .Image{
      background:gray;
