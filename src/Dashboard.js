@@ -153,7 +153,7 @@ const Dashboard = () => {
 
                                 <Offcanvas show={show} onHide={handleClose}>
                                     <Offcanvas.Header closeButton>
-                                        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                                        {/* <Offcanvas.Title>Offcanvas</Offcanvas.Title> */}
                                     </Offcanvas.Header>
                                     <Offcanvas.Body>
                                         <Row className='canvas2'>

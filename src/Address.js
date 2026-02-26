@@ -109,7 +109,20 @@ const Address = () => {
 
     }, []);
 
+    const handleDeleteAddress = (addressId) => {
+        axios
+            .delete(`http://localhost:8090/api/addresses/${addressId}`)
+            .then(() => {
+                alert("Address deleted successfully");
 
+                // 🔥 UI se bhi remove karo
+                setAddresses(addresses.filter(addr => addr.id !== addressId));
+            })
+            .catch(err => {
+                console.log(err);
+                alert("Failed to delete address");
+            });
+    };
 
 
 
@@ -139,6 +152,8 @@ const Address = () => {
                     // same shape as initial values
                     console.log(values);
                 }}
+
+
             >
 
                 {({ errors, touched }) => (
@@ -322,7 +337,6 @@ const Address = () => {
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    {/* <Field name="addressId" /> */}
                                                     {
                                                         addresses ?
                                                             addresses.map((address, index) => {
@@ -332,7 +346,7 @@ const Address = () => {
                                                                             <Col className='add_Id' >
                                                                                 <label>
                                                                                     <Field type="radio" name="addressId" value={address.id} />
-                                                                                    {address.addressLine1},
+                                                                                    {address.addressLine1}
                                                                                 </label>
 
 
@@ -342,7 +356,7 @@ const Address = () => {
                                                                                 <Col >
                                                                                     <label>
                                                                                         <Field type="radio" name="addressId" value={address.id} />
-                                                                                        {address.addressLine2},
+                                                                                        {address.addressLine2}
 
                                                                                     </label>
                                                                                 </Col>
@@ -367,11 +381,21 @@ const Address = () => {
 
                                             <button type="submit" className=' cate-btn'>Order</button>
                                         </Form>
+
+
+
+                                      
                                     </div>
                                 )}
                             </Formik>
                         </Col>
                     </Row>
+                </Container>
+            </section>
+
+            <section>
+                <Container>
+
                 </Container>
             </section>
         </div>

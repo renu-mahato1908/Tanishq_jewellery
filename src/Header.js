@@ -76,7 +76,25 @@ const Header = () => {
 
 
 
-                <Link to={'/Account'}><i className=' fa-solid fa-address-card '></i></Link>
+                {/* <Link to={'/Account'}><i className=' fa-solid fa-address-card '></i></Link>
+                <ul className="dropdown-menu">
+                  <li><Link to="/Account">My Account</Link></li>
+                  <li><Link to="/Orders">My Orders</Link></li>
+                  <li><Link to="/Wishlist">Wishlist</Link></li>
+                  <li><Link to="/Address">Saved Address</Link></li>
+                </ul> */}
+
+                {/* ACCOUNT DROPDOWN */}
+                <div className="account-dropdown">
+                  <i className="fa-solid fa-address-card"></i>
+
+                  <ul className="dropdown-menu">
+                    <li><Link to="/Account">My Account</Link></li>
+                    <li><Link to="/Orders">My Orders</Link></li>
+                    <li><Link to="/Wishlist">Wishlist</Link></li>
+                    <li><Link to="/Address">Saved Address</Link></li>
+                  </ul>
+                </div>
                 {/* <p>Account</p> */}
 
 
@@ -132,7 +150,7 @@ const Header = () => {
 
                       <img src='https://cdn-icons-png.flaticon.com/128/8561/8561509.png' alt=''></img>
                       <Nav.Link as={Link} to={'Category/Dailywear'}>Daily wear</Nav.Link>
-                     
+
 
                       <img src='https://cdn-icons-png.flaticon.com/128/531/531864.png' alt=''></img>
                       <Nav.Link as={Link} to={'Category/Wedding'}>Wedding</Nav.Link>

@@ -34,9 +34,22 @@ const Cart = () => {
 
   }, [currentUser]);
 
-  const handleDelete = () => {
-    console.log("delete button clicked")
-    alert("delete button clicked");
+  // const handleDelete = () => {
+  //   console.log("delete button clicked")
+  //   alert("delete button clicked");
+
+  // }
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}/item/${id}`).then((response) => {
+      console.log(response.data);
+      console.log("Cart item deleted");
+      window.location.reload();
+
+
+
+    });
 
   }
 
@@ -58,42 +71,23 @@ const Cart = () => {
       });
   }, []);
 
-  const updateQty = (productId, change) => {
-    setCartItems(prev =>
-      prev.map(item =>
-        item.productId === productId
-          ? {
-            ...item,
-            quantity: Math.max(1, item.quantity + change)
-          }
-          : item
-      )
-    );
-  };
+
+
+  const quantityUpdate = (productId, newQuantity) => {
+    console.log(productId)
+    console.log(newQuantity)
+    if (newQuantity < 1) return;
+    axios.put(`http://localhost:8090/api/carts/user/${currentUser.id}/item/${productId}`, { quantity: newQuantity }).then((response) => {
+      console.log(response.data);
+      console.log("Cart item updated");
+      window.location.reload();
 
 
 
-  // const [count, setCount] = useState(30);
-  // console.log(count);
+    });
 
-  // const increase = () => {
-  //   setCount(count + 1);
-  // }
+  }
 
-  // const decrease = () => {
-  //   setCount(count - 1);
-  // }
-
-  // const [updateQty, setQty] = useState(30);
-  // console.log(updateQty);
-
-  // const increase = () => {
-  //   setQty(updateQty + 1);
-  // }
-
-  // const decrease = () => {
-  //   setQty(updateQty - 1);
-  // }
 
 
 
@@ -110,7 +104,7 @@ const Cart = () => {
                 <tr>
                   <th>Sl</th>
                   <th>Image</th>
-                  <th> Product  Id</th>
+                  <th> Product  Name</th>
                   <th>Quantity</th>
 
                   <th>Price</th>
@@ -139,29 +133,25 @@ const Cart = () => {
                           )}
                         </td>
 
+                        <td>
+                          {products[cartItem.productId]?.productName}
+                        </td>
 
-
-                        <td>{cartItem.productId}</td>
-                        {/* <td>{cartItem.quantity}</td> */}
+                        {/* <td>{cartItem.productName}</td> */}
                         <td className="text-center">
-                          <button className="btn btn-sm btn-danger me-2" onClick={() => updateQty(cartItem.productId, -1)}>-</button>
+                          <button className="btn btn-sm btn-danger me-2" onClick={() => quantityUpdate(cartItem.productId, cartItem.quantity - 1)} disabled={cartItem.quantity <= 1}>-</button>
 
 
                           <span>{cartItem.quantity}</span>
 
-                          <button className="btn btn-sm btn-success ms-2" onClick={() => updateQty(cartItem.productId, 1)}>+</button>
-                          {/* <button className="btn btn-sm btn-danger me-2" onClick={decrease}>-</button>
+                          <button className="btn btn-sm btn-success ms-2" onClick={() => quantityUpdate(cartItem.productId, cartItem.quantity + 1)}>+</button>
 
-
-                          <span>{cartItem.quantity}</span>
-
-                          <button className="btn btn-sm btn-success ms-2" onClick={increase}>+</button> */}
 
                         </td>
 
-                        <td>₹{cartItem.price}</td>
+                        <td>₹{cartItem.price * cartItem.quantity}</td>
 
-                        <td><button onClick={() => handleDelete()}>
+                        <td><button onClick={() => handleDelete(cartItem.productId)}>
                           {<RiDeleteBinLine />}</button></td>
 
 

@@ -11,7 +11,9 @@ import { useNavigate } from "react-router";
 import { FiHeart } from "react-icons/fi";
 
 
+
 const Userproduct = () => {
+    
 
     const [products, setProducts] = useState([]);
 
@@ -35,7 +37,7 @@ const Userproduct = () => {
         window.location.reload();
     };
 
-
+  
 
 
     useEffect(() => {
@@ -129,7 +131,7 @@ const Userproduct = () => {
 
                                                 </Card.Text>
                                                 <Col>
-                                                    <Button type='submit' onClick={() => handleCart(product)}>Add to cart</Button>
+                                                    <Button type='submit' onClick={() => handleCart(product)} >Add to cart</Button>
 
                                                 </Col>
                                             </Card.Body>
