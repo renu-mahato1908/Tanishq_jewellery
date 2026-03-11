@@ -78,7 +78,7 @@ const Home = () => {
                   slides.map((slide, index) => {
                     return (
                       <Carousel.Item key={index}>
-                        <img src={slide.image} className='img-fluid' />
+                        <img src={slide.image} className='img-fluid' alt="" />
                         <Carousel.Caption>
                           <h3>{slide.label}</h3>
                           <h3>{slide.description}</h3>
@@ -96,36 +96,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-      {/* <section>
 
-        <Container>
-          <Row>
-            <Col className='collection'>
-              <h3> Tanishq Collection</h3>
-              <h4>Explore our Newly launched collection</h4>
-            </Col>
-
-            <Row>
-              <Col md={6} >
-                <div className=''>
-
-                  <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwc5b6b963/homepage/tanishq-collections/festive-edit-desktop.jpg' alt='' className='img-fluid'/>
-                </div>
-              </Col>
-
-
-              <Col md={6}>
-                <div className='collection2'>
-                  <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwfba22b76/homepage/tanishq-collections/stunning-every-ear.jpg' alt='' className='collection2 img-fluid'/>
-                </div>
-                <div className='collection2'>
-                  <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw43869af4/homepage/tanishq-collections/floral-bloom.jpg' alt='' className='img-fluid' />
-                </div>
-              </Col>
-            </Row>
-          </Row>
-        </Container>
-      </section> */}
       <section>
         <Container>
           <Row>
@@ -178,7 +149,7 @@ const Home = () => {
           <Row className='category1'>
             <Col md={3} >
               <div>
-                <Link to="/Earrings" className="text-decoration-none text-dark">
+                <Link to={`/category/Earrings`} className="text-decoration-none text-dark">
                   <img src={earing} alt='earing' />
                   <h4>EARINGS</h4>
                 </Link>
@@ -187,7 +158,7 @@ const Home = () => {
             <Col md={3}>
 
               <div>
-                <Link to="/Rings" className="text-decoration-none text-dark">
+                <Link to={`/category/Rings`} className="text-decoration-none text-dark">
                   <img src={finger_ring} alt='finger_ring' />
                   <h4>FINGER RINGS</h4>
                 </Link>
@@ -196,14 +167,14 @@ const Home = () => {
             <Col md={3}>
 
               <div>
-                <Link to="/Pendant" className="text-decoration-none text-dark">
+                <Link to={`/category/Pendant`} className="text-decoration-none text-dark">
                   <img src={pendants} alt='pendants' />
                   <h4>PENDANTS</h4>
                 </Link>
               </div></Col>
             <Col md={3}>
               <div>
-                <Link to="/Mangalsutra" className="text-decoration-none text-dark">
+                <Link to={`/category/Mangalsutra`} className="text-decoration-none text-dark">
                   <img src={mangalsutra} alt='mangalsutra'></img>
                   <h4>MANGALSUTRA</h4>
                 </Link>
@@ -213,7 +184,7 @@ const Home = () => {
           <Row className='category2'>
             <Col md={3}>
               <div>
-                <Link className="text-decoration-none text-dark">
+                <Link to={`/category/Bracelets`} className="text-decoration-none text-dark">
                   <img src={bracelets} alt='bracelets' />
                   <h4>BRACELETS</h4>
                 </Link>
@@ -221,7 +192,7 @@ const Home = () => {
               </div></Col>
             <Col md={3}>
               <div>
-                <Link className="text-decoration-none text-dark">
+                <Link to={`/category/Bangles`} className="text-decoration-none text-dark">
                   <img src={bangles} alt='bangles' />
                   <h4>BANGLES</h4>
                 </Link>
@@ -240,7 +211,8 @@ const Home = () => {
 
               <p>categories to choose all</p>
               <div>
-                <h4>VIEW ALL</h4>
+                <Link to={`/userproduct`}><h4>VIEW ALL</h4></Link>
+
               </div></Col>
           </Row>
         </Container>
@@ -259,17 +231,17 @@ const Home = () => {
             <Col md={4}>
               <div>
 
-                <img src='./auspicious.png' />
+                <img src='./auspicious.png' alt="" />
                 <h4>Auspicious Occasion</h4></div></Col>
             <Col md={4}>
               <div>
 
-                <img src='./gifting.png' />
+                <img src='./gifting.png' alt="" />
                 <h4>Gifting Jewellery</h4></div></Col>
             <Col md={4}>
               <div>
 
-                <img src='./ring.png' />
+                <img src='./ring.png' alt="" />
                 <h4>Drop of Radiance</h4></div></Col>
           </Row>
         </Container>
@@ -287,16 +259,16 @@ const Home = () => {
           <Row>
             <Col md={6}>
               <div>
-                <Link to='/Wedding' className="text-decoration-none text-dark">
-                  <img src='./wedding.png' className="img-fluid" />
+                <Link to={`/category/Wedding`} className="text-decoration-none text-dark">
+                  <img src='./wedding.png' className="img-fluid" alt="" />
                   <h4>WEDDING</h4>
 
                 </Link>
 
               </div>
               <div>
-                <Link to="/Gold" className="text-decoration-none text-dark">
-                  <img src='./gold.png' className="img-fluid" />
+                <Link to={`/category/Gold`} className="text-decoration-none text-dark">
+                  <img src='./gold.png' className="img-fluid" alt="" />
                   <h4>GOLD</h4>
                 </Link>
 
@@ -306,16 +278,16 @@ const Home = () => {
             <Col md={6}>
 
               <div>
-                <Link to='/Diamond' className="text-decoration-none text-dark">
-                  <img src='./diamond.png' className="img-fluid" />
+                <Link to={`/category/Diamond`} className="text-decoration-none text-dark">
+                  <img src='./diamond.png' className="img-fluid" alt="" />
                   <h4>DIAMOND</h4>
                 </Link>
 
               </div>
 
               <div>
-                <Link to="/Dailywear" className="text-decoration-none text-dark">
-                  <img src='./dailywear.png' className="img-fluid" />
+                <Link to={`/category/Dailywear`} className="text-decoration-none text-dark">
+                  <img src='./dailywear.png' className="img-fluid" alt="" />
                   <h4>DAILY WEAR</h4>
                 </Link>
 
@@ -353,26 +325,26 @@ const Home = () => {
             <Col md={3}>
               <div>
 
-                <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwd2ac5b8e/homepage/assurance/tanishq-exchange-logo.svg' />
+                <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwd2ac5b8e/homepage/assurance/tanishq-exchange-logo.svg' alt="" />
                 <p>Tanishq
                   Exchange</p></div></Col>
             <Col md={3}>
               <div>
 
-                <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw346e1c29/homepage/assurance/tanishq-purity-logo.svg' />
+                <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw346e1c29/homepage/assurance/tanishq-purity-logo.svg' alt="" />
                 <p>The Purity
                   Guarantee</p></div></Col>
             <Col md={3} >
               <div>
 
-                <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw8fc1a591/homepage/assurance/tanishq-trust-logo.svg' />
+                <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw8fc1a591/homepage/assurance/tanishq-trust-logo.svg' alt="" />
                 <p>Complete
                   Transparency
                   and Trust</p></div></Col>
             <Col md={3}>
               <div>
 
-                <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwbedd999e/homepage/assurance/tanishq-lifetime-logo.svg' />
+                <img src='https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwbedd999e/homepage/assurance/tanishq-lifetime-logo.svg' alt="" />
 
                 <p>Lifetime
                   Maintenance</p></div></Col>
@@ -392,15 +364,16 @@ const Home = () => {
           <Row>
             <Col md={4}>
               <div>
-                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw811805ad/homepage/ShopByGender/sbg-women.jpg'></img>
-                <h5>Women Jewellery</h5></div></Col>
+                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw811805ad/homepage/ShopByGender/sbg-women.jpg' alt=""></img>
+                <h5>Women Jewellery</h5>
+              </div></Col>
             <Col md={4}>
               <div>
-                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwe6fec18e/homepage/ShopByGender/sbg-men.jpg'></img>
+                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwe6fec18e/homepage/ShopByGender/sbg-men.jpg' alt=""></img>
                 <h5>Men Jewellery</h5></div></Col>
             <Col md={4}>
               <div>
-                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw1e976d94/homepage/ShopByGender/sbg-kids.jpg'></img>
+                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw1e976d94/homepage/ShopByGender/sbg-kids.jpg' alt=""></img>
                 <h5>Kids Jewellery</h5></div></Col>
           </Row>
         </Container>
@@ -417,18 +390,18 @@ const Home = () => {
           <Row>
             <Col md={4}>
               <div>
-                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw93bac46c/homepage/tanishq-experience/store-locator.jpg' />
+                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw93bac46c/homepage/tanishq-experience/store-locator.jpg' alt="" />
                 <h6>VISIT OUR STORE</h6>
               </div></Col>
             <Col md={4}>
               <div>
-                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwa5fbf111/homepage/tanishq-experience/book-an-appointment.jpg' />
+                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwa5fbf111/homepage/tanishq-experience/book-an-appointment.jpg' alt="" />
                 <h6>BOOK AN APPOINTMENT</h6>
               </div>
             </Col>
             <Col md={4}>
               <div>
-                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwe51566e5/homepage/tanishq-experience/talk-to-expert.png'></img>
+                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwe51566e5/homepage/tanishq-experience/talk-to-expert.png' alt=""></img>
                 <h6>TALK TO AN EXPERT</h6>
               </div>
             </Col>
@@ -437,20 +410,20 @@ const Home = () => {
           <Row>
             <Col md={4}>
               <div>
-                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw52758e7c/homepage/tanishq-experience/Digigold.jpg'></img>
+                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw52758e7c/homepage/tanishq-experience/Digigold.jpg' alt=""></img>
                 <h6>DIGI GOLD</h6>
               </div>
             </Col>
             <Col md={4}>
               <div>
-                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwbf8657ec/homepage/tanishq-experience/blogs.jpg'></img>
+                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwbf8657ec/homepage/tanishq-experience/blogs.jpg' alt=""></img>
                 <h6>BLOGS</h6>
               </div>
             </Col>
 
             <Col md={4}>
               <div>
-                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw8c17e244/homepage/tanishq-experience/jewellery-care-guide.jpg'></img>
+                <img src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw8c17e244/homepage/tanishq-experience/jewellery-care-guide.jpg' alt=""></img>
                 <h6>
                   JEWELLERY GUIDE
                 </h6>

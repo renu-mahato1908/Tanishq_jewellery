@@ -7,6 +7,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Navigate } from "react-router-dom";
+import Badge from 'react-bootstrap/Badge';
+import Stack from 'react-bootstrap/Stack';
 
 
 
@@ -83,15 +85,20 @@ const Address = () => {
 
     const handleSubmit = () => {
         console.log("Submit button clicked")
-        alert("submit button clicked");
+        // alert("submit button clicked");
     }
 
-    const handleAddress = () => {
-        console.log("Submit button clicked")
+    const handleAddress = (formData) => {
+        formData.userId = currentUser.id;
+        console.log(formData)
+
+        // console.log("Submit button clicked")
         alert("submit button clicked");
-        axios.post("http://localhost:8090/api/addresses").then((response) => {
+        axios.post(`http://localhost:8090/api/addresses`, formData).then((response) => {
             console.log(response.data)
         })
+        window.location.reload();
+
     }
 
 
@@ -102,27 +109,18 @@ const Address = () => {
 
 
         });
-
-
-
-
-
     }, []);
 
-    const handleDeleteAddress = (addressId) => {
-        axios
-            .delete(`http://localhost:8090/api/addresses/${addressId}`)
-            .then(() => {
-                alert("Address deleted successfully");
 
-                // 🔥 UI se bhi remove karo
-                setAddresses(addresses.filter(addr => addr.id !== addressId));
-            })
-            .catch(err => {
-                console.log(err);
-                alert("Failed to delete address");
-            });
-    };
+
+    const handleAddress2 = (values) => {
+        const data = {
+            addressId: values.addressId
+        };
+
+        console.log(data);
+    }
+
 
 
 
@@ -142,16 +140,12 @@ const Address = () => {
                     pin: '',
                     mobile: '',
                     email: '',
-                    addressType: '',
+                    addressType: ''
                 }}
 
                 validationSchema={SignupSchema}
 
-                onSubmit={values => {
-                    values.userId = currentUser.id;
-                    // same shape as initial values
-                    console.log(values);
-                }}
+                onSubmit={handleAddress}
 
 
             >
@@ -161,131 +155,159 @@ const Address = () => {
                         <div className='addressform'>
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>Name:</label>
                                 </Col>
 
-                                <Col>
+                                <Col md={8}>
                                     <Field name="name" />
-                                    {errors.name && touched.name ? (
-                                        <div>{errors.name}</div>
-                                    ) : null}
+                                    <span className="error-text">
+                                        {errors.name && touched.name ? (
+                                            <div>{errors.name}</div>
+                                        ) : null}
+                                    </span>
+
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>Address Line1:</label>
                                 </Col>
 
-                                <Col>
+                                <Col md={8}>
                                     <Field name="addressLine1" />
-                                    {errors.addressLine1 && touched.addressLine1 ? (
-                                        <div>{errors.addressLine1}</div>
-                                    ) : null}
+                                    <span className="error-text">
+                                        {errors.addressLine1 && touched.addressLine1 ? (
+                                            <div>{errors.addressLine1}</div>
+                                        ) : null}
+                                    </span>
+
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>Address Line2:</label>
                                 </Col>
 
-                                <Col>
+                                <Col md={8}>
                                     <Field name="addressLine2" />
-                                    {errors.addressLine2 && touched.addressLine2 ? (
-                                        <div>{errors.addressLine2}</div>
-                                    ) : null}
+                                    <span className="error-text">
+                                        {errors.addressLine2 && touched.addressLine2 ? (
+                                            <div>{errors.addressLine2}</div>
+                                        ) : null}
+                                    </span>
+
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>City:</label>
                                 </Col>
 
-                                <Col>
+                                <Col md={8}>
                                     <Field name="city" />
-                                    {errors.city && touched.city ? (
-                                        <div>{errors.city}</div>
-                                    ) : null}
+                                    <span className="error-text">
+                                        {errors.city && touched.city ? (
+                                            <div>{errors.city}</div>
+                                        ) : null}
+                                    </span>
+
                                 </Col>
                             </Row>
 
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>District:</label>
                                 </Col>
 
-                                <Col>
+                                <Col md={8}>
                                     <Field name="district" />
-                                    {errors.district && touched.district ? (
-                                        <div>{errors.district}</div>
-                                    ) : null}
+                                    <span className="error-text">
+                                        {errors.district && touched.district ? (
+                                            <div>{errors.district}</div>
+                                        ) : null}
+                                    </span>
+
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>State:</label>
                                 </Col>
 
-                                <Col>
+                                <Col md={8}>
                                     <Field name="state" />
-                                    {errors.state && touched.state ? (
-                                        <div>{errors.state}</div>
-                                    ) : null}
+                                    <span className="error-text">
+                                        {errors.state && touched.state ? (
+                                            <div>{errors.state}</div>
+                                        ) : null}
+                                    </span>
+
                                 </Col>
                             </Row>
 
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>Pin:</label>
                                 </Col>
 
-                                <Col>
+                                <Col md={8}>
                                     <Field name="pin" />
-                                    {errors.pin && touched.pin ? (
-                                        <div>{errors.pin}</div>
-                                    ) : null}
+                                    <span className="error-text">
+                                        {errors.pin && touched.pin ? (
+                                            <div>{errors.pin}</div>
+                                        ) : null}
+                                    </span>
+
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>Mobile:</label>
                                 </Col>
 
-                                <Col>
+                                <Col md={8}>
                                     <Field name="mobile" />
-                                    {errors.mobile && touched.mobile ? (
-                                        <div>{errors.mobile}</div>
-                                    ) : null}
+                                    <span className="error-text">
+                                        {errors.mobile && touched.mobile ? (
+                                            <div>{errors.mobile}</div>
+                                        ) : null}
+
+                                    </span>
+
                                 </Col>
                             </Row>
 
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>Email:</label>
                                 </Col>
 
-                                <Col>
+                                <Col md={8}>
                                     <Field name="email" />
-                                    {errors.email && touched.email ? (
-                                        <div>{errors.email}</div>
-                                    ) : null}
+                                    <span className="error-text">
+                                        {errors.email && touched.email ? (
+                                            <div>{errors.email}</div>
+                                        ) : null}
+                                    </span>
+
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col>
+                                <Col md={4}>
                                     <label>Addess type:</label>
                                 </Col>
 
-                                <Col md={6}>
+                                <Col md={8}>
                                     <label>
                                         <Field type="radio" name="addressType" value="Home" />
                                         Home
@@ -294,14 +316,27 @@ const Address = () => {
                                         <Field type="radio" name="addressType" value="Office" />
                                         Office
                                     </label>
+                                    <span className="error-text">
+                                        {errors.addressType && touched.addressType ? errors.addressType : ""}
+                                    </span>
                                 </Col>
 
 
                             </Row>
 
-                            <Row >
+                            {/* <Row >
                                 <Col>
                                     <button type="submit" className='address-btn' onClick={() => handleSubmit()}>Submit</button>
+                                </Col>
+                            </Row> */}
+
+                            <Row className="mt-3">
+                                {/* <Col md={2}></Col> */}
+
+                                <Col md={12}>
+                                    <button type="submit" className="address-btn">
+                                        Submit
+                                    </button>
                                 </Col>
                             </Row>
                         </div>
@@ -317,10 +352,10 @@ const Address = () => {
                         <Col>
                             <Formik
                                 validationSchema={AddressSchema}
-                                onSubmit={handleAddress}
+                                onSubmit={handleAddress2}
                                 // onSubmit={handleDelete}
                                 initialValues={{
-                                    addressId: '',
+                                    addressId: ''
 
                                 }}
                             >
@@ -343,24 +378,42 @@ const Address = () => {
                                                                 return (
                                                                     <div>
                                                                         <Row>
-                                                                            <Col className='add_Id' >
+                                                                            {/* <Col className='add_Id' >
                                                                                 <label>
-                                                                                    <Field type="radio" name="addressId" value={address.id} />
-                                                                                    {address.addressLine1}
+                                                                                    <Field type="radio" name="addressId" value={String(address.id)} />
+
+                                                                                    <Stack direction="horizontal" gap={2}>
+                                                                                        
+                                                                                        <Badge bg="secondary">
+
+                                                                                            {address.addressType}
+                                                                                        </Badge>
+
+                                                                                    </Stack>
+                                                                                    {address.addressLine1},{address.addressLine2},{address.city}
+
+
                                                                                 </label>
 
 
+                                                                            </Col> */}
+
+                                                                            <Col className="add_Id">
+                                                                                <label className="d-flex align-items-center gap-2">
+
+                                                                                    <Field type="radio" name="addressId" value={String(address.id)} />
+
+                                                                                    <Badge bg="secondary">
+                                                                                        {address.addressType}
+                                                                                    </Badge>
+
+                                                                                    <span>
+                                                                                        {address.addressLine1}, {address.addressLine2}, {address.district},{address.pin}
+                                                                                    </span>
+
+                                                                                </label>
                                                                             </Col>
 
-                                                                            <Row>
-                                                                                <Col >
-                                                                                    <label>
-                                                                                        <Field type="radio" name="addressId" value={address.id} />
-                                                                                        {address.addressLine2}
-
-                                                                                    </label>
-                                                                                </Col>
-                                                                            </Row>
 
 
                                                                         </Row>
@@ -371,20 +424,23 @@ const Address = () => {
                                                                 )
                                                             }) : "no address available"
                                                     }
-                                                    {errors.addressId && touched.addressId ? (
+                                                    <span className='error-text'>
+                                                        {errors.addressId && touched.addressId ? (
                                                         <div>{errors.addressId}</div>
                                                     ) : null}
+                                                    </span>
                                                 </Col>
                                             </Row>
 
 
 
-                                            <button type="submit" className=' cate-btn'>Order</button>
+                                            <button type="submit" className='cate-btn'
+                                            >Order</button>
                                         </Form>
 
 
 
-                                      
+
                                     </div>
                                 )}
                             </Formik>
