@@ -60,6 +60,8 @@ const Cart = () => {
 
   const [products, setProducts] = useState({});
 
+
+
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssproducts")
       .then((res) => {
@@ -70,6 +72,8 @@ const Cart = () => {
         setProducts(productMap);
       });
   }, []);
+
+  
 
 
 
@@ -87,6 +91,16 @@ const Cart = () => {
     });
 
   }
+
+  const calculateTotal = () => {
+    console.log(products)
+    if (!Array.isArray(cartItems)) return 0;
+    return cartItems.reduce((total, product) => {
+      return total + (product.quantity * product.productDetails.productPrice);
+    }, 0);
+  }
+
+  const subTotal = calculateTotal();
 
 
 
@@ -168,8 +182,12 @@ const Cart = () => {
               </tbody>
             </Table>
 
-            <p>Total Amount</p>
-            <Link to={'/Address'}> <button>Next</button></Link>
+            <p>Total Amount = &#8377; {subTotal}</p>
+            {/* <Link to={'/Address'}> <button  >Next</button></Link> */}
+
+            <Link to="/Address">
+              <button>Next</button>
+            </Link>
 
 
           </Col>

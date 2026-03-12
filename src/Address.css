@@ -75,7 +75,6 @@
        /* margin-top: 10px; */
 }
 
-/* 📱 phone view */
 @media (max-width:768px) {
 
        .addressform .row {
@@ -86,7 +85,7 @@
               font-size: 14px;
        }
 
-       /* label aur field vertical ho jayenge */
+       
        .addressform .col-md-4,
        .addressform .col-md-8 {
               flex: 0 0 100%;

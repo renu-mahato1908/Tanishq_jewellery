@@ -13,6 +13,7 @@ import Stack from 'react-bootstrap/Stack';
 
 
 
+
 const SignupSchema = Yup.object().shape({
     name: Yup.string()
         .min(2, 'Too Short!')
@@ -72,6 +73,11 @@ const Address = () => {
     const dispatch = useDispatch();
     const { user: currentUser } = useSelector((state) => state.auth);
     const [addresses, setAddresses] = useState([])
+    const [products, setProducts] = useState({});
+
+
+    const [cartItems, setCartItems] = useState();
+    const [subTotal, setSubTotal] = useState(0);
     useEffect(() => {
         if (currentUser) {
             console.log(currentUser);
@@ -109,18 +115,60 @@ const Address = () => {
 
 
         });
-    }, []);
+    }, [currentUser]);
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
+            console.log(response.data);
+            setCartItems(response.data);
+            const subTotal = response.data.items.reduce((total, product) => {
+                return total + (product.quantity * product.productDetails.productPrice);
+            }, 0);
+            setSubTotal(subTotal)
+
+
+        });
+
+    }, [currentUser]);
+
 
 
 
     const handleAddress2 = (values) => {
-        const data = {
-            addressId: values.addressId
+        const products = cartItems.items.map((item) => ({
+            productName: item.productDetails.productName,
+            productId:item.productId,
+            price: item.productDetails.productPrice,
+            quantity: item.quantity
+        }));
+
+        const Data = {
+            addressId: values.addressId,
+            userId: currentUser.id,
+            subtotal: subTotal,
+            paymentStatus: "pending",
+            orderStatus: "processing",
+            productsDetails:products
+
         };
 
-        console.log(data);
-    }
 
+
+
+        // axios.post("http://localhost:8090/api/orders", Data)
+        //     .then((response) => {
+        //         console.log("Success:", response.data);
+        //     })
+
+
+        console.log("AddressId:", Data.addressId);
+        console.log("SubTotal:", Data.subtotal);
+        console.log("UserId:", Data.userId);
+        console.log("paymentStatus:", "pending");
+        console.log("orderStatus:", "processing");
+        console.log("productDetails:",Data.productsDetails)
+    };
 
 
 
@@ -324,11 +372,7 @@ const Address = () => {
 
                             </Row>
 
-                            {/* <Row >
-                                <Col>
-                                    <button type="submit" className='address-btn' onClick={() => handleSubmit()}>Submit</button>
-                                </Col>
-                            </Row> */}
+
 
                             <Row className="mt-3">
                                 {/* <Col md={2}></Col> */}
@@ -376,32 +420,17 @@ const Address = () => {
                                                         addresses ?
                                                             addresses.map((address, index) => {
                                                                 return (
-                                                                    <div>
+                                                                    <div key={address.id}>
                                                                         <Row>
-                                                                            {/* <Col className='add_Id' >
-                                                                                <label>
-                                                                                    <Field type="radio" name="addressId" value={String(address.id)} />
 
-                                                                                    <Stack direction="horizontal" gap={2}>
-                                                                                        
-                                                                                        <Badge bg="secondary">
-
-                                                                                            {address.addressType}
-                                                                                        </Badge>
-
-                                                                                    </Stack>
-                                                                                    {address.addressLine1},{address.addressLine2},{address.city}
-
-
-                                                                                </label>
-
-
-                                                                            </Col> */}
 
                                                                             <Col className="add_Id">
                                                                                 <label className="d-flex align-items-center gap-2">
 
                                                                                     <Field type="radio" name="addressId" value={String(address.id)} />
+                                                                                    <span className="error-text">
+                                                                                        {errors.addressId && touched.addressId ? errors.addressId : ""}
+                                                                                    </span>
 
                                                                                     <Badge bg="secondary">
                                                                                         {address.addressType}
@@ -426,8 +455,8 @@ const Address = () => {
                                                     }
                                                     <span className='error-text'>
                                                         {errors.addressId && touched.addressId ? (
-                                                        <div>{errors.addressId}</div>
-                                                    ) : null}
+                                                            <div>{errors.addressId}</div>
+                                                        ) : null}
                                                     </span>
                                                 </Col>
                                             </Row>
