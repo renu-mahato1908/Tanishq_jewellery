@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Navigate } from "react-router-dom";
 import Badge from 'react-bootstrap/Badge';
 import Stack from 'react-bootstrap/Stack';
+import { Link } from 'react-router-dom';
 
 
 
@@ -126,6 +127,7 @@ const Address = () => {
                 return total + (product.quantity * product.productDetails.productPrice);
             }, 0);
             setSubTotal(subTotal)
+            console.log(subTotal)
 
 
         });
@@ -135,40 +137,80 @@ const Address = () => {
 
 
 
+    // const handleAddress2 = (values) => {
+    //     const products = cartItems.items.map((item) => ({
+    //         productId: item.productId,
+    //         price: item.productDetails.productPrice,
+    //         quantity: item.quantity
+    //     }));
+
+    //     const data = {
+
+    //         addressId: values.addressId,
+    //         userId: currentUser.id,
+    //         products: products,
+
+    //         totalAmount: subTotal,
+    //         Status: "processing"
+
+
+    //     };
+
+
+    //     axios.post("http://localhost:8090/api/ssorders", data)
+    //         .then((response) => {
+
+    //             console.log("Order Success:", response.data);
+
+
+    //     })
+    //     console.log(data);
+
+    //     return axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`)
+    //         .then((response) => {
+    //             console.log("Cart Deleted:", response.data);
+
+
+    //         });
+
+
+    // };
+
+
     const handleAddress2 = (values) => {
         const products = cartItems.items.map((item) => ({
-            productName: item.productDetails.productName,
-            productId:item.productId,
+            productId: item.productId,
             price: item.productDetails.productPrice,
             quantity: item.quantity
-        }));
-
-        const Data = {
+        }))
+        const data = {
             addressId: values.addressId,
             userId: currentUser.id,
-            subtotal: subTotal,
-            paymentStatus: "pending",
-            orderStatus: "processing",
-            productsDetails:products
+            products: products,
+            totalAmount: subTotal,
+            status: "Processing"
 
         };
+        axios.post("http://localhost:8090/api/ssorders", data).then((response) => {
+            console.log("successfull", response.data)
 
+        });
+        console.log(data);
+        // console.log(values)
 
-
-
-        // axios.post("http://localhost:8090/api/orders", Data)
-        //     .then((response) => {
-        //         console.log("Success:", response.data);
-        //     })
-
-
-        console.log("AddressId:", Data.addressId);
-        console.log("SubTotal:", Data.subtotal);
-        console.log("UserId:", Data.userId);
-        console.log("paymentStatus:", "pending");
-        console.log("orderStatus:", "processing");
-        console.log("productDetails:",Data.productsDetails)
+        console.log("order button clicked")
     };
+
+    axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
+        console.log(response.data);
+        console.log("successfully cartItem item deleted");
+        window.location.reload();
+
+
+    });
+
+
+
 
 
 
@@ -462,9 +504,11 @@ const Address = () => {
                                             </Row>
 
 
+                                            <Link to="/Order">
+                                                <button type="submit" className='cate-btn'
+                                                >Order</button>
+                                            </Link>
 
-                                            <button type="submit" className='cate-btn'
-                                            >Order</button>
                                         </Form>
 
 

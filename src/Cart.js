@@ -102,6 +102,16 @@ const Cart = () => {
 
   const subTotal = calculateTotal();
 
+  
+    // axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
+    //   console.log(response.data);
+    //   console.log("Cart item deleted");
+    //   window.location.reload();
+
+
+
+    // });
+
 
 
 
