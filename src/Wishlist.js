@@ -12,11 +12,12 @@ import { IoMdHeartEmpty } from 'react-icons/io';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { MdDelete } from 'react-icons/md';
 
 const Wishlist = () => {
 
     const [wishlistproducts, setWishlistProducts] = useState([]);
-    
+
 
     let navigate = useNavigate();
     const dispatch = useDispatch();
@@ -60,6 +61,13 @@ const Wishlist = () => {
         });
     }
 
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:8090/api/wishlist/${id}`)
+            .then((response) => window.location.reload());
+        console.log(id);
+        console.log("successfully deleted");
+        window.location.reload();
+    };
     return (
         <div>
             <section className='product-data'>
@@ -69,7 +77,23 @@ const Wishlist = () => {
                             wishlistproducts.map((wishlistproduct, index) => {
                                 return (
                                     <Col className='wishlist-product' >
-                                        <Card style={{ width: '18rem' }}>
+
+                                        <Card style={{ width: '18rem', position: 'relative' }}>
+
+
+                                            <Button
+                                                onClick={() => handleDelete(wishlistproduct._id)}
+                                                style={{
+                                                    position: "absolute",
+                                                    top: "10px",
+                                                    right: "10px",
+                                                    border: "none",
+                                                    background: "transparent",
+                                                    padding: "5px"
+                                                }}
+                                            >
+                                                <MdDelete size={22} color="red" />
+                                            </Button>
                                             <Card.Body>
                                                 <Card.Text>
                                                     {wishlistproduct.productId?.images?.length > 0 && (
@@ -91,9 +115,10 @@ const Wishlist = () => {
                                             <Button type="submit" className='buttons'>Buy Now</Button>
 
                           </Col> */}
-                                                    <Col md={12}>
+                                                    <Col md={10}>
                                                         <Button type="submit" className='buttons' onClick={() => handleCart(wishlistproduct.productId)}>Add To Cart</Button>
                                                     </Col>
+
                                                 </Row>
 
                                             </Card.Body>

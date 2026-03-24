@@ -19,7 +19,7 @@ const Diamond = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
+                                    <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
                                 
 
                                 <Image src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw38719dc0/images/hi-res/55D5PBDUNABA02_2.jpg?sw=480&sh=480/ " thumbnail />

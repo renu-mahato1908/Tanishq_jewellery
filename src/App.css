@@ -1,6 +1,9 @@
-.logoarea {
-  padding: 0px;
-}
+
+
+
+
+
+
 
 .logoarea img {
   width: 300px;
@@ -599,7 +602,7 @@
 }
 
 .graph {
-  height: 350px;
+  height: 100%;
   border-radius: 20px;
   box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
   color: #300708;
@@ -725,3 +728,66 @@
   flex-direction: column;
   gap: 6px;
 }
+
+
+
+
+
+
+
+.box-a {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  height: 100%;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.box-a:hover {
+  transform: translateY(-5px);
+}
+
+
+
+
+/* CUSTOMER ORDER */
+
+
+@media (max-width: 768px) {
+
+  .orders h3 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .accordion-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 6px !important;
+    text-align: center;
+  }
+
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+}
+
+
+
+
+
+/* DASHBOARD */
+
+

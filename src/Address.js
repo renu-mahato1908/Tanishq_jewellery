@@ -137,6 +137,9 @@ const Address = () => {
 
 
 
+
+
+
     // const handleAddress2 = (values) => {
     //     const products = cartItems.items.map((item) => ({
     //         productId: item.productId,
@@ -182,32 +185,35 @@ const Address = () => {
             productId: item.productId,
             price: item.productDetails.productPrice,
             quantity: item.quantity
-        }))
+        }));
+
         const data = {
             addressId: values.addressId,
             userId: currentUser.id,
             products: products,
             totalAmount: subTotal,
-            status: "Processing"
-
+            Status: "processing"
         };
-        axios.post("http://localhost:8090/api/ssorders", data).then((response) => {
-            console.log("successfull", response.data)
 
-        });
-        console.log(data);
-        // console.log(values)
+        axios.post("http://localhost:8090/api/ssorders", data)
+            .then((response) => {
+                console.log("Order Success:", response.data);
 
-        console.log("order button clicked")
+                axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`)
+                    .then(() => {
+                        console.log("Cart Deleted");
+                        navigate("/Order");
+                    })
+            })
+            .catch(err => console.log(err));
     };
 
-    axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
-        console.log(response.data);
-        console.log("successfully cartItem item deleted");
-        window.location.reload();
 
 
-    });
+
+
+
+
 
 
 
@@ -504,10 +510,13 @@ const Address = () => {
                                             </Row>
 
 
-                                            <Link to="/Order">
+                                            {/* <Link to="/Order">
                                                 <button type="submit" className='cate-btn'
                                                 >Order</button>
-                                            </Link>
+                                            </Link> */}
+                                            <button type="submit" className='cate-btn'>
+                                                Order
+                                            </button>
 
                                         </Form>
 
@@ -534,3 +543,6 @@ const Address = () => {
 }
 
 export default Address
+
+
+

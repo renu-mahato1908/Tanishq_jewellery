@@ -44,7 +44,7 @@ import Wishlist from './Wishlist';
 import Category from './Category';
 import Pendant from './Pendant';
 import Mangalsutra from './Mangalsutra';
-import CustomerOrder from './CustomerOrder';
+import CustomerOrders from './CustomerOrders';
 
 
 
@@ -172,7 +172,7 @@ function App() {
         <Route path='/Category/:categoryName' element={<Category></Category>}></Route>
 
 
-        <Route path='/CustomerOrder' element={<CustomerOrder></CustomerOrder>}></Route>
+        <Route path='/CustomerOrders' element={<CustomerOrders></CustomerOrders>}></Route>
 
       </Routes>
 
