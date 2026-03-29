@@ -45,6 +45,7 @@ import Category from './Category';
 import Pendant from './Pendant';
 import Mangalsutra from './Mangalsutra';
 import CustomerOrders from './CustomerOrders';
+import Orderstatus from './Orderstatus';
 
 
 
@@ -59,6 +60,9 @@ function App() {
         <Route path='/Home' element={<Home />} />
         {/* localhost:3000/About */}
         <Route path='/About' element={<About />} />
+
+        {/* ORDERSTATUS */}
+        <Route path='/Orderstatus' element={<Orderstatus/>}/>
 
 
 

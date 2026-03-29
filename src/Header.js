@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { Col, Row, Container, Navbar, Nav, Button } from 'react-bootstrap'
 import logo from './logo.png';
-import { IoIosLogIn, IoIosLogOut } from "react-icons/io";
+import {  IoIosLogOut } from "react-icons/io";
 
 
 
@@ -10,9 +10,7 @@ import { Link } from 'react-router';
 import { logout } from './slices/auth';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import Dropdown from 'react-bootstrap/Dropdown';
-import NavItem from 'react-bootstrap/NavItem';
-import NavLink from 'react-bootstrap/NavLink';
+
 
 
 const Header = () => {
@@ -44,8 +42,10 @@ const Header = () => {
 
             <Col md={3} className="logoarea">
 
+              <Link to={'/Home'}>
+                <img src={logo} alt='logo' />
+              </Link>
 
-              <img src={logo} alt='logo' />
 
 
             </Col>
@@ -155,8 +155,8 @@ const Header = () => {
                       <img src='https://cdn-icons-png.flaticon.com/128/531/531864.png' alt=''></img>
                       <Nav.Link as={Link} to={'Category/Wedding'}>Wedding</Nav.Link>
 
-                      <img src='https://cdn-icons-png.flaticon.com/128/548/548427.png' alt=''></img>
-                      <Nav.Link as={Link} to={'/Userproduct'}>Products</Nav.Link>
+                      {/* <img src='https://cdn-icons-png.flaticon.com/128/548/548427.png' alt=''></img>
+                      <Nav.Link as={Link} to={'/Userproduct'}>Products</Nav.Link> */}
 
                       {/* <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>Login…</Dropdown.Toggle>

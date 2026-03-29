@@ -3,12 +3,10 @@ import React, { useState, useEffect } from 'react'
 
 import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
 import './Addtocategory.css';
-import { data } from 'react-router';
 import Table from 'react-bootstrap/Table';
 import * as formik from 'formik';
 import * as Yup from 'yup';
-import { Formik, Form, Field } from 'formik';
-import Button from 'react-bootstrap/Button';
+import {  Form, Field } from 'formik';
 import { RiDeleteBinLine } from "react-icons/ri";
 
 

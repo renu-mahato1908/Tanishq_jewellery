@@ -4,12 +4,12 @@ import { Link } from 'react-router';
 
 
 
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import { useNavigate } from "react-router";
 
 const Account = () => {
        let navigate = useNavigate();
-       const dispatch = useDispatch();
+       // const dispatch = useDispatch();
        const { user: currentUser } = useSelector((state) => state.auth);
        useEffect(() => {
               if (currentUser) {
@@ -35,15 +35,22 @@ const Account = () => {
                                                         <Link to="/Cart" className="text-decoration-none text-dark">Cart</Link></ListGroup.Item>
                                                  <ListGroup.Item as="li">
                                                         <Link to="/Wishlist" className="text-decoration-none text-dark">
-                                                        Wishlist
+                                                               Wishlist
                                                         </Link></ListGroup.Item>
 
                                                  <ListGroup.Item as="li">
                                                         <Link to="/Addnewaddress" className="text-decoration-none text-dark">
-                                                        Add new Address
+                                                               Add new Address
                                                         </Link></ListGroup.Item>
                                                  <ListGroup.Item as="li">Orders</ListGroup.Item>
-                                                 <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+
+                                                 <ListGroup.Item as="li">
+                                                        <Link to="/Orderstatus" className="text-decoration-none text-dark">
+                                                               Order Status
+                                                        </Link>
+
+
+                                                 </ListGroup.Item>
                                           </ListGroup>
 
 

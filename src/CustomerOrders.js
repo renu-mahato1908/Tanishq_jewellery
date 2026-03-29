@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Table } from 'react-bootstrap'
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Navigate } from "react-router-dom";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useNavigate, Navigate } from "react-router-dom";
 import Accordion from 'react-bootstrap/Accordion';
 
 const CustomerOrders = () => {
 
-    let navigate = useNavigate();
-    const dispatch = useDispatch();
-    const { user: currentUser } = useSelector((state) => state.auth);
+    // let navigate = useNavigate();
+    // const dispatch = useDispatch();
+    // const { user: currentUser } = useSelector((state) => state.auth);
     // useEffect(() => {
     //     if (currentUser) {
     //         console.log(currentUser);
@@ -100,7 +100,7 @@ const CustomerOrders = () => {
 
                             {/* </Table> */}
 
-                                                            <Accordion defaultActiveKey="0">
+                            <Accordion defaultActiveKey="0">
                                 {orders.length > 0 ? (
                                     orders.map((order, orderIndex) => (
                                     <Accordion.Item eventKey={orderIndex.toString()} key={orderIndex}>

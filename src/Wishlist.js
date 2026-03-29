@@ -8,8 +8,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { IoMdHeartEmpty } from 'react-icons/io';
-import { MdOutlineShoppingCart } from 'react-icons/md';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { MdDelete } from 'react-icons/md';
