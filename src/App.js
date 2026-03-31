@@ -44,7 +44,7 @@ import Wishlist from './Wishlist';
 import Category from './Category';
 import Pendant from './Pendant';
 import Mangalsutra from './Mangalsutra';
-import CustomerOrders from './CustomerOrders';
+import OrdersDetail from './OrdersDetail';
 import Orderstatus from './Orderstatus';
 
 
@@ -76,38 +76,38 @@ function App() {
         <Route path='/Dashboard' element={<Dashboard />} />
 
         {/* localhost:3000/Diamond */}
-        <Route path='/Diamond' element={<Diamond />} />
+        <Route path='/Diamond' element={<Diamond/>} />
 
         {/* Test */}
         {/* <Route path='/Test' element={<Test/>}/> */}
 
         {/* Rings */}
-        <Route path='/Rings' element={<Rings />} />
+        <Route path='/Rings' element={<Rings/>} />
 
         {/* Earrings */}
-        <Route path='/Earrings' element={<Earrings />}></Route>
+        <Route path='/Earrings' element={<Earrings/>}></Route>
 
         {/* Dailywear */}
-        <Route path='/Dailywear' element={<Dailywear />}></Route>
+        <Route path='/Dailywear' element={<Dailywear/>}></Route>
 
         {/* login */}
-        <Route path='/Login' element={<Login />}></Route>
+        <Route path='/Login' element={<Login/>}></Route>
 
 
         {/* Trial */}
 
-        <Route path='/Trial' element={<Trial />}></Route>
+        <Route path='/Trial' element={<Trial/>}></Route>
 
 
 
         {/* Gifting */}
-        <Route path='/Gifting' element={<Gifting />}></Route>
+        <Route path='/Gifting' element={<Gifting/>}></Route>
 
         {/* my product */}
-        <Route path='/Myproducts' element={<Myproducts />}></Route>
+        <Route path='/Myproducts' element={<Myproducts/>}></Route>
 
         {/* wedding */}
-        <Route path='/Wedding' element={<Wedding />}></Route>
+        <Route path='/Wedding' element={<Wedding/>}></Route>
 
         {/* Notice */}
         <Route path='/Notice' element={<Notice></Notice>}></Route>
@@ -166,17 +166,17 @@ function App() {
 
         <Route path='/Userproduct' element={<Userproduct/>}></Route>
 
-        <Route path='/Wishlist' element={<Wishlist></Wishlist>}></Route>
+        <Route path='/Wishlist' element={<Wishlist/>}></Route>
 
         {/* PENDANT */}
         <Route path='/Pendant' element={<Pendant/>}></Route>
 
-        <Route path='/Mangalsutra' element={<Mangalsutra></Mangalsutra>}></Route>
+        <Route path='/Mangalsutra' element={<Mangalsutra/>}></Route>
 
-        <Route path='/Category/:categoryName' element={<Category></Category>}></Route>
+        <Route path='/Category/:categoryName' element={<Category/>}></Route>
 
 
-        <Route path='/CustomerOrders' element={<CustomerOrders></CustomerOrders>}></Route>
+        <Route path='/OrdersDetail' element={<OrdersDetail/>}></Route>
 
       </Routes>
 

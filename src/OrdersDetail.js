@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Table } from 'react-bootstrap'
+import { Container, Row, Col, Table } from 'react-bootstrap';
 // import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate, Navigate } from "react-router-dom";
 import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
-const CustomerOrders = () => {
+const OrdersDetail = () => {
 
     // let navigate = useNavigate();
     // const dispatch = useDispatch();
@@ -24,6 +26,7 @@ const CustomerOrders = () => {
 
 
     const [orders, setOrders] = useState([]);
+    const [orderId, setOrderId] = useState("");
 
     useEffect(() => {
         axios.get("http://localhost:8090/api/ssorders")
@@ -34,6 +37,22 @@ const CustomerOrders = () => {
 
     }, []);
 
+
+     const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false)
+    //// update
+
+    ///
+    setOrderId("")
+  };
+  const handleShow = (id) => {
+    setShow(true)
+    setOrderId(id)
+    console.log(id)
+  };
+
     return (
         <div>
             <section>
@@ -42,63 +61,7 @@ const CustomerOrders = () => {
                         <Col className='orders'>
                             <h3>Orders</h3>
 
-                            {/* <Table striped bordered hover> */}
-                                {/* <thead>
-                                    <tr>
-                                        <th>Product Name</th>
-                                        <th> Product Image</th>
-
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead> */}
-
-                                {/* <tbody>
-
-
-                                    {orders.map((item, index) => (
-                                        item.products?.map((product, i) => (
-                                            <tr key={i}>
-                                                <td>{item.productName}</td>
-                                                <td>{product.productId}</td>
-
-                                                <td>{product.quantity}</td>
-                                                <td>&#8377;{product.price}</td>
-                                                <td><span className="badge bg-success">{item.status}</span>
-                                                </td>
-
-
-                                            </tr>
-                                        ))
-                                    ))}
-                                </tbody> */}
-
-
-
-                                {/* <tbody>
-                                    {orders.map((item, index) => (
-                                        item.products?.map((product, i) => (
-                                            <tr key={i}>
-                                                <td></td>
-                                                <td></td>
-
-
-
-                                                <td>{product.quantity}</td>
-                                                <td>&#8377;{product.price}</td>
-
-                                                <td>
-                                                    <span className="badge bg-success">
-                                                        {item.status}
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        ))
-                                    ))}
-                                </tbody> */}
-
-                            {/* </Table> */}
+                           
 
                             <Accordion defaultActiveKey="0">
                                 {orders.length > 0 ? (
@@ -106,7 +69,10 @@ const CustomerOrders = () => {
                                     <Accordion.Item eventKey={orderIndex.toString()} key={orderIndex}>
                                         
                                         <Accordion.Header>
-                                        Order {orderIndex + 1} 
+                                        {/* Order {orderIndex + 1}  */}
+                                        <p> <b>Order ID</b>: {order.id}</p>
+                                        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                                        <p><b>User:</b> {order.userName}</p>
                                         </Accordion.Header>
 
                                         <Accordion.Body>
@@ -114,10 +80,12 @@ const CustomerOrders = () => {
                                             <thead>
                                             <tr>
                                                 <th>Sl</th>
-                                                <th>Product Id</th>
+                                                <th>Product Name</th>
+                                                <th>Image</th>
                                                 <th>Price</th>
                                                 <th>Quantity</th>
                                                 <th>Total</th>
+                                                <th>status</th>
                                             </tr>
                                             </thead>
 
@@ -126,10 +94,15 @@ const CustomerOrders = () => {
                                                 order.products.map((product, index) => (
                                                 <tr key={index}>
                                                     <td>{index + 1}</td>
-                                                    <td>{product.productId}</td>
+                                                    <td>{product.productName}</td>
+                                                    <td>{product.productImage}</td>
+
                                                     <td>₹{product.price}</td>
                                                     <td>{product.quantity}</td>
                                                     <td>₹{product.price * product.quantity}</td>
+                                                    <td>
+                                                        
+                                                    </td>
                                                 </tr>
                                                 ))
                                             ) : (
@@ -137,8 +110,31 @@ const CustomerOrders = () => {
                                                 <td colSpan="5">No products</td>
                                                 </tr>
                                             )}
+
+                                           
+                                           
                                             </tbody>
                                         </Table>
+                                         <>
+      <Button variant="primary" onClick={()=>handleShow(order.id)}>
+        Launch demo modal
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
                                         </Accordion.Body>
 
                                     </Accordion.Item>
@@ -157,7 +153,7 @@ const CustomerOrders = () => {
     )
 }
 
-export default CustomerOrders
+export default OrdersDetail
 
 
 
@@ -330,130 +326,3 @@ export default CustomerOrders
 
 
 
-
-
-// import axios from 'axios';
-// import { useState, useEffect } from 'react';
-// import { Container, Row, Col, Table } from 'react-bootstrap';
-// import Accordion from 'react-bootstrap/Accordion';
-
-// const CustomerOrders = () => {
-
-//     const [orders, setOrders] = useState([]);
-//     const [products, setProducts] = useState([]);
-
-//     // 🔥 API Calls
-//     useEffect(() => {
-
-//         axios.get("http://localhost:8090/api/ssorders")
-//             .then(res => {
-//                 console.log("orders", res.data);
-//                 setOrders(res.data);
-//             })
-//             .catch(err => console.log(err));
-
-//         axios.get("http://localhost:8090/api/ssproducts")
-//             .then(res => {
-//                 console.log("products", res.data);
-//                 setProducts(res.data);
-//             })
-//             .catch(err => console.log(err));
-
-//     }, []);
-
-//     // 🔥 Product find function
-//     const getProduct = (id) => {
-//         return products.find(p => p._id === id);
-//     };
-
-//     return (
-//         <div>
-//             <Container>
-//                 <Row>
-//                     <Col>
-//                         <h3>Customer Orders</h3>
-
-//                         <Accordion defaultActiveKey="0">
-
-//                             {orders.length > 0 ? orders.map((order, orderIndex) => (
-
-//                                 <Accordion.Item eventKey={orderIndex.toString()} key={orderIndex}>
-
-//                                     <Accordion.Header>
-//                                         Order {orderIndex + 1} | Status: {order.status}
-//                                     </Accordion.Header>
-
-//                                     <Accordion.Body>
-
-//                                         <Table striped bordered hover>
-//                                             <thead>
-//                                                 <tr>
-//                                                     <th>Sl</th>
-//                                                     <th>Product Name</th>
-//                                                     <th>Image</th>
-//                                                     <th>Price</th>
-//                                                     <th>Quantity</th>
-//                                                     <th>Total</th>
-//                                                 </tr>
-//                                             </thead>
-
-//                                             <tbody>
-
-//                                                 {order.products && order.products.length > 0 ? (
-//                                                     order.products.map((item, index) => {
-
-//                                                         const product = getProduct(item.productId);
-
-//                                                         return (
-//                                                             <tr key={index}>
-//                                                                 <td>{index + 1}</td>
-
-//                                                                 <td>
-//                                                                     {product ? product.name : "Loading..."}
-//                                                                 </td>
-
-//                                                                 <td>
-//                                                                     {product?.image ? (
-//                                                                         <img
-//                                                                             src={`http://localhost:8090/${product.image}`}
-//                                                                             alt="product"
-//                                                                             width="60"
-//                                                                         />
-//                                                                     ) : "No Image"}
-//                                                                 </td>
-
-//                                                                 <td>₹{item.price}</td>
-//                                                                 <td>{item.quantity}</td>
-//                                                                 <td>₹{item.price * item.quantity}</td>
-//                                                             </tr>
-//                                                         );
-//                                                     })
-//                                                 ) : (
-//                                                     <tr>
-//                                                         <td colSpan="6" className="text-center">
-//                                                             No Products
-//                                                         </td>
-//                                                     </tr>
-//                                                 )}
-
-//                                             </tbody>
-//                                         </Table>
-
-//                                     </Accordion.Body>
-
-//                                 </Accordion.Item>
-
-//                             )) : (
-//                                 <p>No Orders Found</p>
-//                             )}
-
-//                         </Accordion>
-
-//                     </Col>
-//                 </Row>
-//             </Container>
-//         </div>
-//     );
-// };
-
-// export default CustomerOrders;

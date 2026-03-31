@@ -531,11 +531,7 @@ const Address = () => {
                 </Container>
             </section>
 
-            <section>
-                <Container>
-
-                </Container>
-            </section>
+           
         </div>
 
 

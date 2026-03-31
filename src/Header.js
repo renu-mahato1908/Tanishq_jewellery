@@ -155,8 +155,8 @@ const Header = () => {
                       <img src='https://cdn-icons-png.flaticon.com/128/531/531864.png' alt=''></img>
                       <Nav.Link as={Link} to={'Category/Wedding'}>Wedding</Nav.Link>
 
-                      {/* <img src='https://cdn-icons-png.flaticon.com/128/548/548427.png' alt=''></img>
-                      <Nav.Link as={Link} to={'/Userproduct'}>Products</Nav.Link> */}
+                      <img src='https://cdn-icons-png.flaticon.com/128/548/548427.png' alt=''></img>
+                      <Nav.Link as={Link} to={'/Userproduct'}>Products</Nav.Link>
 
                       {/* <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>Login…</Dropdown.Toggle>

@@ -113,7 +113,7 @@ const Dashboard = () => {
         }
     }, []);
 
-    const [show, setShow] = useState(false);
+    // const [show, setShow] = useState(false);
 
     // const handleClose = () => setShow(false);
     // const handleShow = () => setShow(true);
@@ -280,7 +280,7 @@ const Dashboard = () => {
                                 </Breadcrumb.Item>
 
                                 <Breadcrumb.Item>
-                                    <Link to="/CustomerOrders">CustomerOrders</Link>
+                                    <Link to="/OrdersDetail"> Customer Orders Details</Link>
                                 </Breadcrumb.Item>
                             </Breadcrumb>
 
@@ -332,9 +332,9 @@ const Dashboard = () => {
 
 
                                 <ListGroup.Item className="menuItem">
-                                    <Link to="/CustomerOrders">
+                                    <Link to="/OrdersDetail">
                                         <img src="https://static.vecteezy.com/system/resources/thumbnails/029/163/312/small/add-files-glyph-icon-add-folder-symbol-empty-folder-new-directory-for-document-portfolio-storage-online-gallery-flat-logo-pictogram-illustration-design-on-white-background-eps-10-vector.jpg" alt="" />
-                                        <span><h6>Customer Orders</h6></span>
+                                        <span><h6>Customer Orders Details</h6></span>
                                     </Link>
                                 </ListGroup.Item>
 

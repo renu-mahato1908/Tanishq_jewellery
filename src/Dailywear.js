@@ -15,8 +15,8 @@ const Dailywear = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
-                                
+                                <button className='addtocart-btn'><HiOutlineShoppingCart className='add-icon' /></button>
+
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw63feb4d2/images/hi-res/51M5B1BENAA00_1.jpg?sw=640&sh=640' thumbnail></Image>
                                 <div className="details">
@@ -32,8 +32,8 @@ const Dailywear = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
-                                
+                                <button className='addtocart-btn'><HiOutlineShoppingCart className='add-icon' /></button>
+
 
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw3dcf4520/images/hi-res/50D5B2BGIAA02_1.jpg?sw=640&sh=640' thumbnail></Image>
@@ -50,8 +50,8 @@ const Dailywear = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
-                                
+                                <button className='addtocart-btn'><HiOutlineShoppingCart className='add-icon' /></button>
+
 
 
 
@@ -73,8 +73,8 @@ const Dailywear = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
-                                
+                                <button className='addtocart-btn'><HiOutlineShoppingCart className='add-icon' /></button>
+
 
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw63feb4d2/images/hi-res/51M5B1BENAA00_1.jpg?sw=640&sh=640' thumbnail></Image>
@@ -91,8 +91,8 @@ const Dailywear = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
-                                
+                                <button className='addtocart-btn'><HiOutlineShoppingCart className='add-icon' /></button>
+
 
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw61bb6c70/images/hi-res/2923SYV.jpg?sw=640&sh=640' thumbnail></Image>
@@ -109,8 +109,8 @@ const Dailywear = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
-                                
+                                <button className='addtocart-btn'><HiOutlineShoppingCart className='add-icon' /></button>
+
 
 
 
@@ -132,8 +132,8 @@ const Dailywear = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
-                                
+                                <button className='addtocart-btn'><HiOutlineShoppingCart className='add-icon' /></button>
+
 
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw621cce3d/images/hi-res/51M4I1NJWAA00_1.jpg?sw=640&sh=640' thumbnail></Image>
@@ -151,8 +151,8 @@ const Dailywear = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
-                                
+                                <button className='addtocart-btn'><HiOutlineShoppingCart className='add-icon' /></button>
+
 
 
                                 <Image src='https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwcb90297e/images/hi-res/501163PWFAAB09_1.jpg?sw=640&sh=640' thumbnail></Image>
@@ -169,8 +169,8 @@ const Dailywear = () => {
                         <Col md={4}>
                             <div className="polaroid">
                                 <button className='wishlist-btn'><FiHeart className="wishlist-icon" /></button>
-                                                                <button className='addtocart-btn'><HiOutlineShoppingCart  className='add-icon'/></button>
-                                
+                                <button className='addtocart-btn'><HiOutlineShoppingCart className='add-icon' /></button>
+
 
 
 
