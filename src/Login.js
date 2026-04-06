@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
-import"./login.css";
+import "./login.css";
 
 import { login } from "./slices/auth";
 import { clearMessage } from "./slices/message";
@@ -58,6 +58,9 @@ const Login = () => {
     if (isLoggedIn) {
         return <Navigate to="/home" />;
     }
+
+
+    
     return (
         <div className='text-center'>
             <section>
@@ -84,18 +87,18 @@ const Login = () => {
                                 {({ errors, touched }) => (
                                     <Form>
                                         <div className='loginform'>
-                                           
-                                                    <Row>
-                                                        <Col>
-                                                            <label>Mobile :- </label>
-                                                        </Col>
-                                                        <Col>
-                                                            <Field name="username" type="text" />
-                                                            {errors.username && touched.username ? <div>{errors.username}</div> : null}
 
-                                                        </Col>
-                                                        </Row>
-                                           
+                                            <Row>
+                                                <Col>
+                                                    <label>Mobile :- </label>
+                                                </Col>
+                                                <Col>
+                                                    <Field name="username" type="text" />
+                                                    {errors.username && touched.username ? <div>{errors.username}</div> : null}
+
+                                                </Col>
+                                            </Row>
+
 
                                             <Row>
                                                 <Col>

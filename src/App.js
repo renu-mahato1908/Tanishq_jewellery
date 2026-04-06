@@ -49,6 +49,11 @@ import Orderstatus from './Orderstatus';
 
 
 
+import Layout from "./Layout";
+
+
+
+
 function App() {
   return (
     <div>
@@ -63,6 +68,9 @@ function App() {
 
         {/* ORDERSTATUS */}
         <Route path='/Orderstatus' element={<Orderstatus/>}/>
+
+        {/* layout */}
+        <Route path='/Layout' element={Layout}></Route>
 
 
 
@@ -142,7 +150,7 @@ function App() {
         {/* Add to category */}
         <Route path='/AddCategory' element={<AddCategory />}></Route>
 
-       
+
 
         {/* Punjabi bride jwellery */}
         <Route path='/PunjabiBrideJewellery' element={PunjabiBrideJewellery}></Route>
@@ -181,6 +189,13 @@ function App() {
       </Routes>
 
 
+
+      
+   
+
+
+
+
       <Footer></Footer>
 
     </div>
@@ -188,3 +203,11 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+

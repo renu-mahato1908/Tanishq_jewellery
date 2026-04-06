@@ -90,7 +90,7 @@ const Header = () => {
 
                   <ul className="dropdown-menu">
                     <li><Link to="/Account">My Account</Link></li>
-                    <li><Link to="/Orders">My Orders</Link></li>
+                    <li><Link to="/Orderstatus">My Orders</Link></li>
                     <li><Link to="/Wishlist">Wishlist</Link></li>
                     <li><Link to="/Address">Saved Address</Link></li>
                   </ul>

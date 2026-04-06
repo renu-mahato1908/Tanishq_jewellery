@@ -79,7 +79,7 @@ const AddCategory = () => {
           <Col>
             
             <Breadcrumb>
-              <Breadcrumb.Item href="#">Dashboard</Breadcrumb.Item>
+              <Breadcrumb.Item href="Dashboard">Dashboard</Breadcrumb.Item>
               <Breadcrumb.Item active>Category</Breadcrumb.Item>
             </Breadcrumb>
           </Col>

@@ -1,328 +1,210 @@
+
+
+
+
+
+
+
+
+
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Table } from 'react-bootstrap';
-// import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate, Navigate } from "react-router-dom";
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const OrdersDetail = () => {
 
-    // let navigate = useNavigate();
-    // const dispatch = useDispatch();
-    // const { user: currentUser } = useSelector((state) => state.auth);
-    // useEffect(() => {
-    //     if (currentUser) {
-    //         console.log(currentUser);
-    //     }
-    //     if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
-    //         console.log(currentUser.roles[0]);
+  const [orders, setOrders] = useState([]);
+  const [activeOrderId, setActiveOrderId] = useState(null);
+  const [orderId, setOrderId] = useState("");
+  const [status, setStatus] = useState("");
 
-    //         navigate("/Home");
-    //     }
-    // }, []);
+  // Fetch orders
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/ssorders")
+      .then((res) => setOrders(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
-
-
-    const [orders, setOrders] = useState([]);
-    const [orderId, setOrderId] = useState("");
-
-    useEffect(() => {
-        axios.get("http://localhost:8090/api/ssorders")
-            .then((response) => {
-                console.log("orders", response.data);
-                setOrders(response.data);
-            })
-
-    }, []);
-
-
-     const [show, setShow] = useState(false);
+  //Modal control
+  const [show, setShow] = useState(false);
 
   const handleClose = () => {
     setShow(false)
-    //// update
-
-    ///
+    setActiveOrderId(null)
+   
     setOrderId("")
   };
   const handleShow = (id) => {
     setShow(true)
     setOrderId(id)
     console.log(id)
+    setActiveOrderId(id)
   };
 
-    return (
-        <div>
-            <section>
-                <Container>
-                    <Row>
-                        <Col className='orders'>
-                            <h3>Orders</h3>
-
-                           
-
-                            <Accordion defaultActiveKey="0">
-                                {orders.length > 0 ? (
-                                    orders.map((order, orderIndex) => (
-                                    <Accordion.Item eventKey={orderIndex.toString()} key={orderIndex}>
-                                        
-                                        <Accordion.Header>
-                                        {/* Order {orderIndex + 1}  */}
-                                        <p> <b>Order ID</b>: {order.id}</p>
-                                        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-                                        <p><b>User:</b> {order.userName}</p>
-                                        </Accordion.Header>
-
-                                        <Accordion.Body>
-                                        <Table striped bordered hover>
-                                            <thead>
-                                            <tr>
-                                                <th>Sl</th>
-                                                <th>Product Name</th>
-                                                <th>Image</th>
-                                                <th>Price</th>
-                                                <th>Quantity</th>
-                                                <th>Total</th>
-                                                <th>status</th>
-                                            </tr>
-                                            </thead>
-
-                                            <tbody>
-                                            {order.products && order.products.length > 0 ? (
-                                                order.products.map((product, index) => (
-                                                <tr key={index}>
-                                                    <td>{index + 1}</td>
-                                                    <td>{product.productName}</td>
-                                                    <td>{product.productImage}</td>
-
-                                                    <td>₹{product.price}</td>
-                                                    <td>{product.quantity}</td>
-                                                    <td>₹{product.price * product.quantity}</td>
-                                                    <td>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                ))
-                                            ) : (
-                                                <tr>
-                                                <td colSpan="5">No products</td>
-                                                </tr>
-                                            )}
-
-                                           
-                                           
-                                            </tbody>
-                                        </Table>
-                                         <>
-      <Button variant="primary" onClick={()=>handleShow(order.id)}>
-        Launch demo modal
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-                                        </Accordion.Body>
-
-                                    </Accordion.Item>
-                                    ))
-                                ) : (
-                                    <p>No Orders Found</p>
-                                )}
-                                </Accordion>
 
 
-                        </Col>
-                    </Row>
-                </Container>
-            </section>
-        </div>
+
+  const updateStatus = () => {
+    axios.put(
+      `http://localhost:8090/api/ssorders/${orderId}/status`,
+      { status: status }   
     )
-}
-
-export default OrdersDetail
-
-
-
-
-
-
-
-
-// import axios from 'axios';
-// import { useState, useEffect } from 'react';
-// import { Container, Row, Col, Table } from 'react-bootstrap';
-// import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
-
-// const CustomerOrders = () => {
-
-//     const navigate = useNavigate();
-//     const dispatch = useDispatch();
-//     const { user: currentUser } = useSelector((state) => state.auth);
-
-//     const [orders, setOrders] = useState([]);
-//     const [products, setProducts] = useState([]);
-
-//     // ✅ API Call
-//     useEffect(() => {
-
-//         // Orders API
-//         axios.get("http://localhost:8090/api/ssorders")
-//             .then((response) => {
-//                 console.log("orders", response.data);
-//                 setOrders(response.data);
-//             })
-//             .catch((err) => console.log(err));
+      .then(res => {
+        console.log(res.data);
 
         
-//         axios.get("http://localhost:8090/api/ssproducts")
-//             .then((response) => {
-//                 console.log("products", response.data);
-//                 setProducts(response.data);
-//             })
-//             .catch((err) => console.log(err));
+        setOrders(prev =>
+          prev.map(order =>
+            order.id === orderId ? { ...order, status: status } : order
+          )
+        );
 
-//     }, []);
+        setActiveOrderId(null);
+        setStatus("");
+      })
+      .catch(err => console.log(err));
+  };
 
-    
-//     const getProductDetails = (productId) => {
-//         return products.find(p => p._id === productId);
-//     };
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <h3>Orders</h3>
 
-//     return (
-//         <div>
-//             <section>
-//                 <Container>
-//                     <Row>
-//                         <Col className='orders'>
-//                             <h3>Orders</h3>
+          <Accordion defaultActiveKey="0">
+            {orders.map((order, orderIndex) => (
+              <Accordion.Item key={orderIndex} eventKey={orderIndex.toString()}>
 
-//                             <Table striped bordered hover>
-//                                 <thead>
-//                                     <tr>
-//                                         <th>Product Name</th>
-//                                         <th>Product Image</th>
-//                                         <th>Quantity</th>
-//                                         <th>Price</th>
-//                                         <th>Status</th>
-//                                     </tr>
-//                                 </thead>
+                {/* HEADER */}
+                <Accordion.Header>
+                  <b>Order ID:</b> {order.id} &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                  <b>User: &nbsp;&nbsp;</b> {order.userId.email}
+                </Accordion.Header>
 
-//                                 {/* <tbody>
-//                                     {orders.length > 0 ? (
-//                                         orders.map((item, index) => (
-//                                             item.products?.map((product, i) => {
+                {/* BODY */}
+                <Accordion.Body>
 
-//                                                 const productData = getProductDetails(product.productId);
+                  <Table bordered hover>
+                    <thead>
+                      <tr>
+                        <th>Sl</th>
+                        <th>Product Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
 
-//                                                 return (
-//                                                     <tr key={`${index}-${i}`}>
+                      </tr>
+                    </thead>
 
-//                                                         <td>
-//                                                             {productData ? productData.name : "Loading..."}
-//                                                         </td>
+                    <tbody>
 
+                      {/* PRODUCTS */}
+                      {order.products?.map((product, index) => (
+                        <tr key={index}>
+                          <td>{index + 1}</td>
 
-//                                                         <td>
-//                                                             {productData?.image ? (
-//                                                                 <img
-//                                                                     src={`http://localhost:8090/${productData.image}`}
-//                                                                     alt="product"
-//                                                                     width="60"
-//                                                                 />
-//                                                             ) : (
-//                                                                 "No Image"
-//                                                             )}
-//                                                         </td>
+                          <td>{product.productId?.productName}</td>
 
-//                                                         <td>{product.quantity}</td>
+                          <td>
+                            {product.productId?.images?.length > 0 && (
+                              <img
+                                src={`http://localhost:8090/upload/${product.productId.images[0]}`}
+                                width="60"
+                                alt="product"
+                              />
+                            )}
+                          </td>
 
+                          <td>₹{product.price}</td>
+                          <td>{product.quantity}</td>
+                          <td>₹{product.price * product.quantity}</td>
 
-//                                                         <td>&#8377;{product.price}</td>
-
-
-//                                                         <td>
-//                                                             <span className="badge bg-success">
-//                                                                 {item.status}
-//                                                             </span>
-//                                                         </td>
-//                                                     </tr>
-//                                                 );
-//                                             })
-//                                         ))
-//                                     ) : (
-//                                         <tr>
-//                                             <td colSpan="5" className="text-center">
-//                                                 No Orders Found
-//                                             </td>
-//                                         </tr>
-//                                     )}
-//                                 </tbody> */}
+                          {/* EMPTY STATUS COLUMN */}
+                          <td></td>
+                        </tr>
+                      ))}
 
 
-
-//                                 <tbody>
-//                                     {orders.map((item, index) =>
-//                                         item.products.map((product, i) => (
-//                                             <tr key={i}>
-//                                                 <td>{product.productId?.name}</td>
-
-//                                                 <td>
-//                                                     <img
-//                                                         src={`http://localhost:8090/${product.productId?.image}`}
-//                                                         width="60"
-//                                                         alt="product"
-//                                                     />
-//                                                 </td>
-
-//                                                 <td>{product.quantity}</td>
-//                                                 <td>&#8377;{product.price}</td>
-
-//                                                 <td>
-//                                                     <span className="badge bg-success">
-//                                                         {item.status}
-//                                                     </span>
-//                                                 </td>
-//                                             </tr>
-//                                         ))
-//                                     )}
-//                                 </tbody>
-
-//                             </Table>
-
-//                         </Col>
-//                     </Row>
-//                 </Container>
-//             </section>
-//         </div>
-//     );
-// };
-
-// export default CustomerOrders;
+                      <tr>
 
 
+                        <td colSpan={6}>
+                          <b>Status:</b> {order.status || "Pending"}
+                          {/* </td> */}
+
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
+                          <Button
+                            style={{ backgroundColor: "rgb(55, 6, 6)", borderColor: "rgb(55, 6, 6)", color: "#fff" }}
+                            size="sm"
+                            variant="warning"
+                            onClick={() => handleShow(order.id)}
+                          >
+                            Update
+                          </Button>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </Table>
 
 
+                  <Modal
+                    show={activeOrderId === order.id}
+                    onHide={handleClose}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Update Status</Modal.Title>
+                    </Modal.Header>
 
+                    <Modal.Body>
+                      <p><b>Order ID:</b> {order.id}</p>
 
+                      {/* <select className="form-control">
+                        <option>Ordered</option>
+                        <option>Shipped</option>
+                        <option>Out for Delivery</option>
+                        <option>Delivered</option>
+                      </select> */}
 
+                      <select
+                        className="form-control"
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value)}
+                      >
+                        <option value="">Select Status</option>
+                        <option value="Ordered">Ordered</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Out for Delivery">Out for Delivery</option>
+                        <option value="Delivered">Delivered</option>
+                      </select>
+                    </Modal.Body>
 
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        Close
+                      </Button>
+                      <Button variant="primary" onClick={updateStatus}>
+                        Save Changes
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
 
+                </Accordion.Body>
 
+              </Accordion.Item>
+            ))}
+          </Accordion>
 
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
+export default OrdersDetail;

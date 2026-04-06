@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
@@ -83,196 +83,224 @@ const Addproduct = () => {
 
   }, []);
 
- 
+
   return (
     <div className='text-center'>
-      <h2>Add product</h2>
-      <Formik
-        initialValues={{
-          productName: '',
-          productPrice: '',
-          productCategory: '',
-          productDescription: '',
-          productGender: '',
-          // file: null,
-
-
-        }}
+      <section>
+        <Container>
+          <Row>
+            <Col className='heading'>
+              <h1>Add product</h1>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
 
 
+      <section>
+        <Container>
+          <Row>
+            <Col>
+
+              <Breadcrumb>
+                <Breadcrumb.Item href="Dashboard">Dashboard</Breadcrumb.Item>
+
+                <Breadcrumb.Item href="Addproduct"> Add Products</Breadcrumb.Item>
 
 
-        validationSchema={SignupSchema}
-        onSubmit={async (values, { resetForm }) => {
-          const formData = new FormData();
+              </Breadcrumb>
 
-          formData.append("userId", currentUser.id);
-
-          Object.keys(values).forEach((key) => {
-            formData.append(key, values[key]);
-          });
-
-          for (let i = 0; i < selectedImages.length; i++) {
-            formData.append("images", selectedImages[i]);
-          }
-
-          try {
-            const res = await axios.post(
-              "http://localhost:8090/api/ssproducts",
-              formData,
-              {
-                headers: {
-                  "Content-Type": "multipart/form-data",
-                },
-              }
-            );
-            console.log("Upload success:", res.data);
-            alert("Product added successfully!");
-            resetForm();
-            setSelectedImages([]);
-          } catch (err) {
-            console.error("Upload failed:", err);
-            alert("Failed to add product");
-          }
-        }}
-      >
-        {({ errors, touched }) => (
-          <Form>
-            <div className='addproduct'>
+              <Formik
+                initialValues={{
+                  productName: '',
+                  productPrice: '',
+                  productCategory: '',
+                  productDescription: '',
+                  productGender: '',
+                  // file: null,
 
 
-              <Row>
-
-                <Col md={6}>
-                  <label>Product Name:</label>
-
-                </Col>
-                <Col md={6}>
-                  <Field name="productName" />
-
-                  {errors.productName && touched.productName ? (
-                    <div>{errors.productName}</div>
-                  ) : null}
-                </Col>
-
-              </Row>
-
-              <Row>
-                <Col md={6}>
-                  <label>Product price:</label>
-
-                </Col>
-                <Col md={6}>
-                  <Field name="productPrice" />
-                  {errors.productPrice && touched.productPrice ? (
-                    <div>{errors.productPrice}</div>
-                  ) : null}
-                </Col>
-
-              </Row>
-
-
-
-              <Row>
-                <Col md={6}>
-                  <label>Product category:</label>
-
-                </Col>
-                <Col md={6}>
-
-                  <Field as="select" name="productCategory">
-                    <option value=""> ----Select category----- </option>
-                    {
-                      categories ?
-                        categories.map((category, index) => {
-                          return (
-                            <option value={category.name} key={index}>{category.name}</option>
+                }}
 
 
 
 
-                          )
-                        })
-                        :
 
-                        "Loading ..."
-                    }
+                validationSchema={SignupSchema}
+                onSubmit={async (values, { resetForm }) => {
+                  const formData = new FormData();
 
+                  formData.append("userId", currentUser.id);
 
-                  </Field>
-                </Col>
+                  Object.keys(values).forEach((key) => {
+                    formData.append(key, values[key]);
+                  });
 
+                  for (let i = 0; i < selectedImages.length; i++) {
+                    formData.append("images", selectedImages[i]);
+                  }
 
-
-
-              </Row>
-
-
-              <Row>
-                <Col md={6}>
-                  <label>Product Description:</label>
-
-                </Col>
-                <Col md={6}>
-                  <Field name="productDescription" />
-                  {errors.productDescription && touched.productDescription ? (
-                    <div>{errors.productDescription}</div>
-                  ) : null}
-                </Col>
-
-              </Row>
-
-              <Row>
-                <Col md={6}>
-                  <label>Gender:</label>
-                </Col>
-
-                <Col md={6}>
-                  <label>
-                    <Field type="radio" name="productGender" value="Male" />
-                    Male
-                  </label>
-                  <label>
-                    <Field type="radio" name="productGender" value="Female" />
-                    Female
-                  </label>
-                </Col>
-              </Row>
-              <Row>
-                <Col md={6}>Images</Col>
-                <Col md={6}>
-                  <input
-                    type="file"
-                    multiple
-                    accept="image/*"
-                    onChange={handleFileChange}
-                  />
-                  {selectedImages.length > 0 && (
-                    <div>{selectedImages.length} image(s) selected</div>
-                  )}
-                </Col>
-              </Row>
-
-             
+                  try {
+                    const res = await axios.post(
+                      "http://localhost:8090/api/ssproducts",
+                      formData,
+                      {
+                        headers: {
+                          "Content-Type": "multipart/form-data",
+                        },
+                      }
+                    );
+                    console.log("Upload success:", res.data);
+                    alert("Product added successfully!");
+                    resetForm();
+                    setSelectedImages([]);
+                  } catch (err) {
+                    console.error("Upload failed:", err);
+                    alert("Failed to add product");
+                  }
+                }}
+              >
+                {({ errors, touched }) => (
+                  <Form>
+                    <div className='addproduct'>
 
 
+                      <Row>
 
-              <Row>
-                <Col>
-                  <button  type="submit"
-                  className='addbtn'>Add Product</button>
+                        <Col md={6}>
+                          <label>Product Name:</label>
 
-                 </Col>
-               
+                        </Col>
+                        <Col md={6}>
+                          <Field name="productName" />
 
-              </Row>
-            </div>
+                          {errors.productName && touched.productName ? (
+                            <div>{errors.productName}</div>
+                          ) : null}
+                        </Col>
+
+                      </Row>
+
+                      <Row>
+                        <Col md={6}>
+                          <label>Product price:</label>
+
+                        </Col>
+                        <Col md={6}>
+                          <Field name="productPrice" />
+                          {errors.productPrice && touched.productPrice ? (
+                            <div>{errors.productPrice}</div>
+                          ) : null}
+                        </Col>
+
+                      </Row>
 
 
-          </Form>
-        )}
-      </Formik>
+
+                      <Row>
+                        <Col md={6}>
+                          <label>Product category:</label>
+
+                        </Col>
+                        <Col md={6}>
+
+                          <Field as="select" name="productCategory">
+                            <option value=""> ----Select category----- </option>
+                            {
+                              categories ?
+                                categories.map((category, index) => {
+                                  return (
+                                    <option value={category.name} key={index}>{category.name}</option>
+
+
+
+
+                                  )
+                                })
+                                :
+
+                                "Loading ..."
+                            }
+
+
+                          </Field>
+                        </Col>
+
+
+
+
+                      </Row>
+
+
+                      <Row>
+                        <Col md={6}>
+                          <label>Product Description:</label>
+
+                        </Col>
+                        <Col md={6}>
+                          <Field name="productDescription" />
+                          {errors.productDescription && touched.productDescription ? (
+                            <div>{errors.productDescription}</div>
+                          ) : null}
+                        </Col>
+
+                      </Row>
+
+                      <Row>
+                        <Col md={6}>
+                          <label>Gender:</label>
+                        </Col>
+
+                        <Col md={6}>
+                          <label>
+                            <Field type="radio" name="productGender" value="Male" />
+                            Male
+                          </label>
+                          <label>
+                            <Field type="radio" name="productGender" value="Female" />
+                            Female
+                          </label>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={6}>Images</Col>
+                        <Col md={6}>
+                          <input
+                            type="file"
+                            multiple
+                            accept="image/*"
+                            onChange={handleFileChange}
+                          />
+                          {selectedImages.length > 0 && (
+                            <div>{selectedImages.length} image(s) selected</div>
+                          )}
+                        </Col>
+                      </Row>
+
+
+
+
+
+                      <Row>
+                        <Col>
+                          <button type="submit"
+                            className='addbtn'>Add Product</button>
+
+                        </Col>
+
+
+                      </Row>
+                    </div>
+
+
+                  </Form>
+                )}
+              </Formik>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
 
     </div>

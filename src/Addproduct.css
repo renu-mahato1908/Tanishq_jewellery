@@ -67,12 +67,13 @@
 }
 
 .addbtn {
-       background:gray ;
-       color: black;
+       background:#892528 ;
+       color: white;
        position: relative;
-       overflow: hidden;
+       /* overflow: hidden; */
        margin-top:45px;
        padding: 10px 20px;
+       border-radius: 4px;
 
 }
 

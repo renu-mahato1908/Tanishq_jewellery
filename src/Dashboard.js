@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 
 
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Navigate } from "react-router-dom";
+import {useSelector } from "react-redux";
+import { useNavigate} from "react-router-dom";
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 
@@ -26,7 +26,7 @@ import {
     RadialLinearScale,
 
 } from 'chart.js';
-import { Bar, Pie, PolarArea, Scatter } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 // import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
 
 
@@ -73,34 +73,34 @@ export const options = {
 };
 
 
-const data1 = {
-    labels: [
-        'Gold',
-        'Diamond',
-        'Earrings',
-        'Rings',
-        'Daily wear',
-        'Gifting',
-    ],
-    datasets: [{
-        label: 'My First Dataset',
-        data: [40, 50, 35, 45, 20, 55],
-        backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)',
-            '#91E7E7',
-            '#ccc',
-            '#aaa',
-        ],
-        hoverOffset: 4
-    }]
-};
+// const data1 = {
+//     labels: [
+//         'Gold',
+//         'Diamond',
+//         'Earrings',
+//         'Rings',
+//         'Daily wear',
+//         'Gifting',
+//     ],
+//     datasets: [{
+//         label: 'My First Dataset',
+//         data: [40, 50, 35, 45, 20, 55],
+//         backgroundColor: [
+//             'rgb(255, 99, 132)',
+//             'rgb(54, 162, 235)',
+//             'rgb(255, 205, 86)',
+//             '#91E7E7',
+//             '#ccc',
+//             '#aaa',
+//         ],
+//         hoverOffset: 4
+//     }]
+// };
 
 const Dashboard = () => {
 
     let navigate = useNavigate();
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const { user: currentUser } = useSelector((state) => state.auth);
     useEffect(() => {
         if (currentUser) {
@@ -113,10 +113,7 @@ const Dashboard = () => {
         }
     }, []);
 
-    // const [show, setShow] = useState(false);
-
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
+  
 
     const [totalOrders, setTotalOrders] = useState(0);
 
@@ -213,22 +210,22 @@ const Dashboard = () => {
     }, []);
 
 
-    const TopsellingData = {
-        labels: topProducts.map((item) => item.productName),
-        datasets: [
-            {
-                label: "Top Selling Products",
-                data: topProducts.map((item) => item.totalSold),
-                backgroundColor: [
-                    "#36A2EB",
-                    "#FF6384",
-                    "#FFCE56",
-                    "#4BC0C0",
-                    "#9966FF"
-                ]
-            }
-        ]
-    };
+    // const TopsellingData = {
+    //     labels: topProducts.map((item) => item.productName),
+    //     datasets: [
+    //         {
+    //             label: "Top Selling Products",
+    //             data: topProducts.map((item) => item.totalSold),
+    //             backgroundColor: [
+    //                 "#36A2EB",
+    //                 "#FF6384",
+    //                 "#FFCE56",
+    //                 "#4BC0C0",
+    //                 "#9966FF"
+    //             ]
+    //         }
+    //     ]
+    // };
 
 
     //   Daily report
@@ -263,11 +260,11 @@ const Dashboard = () => {
                         <Col>
 
                             <Breadcrumb>
-                                <Breadcrumb.Item>
+                                {/* <Breadcrumb.Item>
                                     <Link to="/Dashboard">Dashboard</Link>
-                                </Breadcrumb.Item>
+                                </Breadcrumb.Item> */}
 
-                                <Breadcrumb.Item>
+                                {/* <Breadcrumb.Item>
                                     <Link to="/Products">Products</Link>
                                 </Breadcrumb.Item>
 
@@ -280,10 +277,20 @@ const Dashboard = () => {
                                 </Breadcrumb.Item>
 
                                 <Breadcrumb.Item>
-                                    <Link to="/OrdersDetail"> Customer Orders Details</Link>
-                                </Breadcrumb.Item>
+                                    <Link to="/OrdersDetail"> Orders</Link>
+                                </Breadcrumb.Item> */}
                             </Breadcrumb>
 
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
+
+            <section>
+                <Container>
+                    <Row>
+                        <Col className='heading'>
+                        <h1>Admin Dashboard</h1>
                         </Col>
                     </Row>
                 </Container>
@@ -304,7 +311,7 @@ const Dashboard = () => {
 
                                 <ListGroup.Item className="menuItem">
                                     <Link to="/Account">
-                                        <img src="https://icon-library.com/images/account-icon-png/account-icon-png-10.jpg" alt="" />
+                                        <img src="https://static.vecteezy.com/system/resources/previews/006/732/119/non_2x/account-icon-sign-symbol-logo-design-free-vector.jpg" alt=""/>
                                         <span><h6>Account</h6></span>
                                     </Link>
                                 </ListGroup.Item>
@@ -334,7 +341,7 @@ const Dashboard = () => {
                                 <ListGroup.Item className="menuItem">
                                     <Link to="/OrdersDetail">
                                         <img src="https://static.vecteezy.com/system/resources/thumbnails/029/163/312/small/add-files-glyph-icon-add-folder-symbol-empty-folder-new-directory-for-document-portfolio-storage-online-gallery-flat-logo-pictogram-illustration-design-on-white-background-eps-10-vector.jpg" alt="" />
-                                        <span><h6>Customer Orders Details</h6></span>
+                                        <span><h6>Orders </h6></span>
                                     </Link>
                                 </ListGroup.Item>
 

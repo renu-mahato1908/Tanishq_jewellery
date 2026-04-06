@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Container, Row, Col, Table ,Breadcrumb} from 'react-bootstrap';
+import { Container, Row, Col, Table, Breadcrumb } from 'react-bootstrap';
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi";
 
@@ -40,6 +40,17 @@ const Products = () => {
     return (
         <div>
 
+
+            <section>
+                <Container>
+                    <Row>
+                        <Col className='heading'>
+                            <h1>Products</h1>
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
+            
             <section>
                 <Container>
                     <Row>

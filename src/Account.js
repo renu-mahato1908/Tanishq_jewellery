@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, Col, Row, ListGroup } from "react-bootstrap";
+import { Container, Col, Row, ListGroup ,Breadcrumb} from "react-bootstrap";
 import { Link } from 'react-router';
 
 
@@ -23,7 +23,43 @@ const Account = () => {
        return (
 
 
+              <div>
+                     <section>
+                            <Container>
+                                   <Row>
+                                          <Col className="heading">
+                                          <h1>Account</h1>
+                                          </Col>
+                                   </Row>
+                            </Container>
+                     </section>
 
+
+                      <section>
+                                     <Container>
+                                         <Row>
+                                             <Col>
+                     
+                                                 <Breadcrumb>
+                                                      <Breadcrumb.Item>
+                                                         <Link to="/Dashboard">Dashboard</Link>
+                                                     </Breadcrumb.Item> 
+                     
+                                                      <Breadcrumb.Item>
+                                                         <Link to="/Account">Account</Link>
+                                                     </Breadcrumb.Item>
+                      
+                                                     
+                     
+                                                    
+                                                 </Breadcrumb>
+                     
+                                             </Col>
+                                         </Row>
+                                     </Container>
+                                 </section>
+
+              
 
               <section>
                      <Container>
@@ -57,14 +93,14 @@ const Account = () => {
                                    </Col>
 
 
-                                   <Col md={8}>
+                                   <Col md={4}>
                                           <div >
-                                                 <h3>Account</h3>
+                                                 {/* <h3>Account</h3> */}
                                                  {
                                                         currentUser ?
                                                                <div className="account">
-                                                                      <p>Mobile : {currentUser.username}</p>
-                                                                      <p>Email : {currentUser.email}</p>
+                                                                      <p> <strong>Mobile :</strong> {currentUser.username}</p>
+                                                                      <p> <strong>Email : </strong>{currentUser.email}</p>
                                                                </div> : ""
                                                  }
 
@@ -74,6 +110,8 @@ const Account = () => {
                             </Row>
                      </Container>
               </section>
+
+              </div>
 
        )
 }
