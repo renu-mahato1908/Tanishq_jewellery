@@ -50,6 +50,9 @@ import Orderstatus from './Orderstatus';
 
 
 import Layout from "./Layout";
+import ViewProduct from './ViewProduct';
+import Men from './Men';
+import Women from './Women';
 
 
 
@@ -185,6 +188,12 @@ function App() {
 
 
         <Route path='/OrdersDetail' element={<OrdersDetail/>}></Route>
+
+        <Route path='/ViewProduct/:productId' element={<ViewProduct/>}></Route>
+
+        <Route path='/Men' element={<Men/>}></Route>
+
+        <Route path='Women' element={<Women/>}></Route>
 
       </Routes>
 

@@ -1,80 +1,90 @@
-/* 
-.text-center {
-       margin: auto;
-       background: white;
-}
-
-.text-center h2{
-    font-family: cursive;
-    text-decoration: underline;
-}
-
-.addproduct{
-       margin: 10px auto;
-       width: 50%;
-       height: 420px;
-       padding: 20px 30px;
-       border-radius: 20px;
-       box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
-       position: relative;
-       text-align: center;
-       border: 5px solid rgb(244, 242, 242);
-       background: #D9B08A;
-       
-     
-
-}
 
 
-
-.addbtn {
-       background: #2E0708;
-       color: white;
-       position: relative;
-       overflow: hidden;
-       /* margin-top: 25px; */
-       /* padding: 5px 15px;
-
-}
-
-.newbtn {
-       background: #ccc;
-       color: black;
-       /* position: relative;
-       overflow: hidden; */
-       /* margin-top: 45px;
-       padding: 10px 20px;
-       margin-left: 20px;
-
-}
-
-.newbtn img{
-       width: 30px;
-       text-align: center;
-}  */
 
 .addproduct {
        margin: 10px auto;
-       width: 40%;
-       /* height: 360px; */
+       width: 100%;
+
+       background-image:
+              radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%),
+              url("https://www.author.thinkwithniche.com/allimages/project/thumb_45d42how-to-start-tanishq-jewelery-franchise.jpg");
+
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+
        padding: 40px 30px;
        border-radius: 20px;
        box-shadow: 10px 20px 50px rgba(31, 23, 23, 0.1);
        position: relative;
        text-align: center;
        border: 5px solid rgb(244, 242, 242);
-       /* background: url("C:\Users\INTEL\Desktop\login bg image.jpg"); */
 }
 
-.addbtn {
-       background:#892528 ;
+/* .addproductform{
+        margin: 10px auto;
+       width: 50%;
+       
+       padding: 40px 30px;
+       border-radius: 20px;
+       box-shadow: 10px 20px 50px rgba(31, 23, 23, 0.1);
+       position: relative;
+       text-align: center;
+       border: 5px solid rgb(244, 242, 242);
+
+} */
+/* .addbtn {
+       background: #892528;
        color: white;
        position: relative;
-       /* overflow: hidden; */
-       margin-top:45px;
+       margin-top: 45px;
        padding: 10px 20px;
        border-radius: 4px;
 
+} */
+
+
+.addproductform {
+       margin: 40px auto;
+       width: 60%;
+       padding: 40px 30px;
+       border-radius: 20px;
+       position: relative;
+       text-align: center;
+
+
+       background: linear-gradient(135deg, #fff8f5, #fbeaea, #fff);
+
+
+       box-shadow:
+              0 10px 40px rgba(0, 0, 0, 0.08),
+              0 0 20px rgba(212, 175, 55, 0.2);
+
+       border: 1px solid rgba(212, 175, 55, 0.3);
+
+       overflow: hidden;
+}
+
+
+
+
+
+/* BUTTON DESIGN */
+.addbtn {
+       background: linear-gradient(45deg, #892528, #c89b3c);
+       color: white;
+       margin-top: 30px;
+       padding: 10px 25px;
+       border-radius: 30px;
+       border: none;
+       font-weight: 600;
+       letter-spacing: 1px;
+       transition: 0.3s;
+}
+
+.addbtn:hover {
+       transform: scale(1.05);
+       box-shadow: 0 5px 20px rgba(200, 155, 60, 0.5);
 }
 
 .add-btn::before {
@@ -92,21 +102,74 @@
        left: 100%;
 }
 
+
+
+
+/* MOBILE VIEW */
 @media (max-width: 768px) {
-       .addproduct {
-              width: 65%;
-       }
 
-       .addproduct label {
-              text-align: left;
-              display: block;
-       }
+  .addproduct {
+    padding: 20px 10px;
+    border-radius: 10px;
+  }
 
-       .addproduct .col-md-4,
-       .addproduct .col-md-8,
-       .addproduct .col-xs-8 {
-              padding-left: 0;
-              padding-right: 0;
-              width: 100%;
-       }
+  /* Sidebar hide ya full width */
+  .canvas2 {
+    display: block;   /* agar hide karna ho */
+     display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;
+  }
+
+  /* Form full width */
+  .addproductform {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Heading size reduce */
+  h1 {
+    font-size: 24px;
+  }
+
+  /* Label + input stack (upar neeche) */
+  .addproductform .row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .addproductform label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  /* Input fields full width */
+  .addproductform input,
+  .addproductform select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Radio buttons */
+  .addproductform input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+  }
+
+  /* Button full width */
+ @media (max-width: 768px) {
+  .addbtn {
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+  /* Breadcrumb adjust */
+  .breadcrumb {
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
 }

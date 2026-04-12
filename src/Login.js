@@ -66,8 +66,8 @@ const Login = () => {
             <section>
                 <Container>
                     <Row>
-                        <Col>
-                            <h3>Login</h3>
+                        <Col className="heading">
+                            <h1>Login</h1>
                             {message && (
                                 <div
                                     className={`alert ${successful ? "alert-success" : "alert-danger"}`}

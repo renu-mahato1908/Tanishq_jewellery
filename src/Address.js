@@ -5,11 +5,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './Address.css';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Badge from 'react-bootstrap/Badge';
-import Stack from 'react-bootstrap/Stack';
-import { Link } from 'react-router-dom';
+
 
 
 
@@ -51,7 +50,8 @@ const SignupSchema = Yup.object().shape({
         // .max(8, 'must be 8 digit')
         .required('Required'),
     mobile: Yup.number()
-        .min(10, '10 num must be required'),
+        .min(10, '10 num must be required')
+        .required('Required'),
     email: Yup.string()
         .email("Invalid email")
         .required("Required"),
@@ -71,10 +71,10 @@ const AddressSchema = Yup.object().shape({
 
 const Address = () => {
     let navigate = useNavigate();
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const { user: currentUser } = useSelector((state) => state.auth);
     const [addresses, setAddresses] = useState([])
-    const [products, setProducts] = useState({});
+
 
 
     const [cartItems, setCartItems] = useState();
@@ -88,12 +88,12 @@ const Address = () => {
 
         //     navigate("/Home");
         // }
-    }, []);
+    }, [currentUser]);
 
-    const handleSubmit = () => {
-        console.log("Submit button clicked")
-        // alert("submit button clicked");
-    }
+    // const handleSubmit = () => {
+    //     console.log("Submit button clicked")
+    //     alert("submit button clicked");
+    // }
 
     const handleAddress = (formData) => {
         formData.userId = currentUser.id;
@@ -134,50 +134,6 @@ const Address = () => {
 
     }, [currentUser]);
 
-
-
-
-
-
-
-    // const handleAddress2 = (values) => {
-    //     const products = cartItems.items.map((item) => ({
-    //         productId: item.productId,
-    //         price: item.productDetails.productPrice,
-    //         quantity: item.quantity
-    //     }));
-
-    //     const data = {
-
-    //         addressId: values.addressId,
-    //         userId: currentUser.id,
-    //         products: products,
-
-    //         totalAmount: subTotal,
-    //         Status: "processing"
-
-
-    //     };
-
-
-    //     axios.post("http://localhost:8090/api/ssorders", data)
-    //         .then((response) => {
-
-    //             console.log("Order Success:", response.data);
-
-
-    //     })
-    //     console.log(data);
-
-    //     return axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`)
-    //         .then((response) => {
-    //             console.log("Cart Deleted:", response.data);
-
-
-    //         });
-
-
-    // };
 
 
     const handleAddress2 = (values) => {
@@ -223,220 +179,228 @@ const Address = () => {
 
     return (
         <div className='text-center'>
-            <h2>Address</h2>
+            <section>
+                <Row>
+                    <Col className='heading'>
+                        <h1>Address</h1>
 
-            <Formik
-                initialValues={{
-                    name: '',
-                    addressLine1: '',
-                    addressLine2: '',
-                    city: '',
-                    district: '',
-                    state: '',
-                    pin: '',
-                    mobile: '',
-                    email: '',
-                    addressType: ''
-                }}
+                        <Formik
+                            initialValues={{
+                                name: '',
+                                addressLine1: '',
+                                addressLine2: '',
+                                city: '',
+                                district: '',
+                                state: '',
+                                pin: '',
+                                mobile: '',
+                                email: '',
+                                addressType: ''
+                            }}
 
-                validationSchema={SignupSchema}
+                            validationSchema={SignupSchema}
 
-                onSubmit={handleAddress}
-
-
-            >
-
-                {({ errors, touched }) => (
-                    <Form>
-                        <div className='addressform'>
-
-                            <Row>
-                                <Col md={4}>
-                                    <label>Name:</label>
-                                </Col>
-
-                                <Col md={8}>
-                                    <Field name="name" />
-                                    <span className="error-text">
-                                        {errors.name && touched.name ? (
-                                            <div>{errors.name}</div>
-                                        ) : null}
-                                    </span>
-
-                                </Col>
-                            </Row>
-
-                            <Row>
-                                <Col md={4}>
-                                    <label>Address Line1:</label>
-                                </Col>
-
-                                <Col md={8}>
-                                    <Field name="addressLine1" />
-                                    <span className="error-text">
-                                        {errors.addressLine1 && touched.addressLine1 ? (
-                                            <div>{errors.addressLine1}</div>
-                                        ) : null}
-                                    </span>
-
-                                </Col>
-                            </Row>
-
-                            <Row>
-                                <Col md={4}>
-                                    <label>Address Line2:</label>
-                                </Col>
-
-                                <Col md={8}>
-                                    <Field name="addressLine2" />
-                                    <span className="error-text">
-                                        {errors.addressLine2 && touched.addressLine2 ? (
-                                            <div>{errors.addressLine2}</div>
-                                        ) : null}
-                                    </span>
-
-                                </Col>
-                            </Row>
-
-                            <Row>
-                                <Col md={4}>
-                                    <label>City:</label>
-                                </Col>
-
-                                <Col md={8}>
-                                    <Field name="city" />
-                                    <span className="error-text">
-                                        {errors.city && touched.city ? (
-                                            <div>{errors.city}</div>
-                                        ) : null}
-                                    </span>
-
-                                </Col>
-                            </Row>
+                            onSubmit={handleAddress}
 
 
-                            <Row>
-                                <Col md={4}>
-                                    <label>District:</label>
-                                </Col>
+                        >
 
-                                <Col md={8}>
-                                    <Field name="district" />
-                                    <span className="error-text">
-                                        {errors.district && touched.district ? (
-                                            <div>{errors.district}</div>
-                                        ) : null}
-                                    </span>
+                            {({ errors, touched }) => (
+                                <Form>
+                                    <div className='addressform'>
 
-                                </Col>
-                            </Row>
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>Name:</label>
+                                            </Col>
 
-                            <Row>
-                                <Col md={4}>
-                                    <label>State:</label>
-                                </Col>
+                                            <Col md={8}>
+                                                <Field name="name" />
+                                                <span className="error-text">
+                                                    {errors.name && touched.name ? (
+                                                        <div>{errors.name}</div>
+                                                    ) : null}
+                                                </span>
 
-                                <Col md={8}>
-                                    <Field name="state" />
-                                    <span className="error-text">
-                                        {errors.state && touched.state ? (
-                                            <div>{errors.state}</div>
-                                        ) : null}
-                                    </span>
+                                            </Col>
+                                        </Row>
 
-                                </Col>
-                            </Row>
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>Address Line1:</label>
+                                            </Col>
 
+                                            <Col md={8}>
+                                                <Field name="addressLine1" />
+                                                <span className="error-text">
+                                                    {errors.addressLine1 && touched.addressLine1 ? (
+                                                        <div>{errors.addressLine1}</div>
+                                                    ) : null}
+                                                </span>
 
-                            <Row>
-                                <Col md={4}>
-                                    <label>Pin:</label>
-                                </Col>
+                                            </Col>
+                                        </Row>
 
-                                <Col md={8}>
-                                    <Field name="pin" />
-                                    <span className="error-text">
-                                        {errors.pin && touched.pin ? (
-                                            <div>{errors.pin}</div>
-                                        ) : null}
-                                    </span>
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>Address Line2:</label>
+                                            </Col>
 
-                                </Col>
-                            </Row>
+                                            <Col md={8}>
+                                                <Field name="addressLine2" />
+                                                <span className="error-text">
+                                                    {errors.addressLine2 && touched.addressLine2 ? (
+                                                        <div>{errors.addressLine2}</div>
+                                                    ) : null}
+                                                </span>
 
-                            <Row>
-                                <Col md={4}>
-                                    <label>Mobile:</label>
-                                </Col>
+                                            </Col>
+                                        </Row>
 
-                                <Col md={8}>
-                                    <Field name="mobile" />
-                                    <span className="error-text">
-                                        {errors.mobile && touched.mobile ? (
-                                            <div>{errors.mobile}</div>
-                                        ) : null}
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>City:</label>
+                                            </Col>
 
-                                    </span>
+                                            <Col md={8}>
+                                                <Field name="city" />
+                                                <span className="error-text">
+                                                    {errors.city && touched.city ? (
+                                                        <div>{errors.city}</div>
+                                                    ) : null}
+                                                </span>
 
-                                </Col>
-                            </Row>
-
-
-                            <Row>
-                                <Col md={4}>
-                                    <label>Email:</label>
-                                </Col>
-
-                                <Col md={8}>
-                                    <Field name="email" />
-                                    <span className="error-text">
-                                        {errors.email && touched.email ? (
-                                            <div>{errors.email}</div>
-                                        ) : null}
-                                    </span>
-
-                                </Col>
-                            </Row>
-
-                            <Row>
-                                <Col md={4}>
-                                    <label>Addess type:</label>
-                                </Col>
-
-                                <Col md={8}>
-                                    <label>
-                                        <Field type="radio" name="addressType" value="Home" />
-                                        Home
-                                    </label>
-                                    <label>
-                                        <Field type="radio" name="addressType" value="Office" />
-                                        Office
-                                    </label>
-                                    <span className="error-text">
-                                        {errors.addressType && touched.addressType ? errors.addressType : ""}
-                                    </span>
-                                </Col>
+                                            </Col>
+                                        </Row>
 
 
-                            </Row>
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>District:</label>
+                                            </Col>
+
+                                            <Col md={8}>
+                                                <Field name="district" />
+                                                <span className="error-text">
+                                                    {errors.district && touched.district ? (
+                                                        <div>{errors.district}</div>
+                                                    ) : null}
+                                                </span>
+
+                                            </Col>
+                                        </Row>
+
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>State:</label>
+                                            </Col>
+
+                                            <Col md={8}>
+                                                <Field name="state" />
+                                                <span className="error-text">
+                                                    {errors.state && touched.state ? (
+                                                        <div>{errors.state}</div>
+                                                    ) : null}
+                                                </span>
+
+                                            </Col>
+                                        </Row>
+
+
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>Pin:</label>
+                                            </Col>
+
+                                            <Col md={8}>
+                                                <Field name="pin" />
+                                                <span className="error-text">
+                                                    {errors.pin && touched.pin ? (
+                                                        <div>{errors.pin}</div>
+                                                    ) : null}
+                                                </span>
+
+                                            </Col>
+                                        </Row>
+
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>Mobile:</label>
+                                            </Col>
+
+                                            <Col md={8}>
+                                                <Field name="mobile" />
+                                                <span className="error-text">
+                                                    {errors.mobile && touched.mobile ? (
+                                                        <div>{errors.mobile}</div>
+                                                    ) : null}
+
+                                                </span>
+
+                                            </Col>
+                                        </Row>
+
+
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>Email:</label>
+                                            </Col>
+
+                                            <Col md={8}>
+                                                <Field name="email" />
+                                                <span className="error-text">
+                                                    {errors.email && touched.email ? (
+                                                        <div>{errors.email}</div>
+                                                    ) : null}
+                                                </span>
+
+                                            </Col>
+                                        </Row>
+
+                                        <Row>
+                                            <Col md={4}>
+                                                <label>Addess type:</label>
+                                            </Col>
+
+                                            <Col md={8}>
+                                                <label>
+                                                    <Field type="radio" name="addressType" value="Home" />
+                                                    Home
+                                                </label>
+                                                <label>
+                                                    <Field type="radio" name="addressType" value="Office" />
+                                                    Office
+                                                </label>
+                                                <span className="error-text">
+                                                    {errors.addressType && touched.addressType ? errors.addressType : ""}
+                                                </span>
+                                            </Col>
+
+
+                                        </Row>
 
 
 
-                            <Row className="mt-3">
-                                {/* <Col md={2}></Col> */}
+                                        <Row className="mt-3">
+                                            {/* <Col md={2}></Col> */}
 
-                                <Col md={12}>
-                                    <button type="submit" className="address-btn">
-                                        Submit
-                                    </button>
-                                </Col>
-                            </Row>
-                        </div>
+                                            <Col md={12}>
+                                                <button type="submit" className="address-btn">
+                                                    Submit
+                                                </button>
+                                            </Col>
+                                        </Row>
+                                    </div>
 
 
-                    </Form>
-                )}
-            </Formik>
+                                </Form>
+                            )}
+                        </Formik>
+
+                    </Col>
+                </Row>
+            </section>
+
 
             <section>
                 <Container>
@@ -459,7 +423,8 @@ const Address = () => {
                                             <Row>
 
                                                 <Col>
-                                                    <label>Choose Address</label>
+                                                    {/* <label>Choose Address</label> */}
+                                                    <h3>Choose Address</h3>
                                                 </Col>
                                             </Row>
                                             <Row>
@@ -531,7 +496,7 @@ const Address = () => {
                 </Container>
             </section>
 
-           
+
         </div>
 
 

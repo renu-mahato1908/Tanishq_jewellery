@@ -92,8 +92,8 @@
   padding: 10px 0;
   margin: 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  display: none;
-  z-index: 1000;
+  /* display: none; */
+  /* z-index: 1000; */
   text-align: center;
 }
 
@@ -565,6 +565,7 @@
 }
 
 .heading h1{
+  font-size: 50px;
   color: #892528;
   text-decoration: underline;
   font-family:Times New Roman;
@@ -617,7 +618,9 @@
   width: 50px;
 }
 
-.account {
+/* Account */
+
+/* .account {
   margin: 10px auto;
   width: 85%;
   
@@ -628,6 +631,27 @@
   text-align: center;
   border: 5px solid rgb(244, 242, 242);
   background: #EBCEA3;
+} */
+
+.account {
+       background-image: url("https://www.transparenttextures.com/patterns/gold-scale.png");
+
+       margin: 40px auto;
+       width: 85%;
+       padding: 30px 25px;
+       border-radius: 20px;
+       position: relative;
+       text-align: center;
+
+       background: linear-gradient(135deg, #fff8f5, #fbeaea, #fff);
+
+       box-shadow:
+              0 10px 40px rgba(0, 0, 0, 0.08),
+              0 0 20px rgba(212, 175, 55, 0.2);
+
+       border: 1px solid rgba(212, 175, 55, 0.3);
+
+
 }
 
 .text-center h3 {
@@ -645,7 +669,7 @@
 
 .cart {
   width: 400px;
-  height: 400px;
+  height: 450px;
   margin: 10px;
   padding: 10px;
 }
@@ -759,9 +783,58 @@
 
 
 
-/* DASHBOARD */
+.cart-btn {
+       background: linear-gradient(45deg, #892528, #c89b3c);
+       color: white;
+       /* margin-top: 30px; */
+       padding: 10px 25px;
+       border-radius: 30px;
+       border: none;
+       font-weight: 600;
+       letter-spacing: 1px;
+       transition: 0.3s;
+}
+
+.cart-btn:hover {
+       transform: scale(1.05);
+       box-shadow: 0 5px 20px rgba(200, 155, 60, 0.5);
+}
 
 
 
 
+/* PRODUCT */
 
+
+/* BUTTON DESIGN */
+.addbtn {
+       background: linear-gradient(45deg, #892528, #c89b3c);
+       color: white;
+       margin-top: 30px;
+       padding: 10px 25px;
+       border-radius: 30px;
+       border: none;
+       font-weight: 600;
+       letter-spacing: 1px;
+       transition: 0.3s;
+}
+
+.addbtn:hover {
+       transform: scale(1.05);
+       box-shadow: 0 5px 20px rgba(200, 155, 60, 0.5);
+}
+
+.add-btn::before {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: -100%;
+       width: 100%;
+       height: 100%;
+       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+       transition: left 0.7s ease;
+}
+
+.add-btn:hover::before {
+       left: 100%;
+}

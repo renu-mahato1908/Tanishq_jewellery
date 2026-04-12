@@ -1,15 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 
 import { Col, Row, Container, Navbar, Nav, Button } from 'react-bootstrap'
 import logo from './logo.png';
-import {  IoIosLogOut } from "react-icons/io";
+import { IoIosLogOut } from "react-icons/io";
 
 
 
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import { logout } from './slices/auth';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { Link } from 'react-router-dom';
+
+import Autosuggest from 'react-autosuggest';
+import { useState } from "react";
+
+
+
+
+
 
 
 
@@ -17,21 +26,72 @@ const Header = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
-  useEffect(() => {
-    if (currentUser) {
-      console.log(currentUser);
-    }
-    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
-      console.log(currentUser.roles[0]);
 
+
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     console.log(currentUser);
+  //   }
+  //   if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+  //     console.log(currentUser.roles[0]);
+
+  //     navigate("/Dashboard");
+  //   }
+  // }, []);
+
+  useEffect(() => {
+    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
       navigate("/Dashboard");
     }
-  }, []);
+  }, [currentUser]);
+
+
 
   const handleLogout = () => {
     dispatch(logout());
     navigate('/login'); // Redirect to login page
     // window.location.reload();
+  };
+
+
+
+  const [value, setValue] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+
+  // Static data
+  const data = [
+    "Gold Ring",
+    "Diamond",
+    
+    "Earrings",
+    "Mangalsutra",
+    "Pendant"
+  ];
+
+  // Filter suggestions
+  const getSuggestions = (value) => {
+    return data.filter(item =>
+      item.toLowerCase().includes(value.toLowerCase())
+    );
+  };
+
+  
+  const onSuggestionsFetchRequested = ({ value }) => {
+    setSuggestions(getSuggestions(value));
+  };
+
+  const onSuggestionsClearRequested = () => {
+    setSuggestions([]);
+  };
+
+  const getSuggestionValue = (suggestion) => suggestion;
+
+  const renderSuggestion = (suggestion) => (
+    <div>{suggestion}</div>
+  );
+
+  const onChange = (event, { newValue }) => {
+    setValue(newValue);
   };
   return (
     <div >
@@ -50,14 +110,37 @@ const Header = () => {
 
             </Col>
 
-            <Col md={3}>
+            {/* <Col md={3}>
               <div className='search'>
                 <form>
                   <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
 
                 </form>
               </div>
+            </Col> */}
+
+            <Col md={3}>
+              <div className='search'>
+                <form>
+                  <Autosuggest
+                    suggestions={suggestions}
+                    onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                    onSuggestionsClearRequested={onSuggestionsClearRequested}
+                    getSuggestionValue={getSuggestionValue}
+                    renderSuggestion={renderSuggestion}
+                    inputProps={{
+                      placeholder: "Search",
+                      value: value,
+                      onChange: onChange,
+                      className: "form-control me-2"
+                    }}
+                  />
+                </form>
+              </div>
             </Col>
+
+
+
             <Col md={6} >
               <div className='icon'>
                 {/* <Link to={'/Register'}><i className='fa-solid  fa-users'></i></Link> */}
@@ -145,8 +228,10 @@ const Header = () => {
                       <Nav.Link as={Link} to={'Category/Diamond'}>Diamond</Nav.Link>
                       <img src='https://cdn-icons-png.flaticon.com/128/1036/1036964.png' alt=''></img>
                       <Nav.Link as={Link} to={'Category/Earrings'}>Earrings</Nav.Link>
+
                       <img src='https://cdn-icons-png.flaticon.com/128/706/706482.png' alt=''></img>
                       <Nav.Link as={Link} to={'Category/Rings'}>Rings</Nav.Link>
+
 
                       <img src='https://cdn-icons-png.flaticon.com/128/8561/8561509.png' alt=''></img>
                       <Nav.Link as={Link} to={'Category/Dailywear'}>Daily wear</Nav.Link>

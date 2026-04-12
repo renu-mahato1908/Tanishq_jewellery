@@ -10,10 +10,10 @@
     text-decoration: underline;
 }
 
-.category{
+/* .category{
        margin: 10px auto;
        width: 57%;
-       /* height: 0px; */
+       
        padding: 20px 20px;
        border-radius: 20px;
        box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
@@ -23,9 +23,50 @@
        background: #ccc;
      
 
+} */
+
+
+.category {
+       background-image: url("https://www.transparenttextures.com/patterns/gold-scale.png");
+
+       margin: 40px auto;
+       height: 200px;
+       width: 50%;
+       padding: 30px 25px;
+       border-radius: 20px;
+       position: relative;
+       text-align: center;
+
+       background: linear-gradient(135deg, #fff8f5, #fbeaea, #fff);
+
+       box-shadow:
+              0 10px 40px rgba(0, 0, 0, 0.08),
+              0 0 20px rgba(212, 175, 55, 0.2);
+
+       border: 1px solid rgba(212, 175, 55, 0.3);
+
+
 }
 
-.cate-btn {
+.cate-btn:hover {
+       transform: scale(1.05);
+       box-shadow: 0 5px 20px rgba(200, 155, 60, 0.5);
+}
+
+
+.cate-btn{
+        background: linear-gradient(45deg, #892528, #c89b3c);
+       color: white;
+       margin-top: 10px;
+       padding: 10px 25px;
+       border-radius: 30px;
+       border: none;
+       font-weight: 600;
+       letter-spacing: 1px;
+       transition: 0.3s;
+}
+
+/* .cate-btn {
        background: #2E0708;
        color: beige;
        position: relative;
@@ -33,15 +74,5 @@
        margin-top: 35px;
        padding: 10px 20px;
 
-}
-
-/* .btn::before {
-       content: '';
-       position: absolute;
-       top: 0;
-       left: -100%;
-       width: 100%;
-       height: 100%;
-       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-       transition: left 0.7s ease;
 } */
+

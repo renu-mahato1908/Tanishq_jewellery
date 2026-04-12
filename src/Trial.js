@@ -1,5 +1,7 @@
-import { useState } from 'react';
-import React from 'react'
+
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
 import './Trial.css';
 
 import { Container, Row, Col } from 'react-bootstrap';
@@ -15,6 +17,17 @@ const Trial = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [product, setProduct] = useState()
+
+    useEffect(() => {
+        axios.get("https://fakestoreapi.com/products").then((response) => {
+            console.log("fake api", response.data);
+            setProduct(response.data);
+            console.log(product);
+        });
+
+    }, []);
     return (
         <div>
             <section>
@@ -62,6 +75,28 @@ const Trial = () => {
 
                         </Col>
                     </Row>
+                </Container>
+            </section>
+
+            <section>
+                <Container>
+                    <Row>
+                        <Col>
+                            {/* <p>{product.category}</p> */}
+
+
+                            {/* {product.map((item) => (
+                                <div key={item+1}>
+                                    <h4>{item.title}</h4>
+                                    <p>Price: {item.price}</p>
+                                    <img src={item.image} width="100" />
+                                </div>
+                            ))} */}
+
+
+                        </Col>
+                    </Row>
+
                 </Container>
             </section>
 

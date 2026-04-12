@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row, Button, Container } from "react-bootstrap";
 import './Register.css'
 
 import { register } from "./slices/auth";
@@ -58,107 +58,118 @@ const Register = () => {
             });
     };
     return (
+
         <div className="text-center">
-            <h3>___Register___</h3>
-            {message && (
-                <div
-                    className={`alert ${successful ? "alert-success" : "alert-danger"}`}
-                    role="alert"
-                >
-                    {message}
-                </div>
-            )}
-            <Formik
-                initialValues={{
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                    password: "",
-                    username: "",
-                }}
-                validationSchema={SignupSchema}
-                // onSubmit={values => {
-                // same shape as initial values
-                // console.log(values);
-                // }}
-                onSubmit={handleRegister}
-            >
-                {({ errors, touched }) => (
-                    <Form>
-                        <div className="registerform">
-                            <Row>
-                                <Col >
-                                    <label>First Name : </label>
-                                </Col>
-                                <Col>
-                                    <Field name="firstName" />
-                                    {errors.firstName && touched.firstName ? (
-                                        <div>{errors.firstName}</div>
-                                    ) : null}
-                                </Col>
-                            </Row>
+            <section>
+                <Container>
+                    <Row>
+                        <Col className="heading">
+                            {/* <h3>___Register___</h3> */}
+                            <h1>Register</h1>
+                            {message && (
+                                <div
+                                    className={`alert ${successful ? "alert-success" : "alert-danger"}`}
+                                    role="alert"
+                                >
+                                    {message}
+                                </div>
+                            )}
+                            <Formik
+                                initialValues={{
+                                    firstName: "",
+                                    lastName: "",
+                                    email: "",
+                                    password: "",
+                                    username: "",
+                                }}
+                                validationSchema={SignupSchema}
+                                // onSubmit={values => {
+                                // same shape as initial values
+                                // console.log(values);
+                                // }}
+                                onSubmit={handleRegister}
+                            >
+                                {({ errors, touched }) => (
+                                    <Form>
+                                        <div className="registerform">
+                                            <Row>
+                                                <Col >
+                                                    <label>First Name : </label>
+                                                </Col>
+                                                <Col>
+                                                    <Field name="firstName" />
+                                                    {errors.firstName && touched.firstName ? (
+                                                        <div>{errors.firstName}</div>
+                                                    ) : null}
+                                                </Col>
+                                            </Row>
 
-                            <Row>
-                                <Col>
-                                    <label>Last Name : </label>
-                                </Col>
-                                <Col>
-                                    <Field name="lastName" />
-                                    {errors.lastName && touched.lastName ? (
-                                        <div>{errors.lastName}</div>
-                                    ) : null}
-                                </Col>
-                            </Row>
+                                            <Row>
+                                                <Col>
+                                                    <label>Last Name : </label>
+                                                </Col>
+                                                <Col>
+                                                    <Field name="lastName" />
+                                                    {errors.lastName && touched.lastName ? (
+                                                        <div>{errors.lastName}</div>
+                                                    ) : null}
+                                                </Col>
+                                            </Row>
 
-                            <Row>
-                                <Col >
-                                    <label>Email : </label>
-                                </Col>
-                                <Col >
-                                    <Field name="email" type="email" />
-                                    {errors.email && touched.email ? (
-                                        <div>{errors.email}</div>
-                                    ) : null}
-                                </Col>
-                            </Row>
+                                            <Row>
+                                                <Col >
+                                                    <label>Email : </label>
+                                                </Col>
+                                                <Col >
+                                                    <Field name="email" type="email" />
+                                                    {errors.email && touched.email ? (
+                                                        <div>{errors.email}</div>
+                                                    ) : null}
+                                                </Col>
+                                            </Row>
 
-                            <Row>
-                                <Col>
-                                    <label>Password</label>
-                                </Col>
-                                <Col>
-                                    <Field name="password" type="password" />
-                                    {errors.password && touched.password ? (
-                                        <div>{errors.password}</div>
-                                    ) : null}
-                                </Col>
-                            </Row>
+                                            <Row>
+                                                <Col>
+                                                    <label>Password</label>
+                                                </Col>
+                                                <Col>
+                                                    <Field name="password" type="password" />
+                                                    {errors.password && touched.password ? (
+                                                        <div>{errors.password}</div>
+                                                    ) : null}
+                                                </Col>
+                                            </Row>
 
-                            <Row>
-                                <Col >
-                                    <label>Mobile : </label>
-                                </Col>
-                                <Col >
-                                    <Field name="username" type="number" />
-                                    {errors.username && touched.username ? (
-                                        <div>{errors.username}</div>
-                                    ) : null}
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <Button className="register-btn" type="submit" align-items center>
-                                        Sign up
-                                    </Button>
-                                    <p>
-                                        if already register <a href="Login">login</a>
-                                    </p>
-                                </Col>
-                            </Row>
-                        </div>
-                    </Form>
-                )}
-            </Formik>
+                                            <Row>
+                                                <Col >
+                                                    <label>Mobile : </label>
+                                                </Col>
+                                                <Col >
+                                                    <Field name="username" type="number" />
+                                                    {errors.username && touched.username ? (
+                                                        <div>{errors.username}</div>
+                                                    ) : null}
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
+                                                    <Button className="register-btn" type="submit" align-items center>
+                                                        Sign up
+                                                    </Button>
+                                                    <p>
+                                                        if already register <a href="Login">login</a>
+                                                    </p>
+                                                </Col>
+                                            </Row>
+                                        </div>
+                                    </Form>
+                                )}
+                            </Formik>
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
+
         </div>
     );
 };

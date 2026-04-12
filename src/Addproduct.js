@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
+import { Container, Row, Col, Breadcrumb, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
@@ -164,149 +164,224 @@ const Addproduct = () => {
                 {({ errors, touched }) => (
                   <Form>
                     <div className='addproduct'>
+                      <section>
+                        <Container>
+
+                          <Row className="canvas2">
+                            <Col md={2} >
+                              <ListGroup>
+
+                                <ListGroup.Item className="menuItem">
+                                  <Link to="/Dashboard">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png" alt="" />
+                                    <span><h6>Dashboard</h6></span>
+                                  </Link>
+                                </ListGroup.Item>
+
+                                <ListGroup.Item className="menuItem">
+                                  <Link to="/Account">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/006/732/119/non_2x/account-icon-sign-symbol-logo-design-free-vector.jpg" alt="" />
+                                    <span><h6>Account</h6></span>
+                                  </Link>
+                                </ListGroup.Item>
+
+                                <ListGroup.Item className="menuItem">
+                                  <Link to="/Addproduct">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Tr9fKwJjakFaxvBR7WFtttuKJq4lXwfnpA&s" alt="" />
+                                    <span><h6>Add Product</h6></span>
+                                  </Link>
+                                </ListGroup.Item>
+
+                                <ListGroup.Item className="menuItem">
+                                  <Link to="/Products">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1311/1311095.png" alt="" />
+                                    <span><h6>Products</h6></span>
+                                  </Link>
+                                </ListGroup.Item>
+
+                                <ListGroup.Item className="menuItem">
+                                  <Link to="/AddCategory">
+                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/029/163/312/small/add-files-glyph-icon-add-folder-symbol-empty-folder-new-directory-for-document-portfolio-storage-online-gallery-flat-logo-pictogram-illustration-design-on-white-background-eps-10-vector.jpg" alt="" />
+                                    <span><h6>Add Category</h6></span>
+                                  </Link>
+                                </ListGroup.Item>
 
 
-                      <Row>
+                                <ListGroup.Item className="menuItem">
+                                  <Link to="/OrdersDetail">
+                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/029/163/312/small/add-files-glyph-icon-add-folder-symbol-empty-folder-new-directory-for-document-portfolio-storage-online-gallery-flat-logo-pictogram-illustration-design-on-white-background-eps-10-vector.jpg" alt="" />
+                                    <span><h6>Orders </h6></span>
+                                  </Link>
+                                </ListGroup.Item>
 
-                        <Col md={6}>
-                          <label>Product Name:</label>
+                              </ListGroup>
+                            </Col>
 
-                        </Col>
-                        <Col md={6}>
-                          <Field name="productName" />
+                            <Col md={9} className='addproductform'>
 
-                          {errors.productName && touched.productName ? (
-                            <div>{errors.productName}</div>
-                          ) : null}
-                        </Col>
+                              <Row>
+                                <Col md={6}>
+                                  <label>Product Name:</label>
 
-                      </Row>
+                                </Col>
+                                <Col md={6}>
+                                  <Field name="productName" />
 
-                      <Row>
-                        <Col md={6}>
-                          <label>Product price:</label>
-
-                        </Col>
-                        <Col md={6}>
-                          <Field name="productPrice" />
-                          {errors.productPrice && touched.productPrice ? (
-                            <div>{errors.productPrice}</div>
-                          ) : null}
-                        </Col>
-
-                      </Row>
+                                  {errors.productName && touched.productName ? (
+                                    <div>{errors.productName}</div>
+                                  ) : null}
+                                </Col>
+                              </Row>
 
 
 
-                      <Row>
-                        <Col md={6}>
-                          <label>Product category:</label>
+                              <Row>
+                                <Col md={6}>
+                                  <label>Product price:</label>
 
-                        </Col>
-                        <Col md={6}>
+                                </Col>
+                                <Col md={6}>
+                                  <Field name="productPrice" />
+                                  {errors.productPrice && touched.productPrice ? (
+                                    <div>{errors.productPrice}</div>
+                                  ) : null}
+                                </Col>
 
-                          <Field as="select" name="productCategory">
-                            <option value=""> ----Select category----- </option>
-                            {
-                              categories ?
-                                categories.map((category, index) => {
-                                  return (
-                                    <option value={category.name} key={index}>{category.name}</option>
-
+                              </Row>
 
 
 
-                                  )
-                                })
-                                :
+                              <Row>
+                                <Col md={6}>
+                                  <label>Product category:</label>
 
-                                "Loading ..."
-                            }
+                                </Col>
+                                <Col md={6}>
 
-
-                          </Field>
-                        </Col>
-
-
-
-
-                      </Row>
-
-
-                      <Row>
-                        <Col md={6}>
-                          <label>Product Description:</label>
-
-                        </Col>
-                        <Col md={6}>
-                          <Field name="productDescription" />
-                          {errors.productDescription && touched.productDescription ? (
-                            <div>{errors.productDescription}</div>
-                          ) : null}
-                        </Col>
-
-                      </Row>
-
-                      <Row>
-                        <Col md={6}>
-                          <label>Gender:</label>
-                        </Col>
-
-                        <Col md={6}>
-                          <label>
-                            <Field type="radio" name="productGender" value="Male" />
-                            Male
-                          </label>
-                          <label>
-                            <Field type="radio" name="productGender" value="Female" />
-                            Female
-                          </label>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col md={6}>Images</Col>
-                        <Col md={6}>
-                          <input
-                            type="file"
-                            multiple
-                            accept="image/*"
-                            onChange={handleFileChange}
-                          />
-                          {selectedImages.length > 0 && (
-                            <div>{selectedImages.length} image(s) selected</div>
-                          )}
-                        </Col>
-                      </Row>
+                                  <Field as="select" name="productCategory">
+                                    <option value=""> ----Select category----- </option>
+                                    {
+                                      categories ?
+                                        categories.map((category, index) => {
+                                          return (
+                                            <option value={category.name} key={index}>{category.name}</option>
 
 
 
 
+                                          )
+                                        })
+                                        :
 
-                      <Row>
-                        <Col>
-                          <button type="submit"
-                            className='addbtn'>Add Product</button>
-
-                        </Col>
+                                        "Loading ..."
+                                    }
 
 
-                      </Row>
+                                  </Field>
+                                </Col>
+
+
+
+
+                              </Row>
+
+
+                              <Row>
+                                <Col md={6}>
+                                  <label>Product Description:</label>
+
+                                </Col>
+                                <Col md={6}>
+                                  <Field name="productDescription" />
+                                  {errors.productDescription && touched.productDescription ? (
+                                    <div>{errors.productDescription}</div>
+                                  ) : null}
+                                </Col>
+
+                              </Row>
+
+                              <Row>
+                                <Col md={6}>
+                                  <label>Gender:</label>
+                                </Col>
+
+                                <Col md={6}>
+                                  <label>
+                                    <Field type="radio" name="productGender" value="Male" />
+                                    Male
+                                  </label>
+                                  <label>
+                                    <Field type="radio" name="productGender" value="Female" />
+                                    Female
+                                  </label>
+                                </Col>
+                              </Row>
+                              <Row>
+                                <Col md={6}>Images</Col>
+                                <Col md={6}>
+                                  <input
+                                    type="file"
+                                    multiple
+                                    accept="image/*"
+                                    onChange={handleFileChange}
+                                  />
+                                  {selectedImages.length > 0 && (
+                                    <div>{selectedImages.length} image(s) selected</div>
+                                  )}
+                                </Col>
+                              </Row>
+
+
+
+
+
+                              <Row>
+                                <Col>
+                                  <button type="submit"
+                                    className='addbtn'>Add Product</button>
+
+                                </Col>
+
+
+                              </Row>
+
+                            </Col>
+
+
+                          </Row>
+                        </Container>
+                      </section>
+
+
+
+
                     </div>
 
 
+
                   </Form>
+
+
+
+
+
+
+
+
                 )}
+
               </Formik>
+
             </Col>
           </Row>
         </Container>
       </section>
 
 
-    </div>
+    </div >
   )
 }
 
-export default Addproduct
+export default Addproduct;
 
 

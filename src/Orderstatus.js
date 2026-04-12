@@ -1,10 +1,6 @@
 
-
-
-
-
-
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
   MDBCard,
   MDBCardBody,
@@ -19,22 +15,21 @@ import {
   MDBTableBody,
 } from "mdb-react-ui-kit";
 
-import React, { useEffect, useState } from "react";
-import axios from "axios";
 
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Navigate } from "react-router-dom";
+
+import {useSelector } from "react-redux";
+// import { useNavigate} from "react-router-dom";
 export default function OrderDetails3() {
 
-   let navigate = useNavigate();
-      const dispatch = useDispatch();
+  //  let navigate = useNavigate();
+      // const dispatch = useDispatch();
       const { user: currentUser } = useSelector((state) => state.auth);
       useEffect(() => {
           if (currentUser) {
               console.log(currentUser);
           }
          
-      }, []);
+      }, [currentUser]);
 
   const [orders, setOrders] = useState([]);
 
