@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { useNavigate } from "react-router";
 import { Link } from 'react-router';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 
 const Category = () => {
@@ -98,6 +100,12 @@ const Category = () => {
     console.log(uniqueCategory)
 
 
+    const [priceRange, setPriceRange] = useState([0, 200000]);
+
+
+    const [sortorder, setsortorder] = useState("Asc");
+
+
 
 
 
@@ -114,12 +122,12 @@ const Category = () => {
             <section>
                 <Container>
                     <Row>
-                        <Col>
+                        <Col className='heading'>
                             <h1>{categoryName}</h1>
                             <div>
 
 
-                                <h4>Choose category</h4>
+                                <p>Choose category</p>
 
                                 <select onChange={(e) => setCategory(e.target.value)}>
                                     <option value="All"> All </option>
@@ -139,7 +147,27 @@ const Category = () => {
                                 </select>
 
                             </div>
+
+
                         </Col>
+
+
+
+
+                    </Row>
+
+                    <Row>
+                        <Col md={2}>
+                            <>
+                                Price:{priceRange[0]} -{priceRange[1]} <Slider range min={0} max={200000} value={priceRange} onChange={(value) => setPriceRange(value)} defaultValue={[0, 200000]} />
+                            </>
+                        </Col>
+
+                        <Col md={2}>
+                            <Button onClick={() => sortorder === "Asc" ? setsortorder("desc") : setsortorder("Asc")}>
+                                {sortorder === "Asc" ? "desc" : "Asc"}</Button>
+                        </Col>
+
                     </Row>
 
 
@@ -154,46 +182,56 @@ const Category = () => {
 
 
                         {
-                            products.filter(product => product.productCategory === category || category === "All").map((product, index) => {
-                                return (
-                                    <Col className='cart'>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img variant="top" />
-                                            <Card.Body>
-                                                {/* <Card.Title>{product.Category}</Card.Title> */}
-                                                {/* <Card.Title>{product.productCategory}</Card.Title> */}
+                            products.filter(product => product.productCategory === category || category === "All").filter(product => product.productPrice >= priceRange[0] && product.productPrice <= priceRange[1])
+                                .sort((a, b) => {
+                                    if (sortorder === "Asc") {
+                                        return a.productPrice - b.productPrice
+                                    }
+                                    else {
+                                        return b.productPrice - a.productPrice
+                                    }
+                                })
+
+                                .map((product, index) => {
+                                    return (
+                                        <Col className='cart'>
+                                            <Card style={{ width: '18rem' }}>
+                                                <Card.Img variant="top" />
+                                                <Card.Body>
+                                                    {/* <Card.Title>{product.Category}</Card.Title> */}
+                                                    {/* <Card.Title>{product.productCategory}</Card.Title> */}
 
 
-                                                <Card.Text>
-                                                    <Card.Img
-                                                        variant="top"
-                                                        src={`http://localhost:8090/upload/${product.images[0]}`}
-                                                    />
+                                                    <Card.Text>
+                                                        <Card.Img
+                                                            variant="top"
+                                                            src={`http://localhost:8090/upload/${product.images[0]}`}
+                                                        />
 
-                                                    <p>{product.productName}</p>
-                                                    <p>{product.productId}</p>
-                                                    <p> ₹&nbsp;{product.productPrice}</p>
-                                                    <button className='card-wishlist-btn' onClick={() => handleWishlist(product)} ><FiHeart className="wishlist-icon" /></button>
+                                                        <p>{product.productName}</p>
+                                                        <p>{product.productId}</p>
+                                                        <p> ₹&nbsp;{product.productPrice}</p>
+                                                        <button className='card-wishlist-btn' onClick={() => handleWishlist(product)} ><FiHeart className="wishlist-icon" /></button>
 
-                                                </Card.Text>
-                                                <Col>
-                                                    <Button type='submit' onClick={() => handleCart(product)}>Add to cart</Button>
-                                                    <Link to={`/ViewProduct/${product.id}`}><p>view</p>
-                                                    </Link>
+                                                    </Card.Text>
+                                                    <Col>
+                                                        <Button type='submit' onClick={() => handleCart(product)}>Add to cart</Button>
+                                                        <Link to={`/ViewProduct/${product.id}`}><p>view</p>
+                                                        </Link>
 
-                                                </Col>
-
-
-                                            </Card.Body>
-                                        </Card>
-
-                                    </Col>
+                                                    </Col>
 
 
+                                                </Card.Body>
+                                            </Card>
+
+                                        </Col>
 
 
-                                )
-                            })
+
+
+                                    )
+                                })
 
 
                         }

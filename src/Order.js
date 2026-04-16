@@ -30,6 +30,8 @@ const Order = () => {
   }, []);
 
 
+
+
   return (
     <section style={{ marginTop: "40px" }}>
       <Container>
@@ -38,7 +40,7 @@ const Order = () => {
 
             <Card className="text-center p-4 shadow">
 
-              {/* <h2 style={{ color: "green" }}>✅ Order Placed Successfully</h2> */}
+              {/* <h2 style={{ color: "green" }}> Order Placed Successfully</h2> */}
               <h2 style={{ color: " green" }}>
                 <FaCheckSquare size={40} color="#58D68E" /> Order Placed Successfully
               </h2>
